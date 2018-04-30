@@ -10,9 +10,13 @@ import UIKit
 
 class StartViewController: UIViewController {
     
+    //Outlets
     @IBOutlet weak var sleepButton: UIButton!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var greetingLabel: UILabel!
+    
+    //Local variables
+    let fadeTransition = FadeAnimator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +32,7 @@ class StartViewController: UIViewController {
     private func setSleepButtonAttributes() {
         //Set button to be rounded and add different images for selected/unselected
         sleepButton.backgroundColor = .clear
-        sleepButton.setTitle("Sleep", for: .normal)
+        sleepButton.setTitle("☾Sleep", for: .normal)
         sleepButton.layer.cornerRadius = 15
         sleepButton.layer.borderWidth = 2
         sleepButton.layer.borderColor = UIColor.white.cgColor
@@ -45,7 +49,21 @@ class StartViewController: UIViewController {
     @objc func stopHighlight(sender: UIButton) {
         sleepButton.layer.borderColor = UIColor.white.cgColor
         sleepButton.setTitleColor(UIColor.white, for: .normal)
+        let selectSleep = storyboard!.instantiateViewController(withIdentifier: "SelectSleepViewController") as! SelectSleepViewController
+        selectSleep.transitioningDelegate = self
+        present(selectSleep, animated: true, completion: nil)
+    }
+}
+
+extension StartViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        //Decide whether to return a custom animation
+        return fadeTransition
     }
     
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        //Deal with dismissing view controllers
+        return nil
+    }
 }
 
