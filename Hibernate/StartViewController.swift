@@ -11,9 +11,17 @@ import UIKit
 class StartViewController: UIViewController {
     
     //Outlets
-    @IBOutlet weak var sleepButton: UIButton!
+    @IBOutlet weak var sleepButton: UIButton! {
+        didSet {
+            sleepButton.alpha = 0
+        }
+    }
     @IBOutlet weak var backgroundImage: UIImageView!
-    @IBOutlet weak var greetingLabel: UILabel!
+    @IBOutlet weak var greetingLabel: UILabel! {
+        didSet {
+            greetingLabel.alpha = 0
+        }
+    }
     
     //Local variables
     let fadeTransition = FadeAnimator()
@@ -22,6 +30,13 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setSleepButtonAttributes()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 1.0, animations: {()->Void in
+            self.sleepButton.alpha = 1.0
+            self.greetingLabel.alpha = 1.0
+        }, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,22 +48,23 @@ class StartViewController: UIViewController {
         //Set button to be rounded and add different images for selected/unselected
         sleepButton.backgroundColor = .clear
         sleepButton.setTitle("☾Sleep", for: .normal)
-        sleepButton.layer.cornerRadius = 15
-        sleepButton.layer.borderWidth = 2
-        sleepButton.layer.borderColor = UIColor.white.cgColor
+        //sleepButton.layer.cornerRadius = 15
+        //sleepButton.layer.borderWidth = 2
+        sleepButton.layer.borderColor = UIColor.clear.cgColor
         sleepButton.addTarget(self, action: #selector(startHighlight), for: .touchDown)
         sleepButton.addTarget(self, action: #selector(stopHighlight), for: .touchUpInside)
         sleepButton.addTarget(self, action: #selector(stopHighlight), for: .touchUpOutside)
     }
     
     @objc func startHighlight(sender: UIButton) {
-        sleepButton.layer.borderColor = UIColor.gray.cgColor
+        sleepButton.layer.borderColor = UIColor.lightGray.cgColor
         sleepButton.setTitleColor(UIColor.gray, for: .normal)
     }
     
     @objc func stopHighlight(sender: UIButton) {
         sleepButton.layer.borderColor = UIColor.white.cgColor
         sleepButton.setTitleColor(UIColor.white, for: .normal)
+        
         let selectSleep = storyboard!.instantiateViewController(withIdentifier: "SelectSleepViewController") as! SelectSleepViewController
         selectSleep.transitioningDelegate = self
         present(selectSleep, animated: true, completion: nil)

@@ -9,9 +9,10 @@
 import UIKit
 
 class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
-    //Format date
+    //Instance properties
     let dateFormatter = DateFormatter()
     var timer = Timer()
+    let fadeTransition = FadeAnimator()
     
     @IBOutlet weak var wakeUpTimeLabel: UILabel!
     @IBOutlet weak var wakeUpTimePicker: UIDatePicker! {
@@ -23,15 +24,32 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
     
     @IBOutlet weak var startSleepButton: UIButton!
     
+    @IBAction func startSleepButton(_ sender: UIButton) {
+        //Animate and transition to sleeping view
+        UIView.animate(withDuration: 0.5, animations: {()->Void in
+            //Move labels/buttons up and fade out
+            self.wakeUpTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.setAlarmButton.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.startSleepButton.transform = CGAffineTransform(translationX: 0, y: 50)
+            self.startSleepButton.alpha = 0
+            self.setAlarmButton.alpha = 0
+            self.wakeUpTimeLabel.alpha = 0
+        }, completion: nil)
+        
+        let sleep = storyboard!.instantiateViewController(withIdentifier: "SleepViewController") as! SleepViewController
+        sleep.transitioningDelegate = self
+        present(sleep, animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var setAlarmButton: UIButton!
     @IBAction func setAlarmButton(_ sender: UIButton) {
         //Hide alarm and time label after pressing
         sender.alpha = 0
         wakeUpTimeLabel.alpha = 0
-        //Show date picker and set to time of wake up label
-        wakeUpTimePicker.isHidden = false
+        //Set time picker color to be white
         wakeUpTimePicker.setValue(UIColor.white, forKey: "textColor")
         wakeUpTimePicker.setValue(false, forKey: "highlightsToday")
+        //Fade in time picker when set alarm pressed
         UIView.animate(withDuration: 0.5, animations: {()->Void in self.wakeUpTimePicker.alpha = 1.0}) {(finished)->Void in
             self.startTimer()
         }
@@ -39,15 +57,15 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
     
     private func startTimer() {
         //Start timer to fade out after not selecting date for 3 seconds
-        timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: {(timer)->Void in
-            //Fade out after 3s
+        timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: {(timer)->Void in
+            //Fade out after 2s
             UIView.animate(withDuration: 0.5, animations: {()->Void in
                 //Fade in label and buttons while fading out time picker
                 self.wakeUpTimePicker.alpha = 0
                 self.setAlarmButton.alpha = 1.0
                 self.wakeUpTimeLabel.alpha = 1.0
                 let wakeUpDate = self.wakeUpTimePicker.date
-                self.wakeUpTimeLabel.text! = self.dateFormatter.string(from: wakeUpDate)
+                self.wakeUpTimeLabel.text! = self.dateFormatter.string (from: wakeUpDate)
             }, completion: nil)
         })
     }
@@ -63,7 +81,6 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
         super.viewDidLoad()
         setInitialWakeUpTime()
         wakeUpTimePicker.addTarget(self, action: #selector(resetTimer), for: .valueChanged)
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,15 +95,17 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
         let wakeUpDate = wakeUpTimePicker.date
         wakeUpTimeLabel.text! = dateFormatter.string(from: wakeUpDate)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension SelectSleepViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        //Decide whether to return a custom animation
+        return fadeTransition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        //Deal with dismissing view controllers
+        return nil
+    }
+}
+

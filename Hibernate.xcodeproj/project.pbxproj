@@ -17,6 +17,8 @@
 		2686EB4420978AB700A29995 /* SelectSleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686EB4320978AB700A29995 /* SelectSleepViewController.swift */; };
 		2686EB46209794AD00A29995 /* sky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2686EB45209794AD00A29995 /* sky.jpg */; };
 		2686EB482097954300A29995 /* lake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2686EB472097954300A29995 /* lake.jpg */; };
+		26DA2F56209902A400690722 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DA2F55209902A400690722 /* SleepViewController.swift */; };
+		26DA2F5A20990BD600690722 /* moonsky.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26DA2F5920990BD600690722 /* moonsky.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		2686EB4320978AB700A29995 /* SelectSleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSleepViewController.swift; sourceTree = "<group>"; };
 		2686EB45209794AD00A29995 /* sky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sky.jpg; sourceTree = "<group>"; };
 		2686EB472097954300A29995 /* lake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lake.jpg; sourceTree = "<group>"; };
+		26DA2F55209902A400690722 /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
+		26DA2F5920990BD600690722 /* moonsky.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moonsky.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,12 +71,14 @@
 				2632F3C820967D1B00721D74 /* Supporting Files */,
 				2632F3B820967B8700721D74 /* StartViewController.swift */,
 				2686EB4320978AB700A29995 /* SelectSleepViewController.swift */,
+				26DA2F55209902A400690722 /* SleepViewController.swift */,
 				2686EB3F2097884800A29995 /* FadeAnimator.swift */,
 				2632F3BA20967B8700721D74 /* Main.storyboard */,
 				2686EB33209765F400A29995 /* balloon.jpg */,
 				2632F3C220967B8900721D74 /* Info.plist */,
 				2686EB45209794AD00A29995 /* sky.jpg */,
 				2686EB472097954300A29995 /* lake.jpg */,
+				26DA2F5920990BD600690722 /* moonsky.jpg */,
 			);
 			path = Hibernate;
 			sourceTree = "<group>";
@@ -146,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2632F3C120967B8900721D74 /* LaunchScreen.storyboard in Resources */,
+				26DA2F5A20990BD600690722 /* moonsky.jpg in Resources */,
 				2686EB46209794AD00A29995 /* sky.jpg in Resources */,
 				2686EB34209765F400A29995 /* balloon.jpg in Resources */,
 				2632F3BE20967B8900721D74 /* Assets.xcassets in Resources */,
@@ -163,6 +170,7 @@
 			files = (
 				2632F3B920967B8700721D74 /* StartViewController.swift in Sources */,
 				2632F3B720967B8700721D74 /* AppDelegate.swift in Sources */,
+				26DA2F56209902A400690722 /* SleepViewController.swift in Sources */,
 				2686EB4420978AB700A29995 /* SelectSleepViewController.swift in Sources */,
 				2686EB402097884800A29995 /* FadeAnimator.swift in Sources */,
 			);
