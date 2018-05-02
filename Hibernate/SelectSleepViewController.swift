@@ -13,6 +13,7 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
     let dateFormatter = DateFormatter()
     var timer = Timer()
     let fadeTransition = FadeAnimator()
+    var wakeUpDate : Date! = Date()
     
     @IBOutlet weak var wakeUpTimeLabel: UILabel!
     @IBOutlet weak var wakeUpTimePicker: UIDatePicker! {
@@ -38,6 +39,8 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
         
         let sleep = storyboard!.instantiateViewController(withIdentifier: "SleepViewController") as! SleepViewController
         sleep.transitioningDelegate = self
+        sleep.wakeUpDate = self.wakeUpDate
+        
         present(sleep, animated: true, completion: nil)
     }
     
@@ -64,8 +67,8 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
                 self.wakeUpTimePicker.alpha = 0
                 self.setAlarmButton.alpha = 1.0
                 self.wakeUpTimeLabel.alpha = 1.0
-                let wakeUpDate = self.wakeUpTimePicker.date
-                self.wakeUpTimeLabel.text! = self.dateFormatter.string (from: wakeUpDate)
+                self.wakeUpDate = self.wakeUpTimePicker.date
+                self.wakeUpTimeLabel.text! = self.dateFormatter.string (from: self.wakeUpDate)
             }, completion: nil)
         })
     }

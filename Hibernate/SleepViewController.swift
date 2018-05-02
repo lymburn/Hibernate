@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import UserNotifications
 
 class SleepViewController: UIViewController {
     let dateFormatter = DateFormatter()
     var timer = Timer()
+    let notificationCenter = UNUserNotificationCenter.current()
+    var wakeUpDate : Date!
     
     @IBOutlet weak var wakingTimeLabel: UILabel! {
         didSet {
+            wakingTimeLabel.text! = "Waking at " + dateFormatter.string(from: wakeUpDate)
             wakingTimeLabel.alpha = 0
         }
     }
@@ -32,7 +36,7 @@ class SleepViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        scheduleNotification()
         // Do any additional setup after loading the view.
     }
 
@@ -56,5 +60,34 @@ class SleepViewController: UIViewController {
             let currentTime = Date()
             self.currentTimeLabel.text! = self.dateFormatter.string(from: currentTime)
         })
+    }
+    
+    private func scheduleNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Good morning"
+        content.body = "Enjoy the day"
+        content.sound = UNNotificationSound.default()
+        
+        let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: wakeUpDate)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        
+        let identifier = "AlarmNotification"
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        notificationCenter.add(request, withCompletionHandler: {(error) in
+            if let error = error {
+                print (error.localizedDescription)
+            }
+        })
+    }
+}
+
+extension SleepViewController: UNUserNotificationCenterDelegate {
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void) {
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
+        completionHandler()
     }
 }
