@@ -12,9 +12,10 @@ import UserNotifications
 class SleepViewController: UIViewController {
     let dateFormatter = DateFormatter()
     var timer = Timer()
+    let fadeTransition = FadeAnimator()
     let notificationCenter = UNUserNotificationCenter.current()
     var wakeUpDate : Date!
-    
+
     @IBOutlet weak var wakingTimeLabel: UILabel! {
         didSet {
             wakingTimeLabel.text! = "Waking at " + dateFormatter.string(from: wakeUpDate)
@@ -25,6 +26,7 @@ class SleepViewController: UIViewController {
     @IBAction func stopSleepingButton(_ sender: UIButton) {
     }
     
+    @IBOutlet weak var stopSleepingButton: UIButton!
     @IBOutlet weak var currentTimeLabel: UILabel! {
         didSet {
             currentTimeLabel.alpha = 0
@@ -74,6 +76,8 @@ class SleepViewController: UIViewController {
         
         let identifier = "AlarmNotification"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        notificationCenter.delegate = self
         notificationCenter.add(request, withCompletionHandler: {(error) in
             if let error = error {
                 print (error.localizedDescription)
@@ -82,12 +86,39 @@ class SleepViewController: UIViewController {
     }
 }
 
-extension SleepViewController: UNUserNotificationCenterDelegate {
+extension SleepViewController: UNUserNotificationCenterDelegate, UIViewControllerTransitioningDelegate {
+    //Controls what happens when alarm occurs in foreground
     public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void) {
         completionHandler([.alert, .badge, .sound])
+        //Hide labels and show wake up labels
+        UIView.animate(withDuration: 0.5, animations: {()->Void in
+            self.wakingTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.currentTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.stopSleepingButton.transform = CGAffineTransform(translationX: 0, y: 50)
+            self.wakingTimeLabel.alpha = 0
+            self.currentTimeLabel.alpha = 0
+            self.stopSleepingButton.alpha = 0
+            
+            //Transition to wake up screen
+            let wakeUp = self.storyboard!.instantiateViewController(withIdentifier: "WakeUpViewController") as! WakeUpViewController
+            wakeUp.transitioningDelegate = self
+            
+            self.present(wakeUp, animated: true, completion: nil)
+        })
     }
     
+    //Controls what happens when alarm occurs elsewhere
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
         completionHandler()
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        //Decide whether to return a custom animation
+        return fadeTransition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        //Deal with dismissing view controllers
+        return nil
     }
 }

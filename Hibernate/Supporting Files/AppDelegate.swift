@@ -14,11 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Manage notifications
     let notificationCenter = UNUserNotificationCenter.current()
     var window: UIWindow?
-    let sleepVC = SleepViewController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        notificationCenter.delegate = sleepVC
+        
         //Ask for notification requests
         let options: UNAuthorizationOptions = [.alert, .sound]
         notificationCenter.requestAuthorization(options: options) { (granted, error) in
