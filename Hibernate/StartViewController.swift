@@ -23,8 +23,21 @@ class StartViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var currentTimeLabel: UILabel! {
+        didSet {
+            currentTimeLabel.alpha = 0
+            dateFormatter.setLocalizedDateFormatFromTemplate("hh:mm a")
+            let currentDate = Date()
+            currentTimeLabel.text! = dateFormatter.string(from: currentDate)
+        }
+    }
+    
     //Local variables
     let fadeTransition = FadeAnimator()
+    let dateFormatter = DateFormatter()
+    var imageName : String!
+    var greetingText : String!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +46,18 @@ class StartViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        setBackgroundImageAndGreeting()
         UIView.animate(withDuration: 1.0, animations: {()->Void in
+            //Fade in and translate up
             self.sleepButton.alpha = 1.0
             self.greetingLabel.alpha = 1.0
+            self.currentTimeLabel.alpha = 1.0
+            self.sleepButton.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.greetingLabel.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.currentTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
+            
+            self.backgroundImage.image! = UIImage(named: self.imageName)!
+            self.greetingLabel.text! = self.greetingText
         }, completion: nil)
     }
 
@@ -68,6 +90,21 @@ class StartViewController: UIViewController {
         let selectSleep = storyboard!.instantiateViewController(withIdentifier: "SelectSleepViewController") as! SelectSleepViewController
         selectSleep.transitioningDelegate = self
         present(selectSleep, animated: true, completion: nil)
+    }
+    
+    //Set background image and greeting based off current time
+    private func setBackgroundImageAndGreeting() {
+        let currentDate = Date()
+        let currentDateComponents = Calendar.current.dateComponents([.hour], from: currentDate)
+        if (currentDateComponents.hour! < 12 && currentDateComponents.hour! > 24) {
+            //If before noon
+            imageName = "blur.jpg"
+            greetingText = "Good Morning"
+        } else {
+            //If past noon
+            imageName = "snowflakes.jpg"
+            greetingText = "Good Evening"
+        }
     }
 }
 

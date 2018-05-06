@@ -52,7 +52,7 @@ class SleepViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         updateCurrentTime()
-        //changeViewAfterWakeUpTime()
+        changeViewAfterWakeUpTime()
         //Fade in labels
         UIView.animate(withDuration: 2, animations: {()->Void in
             self.currentTimeLabel.alpha = 1
@@ -78,9 +78,12 @@ class SleepViewController: UIViewController {
             
             //If current date is greater than wake up date, change to next view
             if (currentDate! >= triggerDate!) {
+                //Turn off further notifications
+                self.notificationCenter.removeAllPendingNotificationRequests()
+                //Transition to starting view controller
                 let wakeUp = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
                 wakeUp.transitioningDelegate = self
-                self.present(wakeUp, animated: true, completion: nil)
+                self.present(wakeUp, animated: false, completion: nil)
                 self.changeViewTimer.invalidate()
             }
         })

@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbY-uG-Jhl">
-                                <rect key="frame" x="16" y="435" width="106" height="36"/>
+                                <rect key="frame" x="16" y="485" width="106" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Sleep">
@@ -30,10 +30,17 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Good Evening" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twM-5y-7d8">
-                                <rect key="frame" x="16" y="105" width="209" height="39"/>
+                                <rect key="frame" x="16" y="155" width="209" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="32"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fN-EB-zH5">
+                                <rect key="frame" x="16" y="212" width="209" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="28"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -48,6 +55,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="cYn-bw-kPT" id="X3T-6X-pTa"/>
+                        <outlet property="currentTimeLabel" destination="1fN-EB-zH5" id="VJi-HA-huw"/>
                         <outlet property="greetingLabel" destination="twM-5y-7d8" id="nUQ-Nc-SPO"/>
                         <outlet property="sleepButton" destination="ZbY-uG-Jhl" id="Y5y-Rg-9SX"/>
                     </connections>
@@ -186,42 +194,8 @@
             </objects>
             <point key="canvasLocation" x="1908" y="31.934032983508249"/>
         </scene>
-        <!--Wake Up View Controller-->
-        <scene sceneID="Dyx-no-D17">
-            <objects>
-                <viewController storyboardIdentifier="WakeUpViewController" id="BOQ-0v-guz" customClass="WakeUpViewController" customModule="Hibernate" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CHw-xo-hms">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blur.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="2eB-X2-4dq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwx-wN-1aD">
-                                <rect key="frame" x="63" y="141" width="248" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="34"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="2eB-X2-4dq" firstAttribute="bottom" secondItem="0Sn-Om-c2s" secondAttribute="bottom" id="58h-d7-9i5"/>
-                            <constraint firstItem="2eB-X2-4dq" firstAttribute="leading" secondItem="0Sn-Om-c2s" secondAttribute="leading" id="GQI-VT-yqw"/>
-                            <constraint firstItem="2eB-X2-4dq" firstAttribute="trailing" secondItem="0Sn-Om-c2s" secondAttribute="trailing" id="egF-Zf-SYk"/>
-                            <constraint firstItem="2eB-X2-4dq" firstAttribute="top" secondItem="CHw-xo-hms" secondAttribute="top" id="gjq-AI-wPE"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="0Sn-Om-c2s"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nYq-X4-m2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2744.8000000000002" y="31.934032983508249"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="blur.jpg" width="4700" height="4412"/>
         <image name="northernlights.jpg" width="1920" height="1275"/>
         <image name="snow.jpg" width="6000" height="6000"/>
         <image name="snowflakes.jpg" width="5791" height="4016"/>
