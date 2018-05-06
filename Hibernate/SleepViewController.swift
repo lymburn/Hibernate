@@ -12,6 +12,7 @@ import UserNotifications
 class SleepViewController: UIViewController {
     let dateFormatter = DateFormatter()
     var timer = Timer()
+    var changeViewTimer = Timer()
     let fadeTransition = FadeAnimator()
     let notificationCenter = UNUserNotificationCenter.current()
     var wakeUpDate : Date!
@@ -38,7 +39,7 @@ class SleepViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scheduleNotification()
+        //scheduleNotification()
         // Do any additional setup after loading the view.
     }
 
@@ -49,6 +50,7 @@ class SleepViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         updateCurrentTime()
+        changeViewAfterWakeUpTime()
         //Fade in labels
         UIView.animate(withDuration: 2, animations: {()->Void in
             self.currentTimeLabel.alpha = 1
@@ -64,6 +66,25 @@ class SleepViewController: UIViewController {
         })
     }
     
+    private func changeViewAfterWakeUpTime() {
+        //Run timer to check if the current time is past the wake up time and change views if so
+        changeViewTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {(timer)->Void in
+            let currentDateComponents = Calendar.current.dateComponents([.hour, .minute], from: Date())
+            let currentDate = Calendar.current.date(from: currentDateComponents)
+            let triggerDateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.wakeUpDate)
+            let triggerDate = Calendar.current.date(from: triggerDateComponents)
+            
+            //If current date is greater than wake up date, change to next view
+            if (currentDate! >= triggerDate!) {
+                let wakeUp = self.storyboard!.instantiateViewController(withIdentifier: "WakeUpViewController") as! WakeUpViewController
+                wakeUp.transitioningDelegate = self
+                self.present(wakeUp, animated: true, completion: nil)
+                self.changeViewTimer.invalidate()
+            }
+        })
+    }
+    
+    //Schedule alarm notification
     private func scheduleNotification() {
         let content = UNMutableNotificationContent()
         content.title = "Good morning"
@@ -72,7 +93,7 @@ class SleepViewController: UIViewController {
         
         let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: wakeUpDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         
         let identifier = "AlarmNotification"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
@@ -109,7 +130,13 @@ extension SleepViewController: UNUserNotificationCenterDelegate, UIViewControlle
     
     //Controls what happens when alarm occurs elsewhere
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
+        
         completionHandler()
+        let wakeUp = storyboard!.instantiateViewController(withIdentifier: "WakeUpViewController") as! WakeUpViewController
+        wakeUp.transitioningDelegate = self
+        
+        present(wakeUp, animated: false, completion: nil)
+        
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {

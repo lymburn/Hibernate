@@ -50,7 +50,7 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
         sender.alpha = 0
         wakeUpTimeLabel.alpha = 0
         //Set time picker color to be white
-        wakeUpTimePicker.setValue(UIColor(red: 51, green: 51, blue: 51, alpha: 1), forKey: "textColor")
+        wakeUpTimePicker.setValue(UIColor(red: 51.0/255, green: 51.0/255, blue: 51.0/255, alpha: 1.0), forKey: "textColor")
         wakeUpTimePicker.setValue(false, forKey: "highlightsToday")
         //Fade in time picker when set alarm pressed
         UIView.animate(withDuration: 0.5, animations: {()->Void in self.wakeUpTimePicker.alpha = 1.0}) {(finished)->Void in
