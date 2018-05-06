@@ -39,7 +39,9 @@ class SleepViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //scheduleNotification()
+        scheduleNotification(secondOffset: 0, identifier: "firstAlarmNotification", includeBanner: true)
+        scheduleNotification(secondOffset: 30, identifier: "secondAlarmNotification", includeBanner: false)
+        scheduleNotification(secondOffset: 59, identifier: "thirdAlarmNotification", includeBanner: false)
         // Do any additional setup after loading the view.
     }
 
@@ -50,7 +52,7 @@ class SleepViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         updateCurrentTime()
-        changeViewAfterWakeUpTime()
+        //changeViewAfterWakeUpTime()
         //Fade in labels
         UIView.animate(withDuration: 2, animations: {()->Void in
             self.currentTimeLabel.alpha = 1
@@ -76,7 +78,7 @@ class SleepViewController: UIViewController {
             
             //If current date is greater than wake up date, change to next view
             if (currentDate! >= triggerDate!) {
-                let wakeUp = self.storyboard!.instantiateViewController(withIdentifier: "WakeUpViewController") as! WakeUpViewController
+                let wakeUp = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
                 wakeUp.transitioningDelegate = self
                 self.present(wakeUp, animated: true, completion: nil)
                 self.changeViewTimer.invalidate()
@@ -85,17 +87,22 @@ class SleepViewController: UIViewController {
     }
     
     //Schedule alarm notification
-    private func scheduleNotification() {
+    private func scheduleNotification(secondOffset : Int, identifier : String, includeBanner : Bool) {
         let content = UNMutableNotificationContent()
-        content.title = "Good morning"
-        content.body = "Enjoy the day"
-        content.sound = UNNotificationSound.default()
+        if (includeBanner) {
+            content.title = "Good morning"
+            content.body = "Enjoy the day"
+        }
+        content.sound = UNNotificationSound(named: "payphone.wav")
         
-        let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: wakeUpDate)
+        //Set date so that notification plays every 30 seconds
+        let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUpDate)
+        wakeUpDate = Calendar.current.date(from: components)
+        wakeUpDate = Calendar.current.date(bySetting: .second, value: secondOffset, of: wakeUpDate)
+        let triggerDate = Calendar.current.dateComponents([.hour, .minute, .second], from: wakeUpDate)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         
-        let identifier = "AlarmNotification"
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         notificationCenter.delegate = self
@@ -111,6 +118,8 @@ extension SleepViewController: UNUserNotificationCenterDelegate, UIViewControlle
     //Controls what happens when alarm occurs in foreground
     public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void) {
         completionHandler([.alert, .badge, .sound])
+        //Turn off further notifications
+        notificationCenter.removeAllPendingNotificationRequests()
         //Hide labels and show wake up labels
         UIView.animate(withDuration: 0.5, animations: {()->Void in
             self.wakingTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
@@ -121,7 +130,7 @@ extension SleepViewController: UNUserNotificationCenterDelegate, UIViewControlle
             self.stopSleepingButton.alpha = 0
             
             //Transition to wake up screen
-            let wakeUp = self.storyboard!.instantiateViewController(withIdentifier: "WakeUpViewController") as! WakeUpViewController
+            let wakeUp = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
             wakeUp.transitioningDelegate = self
             
             self.present(wakeUp, animated: true, completion: nil)
@@ -130,13 +139,13 @@ extension SleepViewController: UNUserNotificationCenterDelegate, UIViewControlle
     
     //Controls what happens when alarm occurs elsewhere
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
-        
         completionHandler()
-        let wakeUp = storyboard!.instantiateViewController(withIdentifier: "WakeUpViewController") as! WakeUpViewController
+        //Turn off further notifications
+        notificationCenter.removeAllPendingNotificationRequests()
+        let wakeUp = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
         wakeUp.transitioningDelegate = self
         
         present(wakeUp, animated: false, completion: nil)
-        
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
