@@ -36,7 +36,7 @@ class SettingsTableViewController: UITableViewController {
         tableView.backgroundColor = UIColor.clear
         
         navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 245/255.0, green: 247/255.0, blue: 250/255.0, alpha: 1.0)
-        navigationController?.navigationBar.tintColor = UIColor.init(displayP3Red: 72/255.0, green: 198/255.0, blue: 239/255.0, alpha: 1.0)
+        navigationController?.navigationBar.tintColor = UIColor.init(displayP3Red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1.0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,8 +53,8 @@ class SettingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let arr = [2, 2, 3]
-        return arr[section]
+        let rowsPerSection = [2, 2, 3]
+        return rowsPerSection[section]
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
