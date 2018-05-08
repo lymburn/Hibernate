@@ -71,9 +71,9 @@ class SleepViewController: UIViewController {
     private func changeViewAfterWakeUpTime() {
         //Run timer to check if the current time is past the wake up time and change views if so
         changeViewTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {(timer)->Void in
-            let currentDateComponents = Calendar.current.dateComponents([.hour, .minute], from: Date())
+            let currentDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: Date())
             let currentDate = Calendar.current.date(from: currentDateComponents)
-            let triggerDateComponents = Calendar.current.dateComponents([.hour, .minute], from: self.wakeUpDate)
+            let triggerDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: self.wakeUpDate)
             let triggerDate = Calendar.current.date(from: triggerDateComponents)
             
             //If current date is greater than wake up date, change to next view
@@ -99,10 +99,10 @@ class SleepViewController: UIViewController {
         content.sound = UNNotificationSound(named: "payphone.wav")
         
         //Set date so that notification plays every 30 seconds
-        let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUpDate)
-        wakeUpDate = Calendar.current.date(from: components)
-        wakeUpDate = Calendar.current.date(bySetting: .second, value: secondOffset, of: wakeUpDate)
-        let triggerDate = Calendar.current.dateComponents([.hour, .minute, .second], from: wakeUpDate)
+        let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: wakeUpDate)
+        var scheduledWakeUpDate = Calendar.current.date(from: components)
+        scheduledWakeUpDate = Calendar.current.date(bySetting: .second, value: secondOffset, of: scheduledWakeUpDate!)
+        let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: scheduledWakeUpDate!)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         

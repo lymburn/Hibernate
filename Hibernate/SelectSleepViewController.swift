@@ -67,9 +67,15 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
                 self.wakeUpTimePicker.alpha = 0
                 self.setAlarmButton.alpha = 1.0
                 self.wakeUpTimeLabel.alpha = 1.0
+                
                 self.wakeUpDate = self.wakeUpTimePicker.date
                 self.wakeUpTimeLabel.text! = self.dateFormatter.string (from: self.wakeUpDate)
             }, completion: nil)
+            
+            //If wake up date is less than current date, add 24 hours to wake up date
+            if (self.wakeUpDate <= Date()) {
+                self.wakeUpDate = Calendar.current.date(byAdding: .day, value: 1, to: self.wakeUpDate)
+            }
         })
     }
     
@@ -94,9 +100,8 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
     private func setInitialWakeUpTime() {
         //Set date formatter to AM/PM mode
         dateFormatter.setLocalizedDateFormatFromTemplate("hh:mm a")
-        //Set label for wake up time to time of the date picker
-        let wakeUpDate = wakeUpTimePicker.date
-        wakeUpTimeLabel.text! = dateFormatter.string(from: wakeUpDate)
+        //Set label to current time
+        wakeUpTimeLabel.text! = dateFormatter.string(from: Date())
     }
 }
 
