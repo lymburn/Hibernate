@@ -7,8 +7,33 @@
 //
 
 import UIKit
+import UserNotifications
 
 class StartViewController: UIViewController {
+    
+    @IBOutlet weak var settingsButton: UIButton! {
+        didSet {
+            settingsButton.alpha = 0
+        }
+    }
+    @IBAction func settingsButton(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.5, animations: {()->Void in
+            //Move labels/buttons up and fade out
+            self.currentTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.greetingLabel.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.sleepButton.transform = CGAffineTransform(translationX: 0, y: 50)
+            self.settingsButton.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.currentTimeLabel.alpha = 0
+            self.greetingLabel.alpha = 0
+            self.sleepButton.alpha = 0
+            self.settingsButton.alpha = 0
+        }, completion: nil)
+        
+        let settings = storyboard!.instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsTableViewController
+        let navController = UINavigationController(rootViewController: settings)
+        navController.transitioningDelegate = self
+        present(navController, animated: true, completion: nil)
+    }
     
     //Outlets
     @IBOutlet weak var sleepButton: UIButton! {
@@ -47,14 +72,18 @@ class StartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setBackgroundImageAndGreeting()
+        //Turn off notificiations when start screen appears
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UIView.animate(withDuration: 1.0, animations: {()->Void in
             //Fade in and translate up
             self.sleepButton.alpha = 1.0
             self.greetingLabel.alpha = 1.0
             self.currentTimeLabel.alpha = 1.0
+            self.settingsButton.alpha = 1.0
             self.sleepButton.transform = CGAffineTransform(translationX: 0, y: -50)
             self.greetingLabel.transform = CGAffineTransform(translationX: 0, y: -50)
             self.currentTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.settingsButton.transform = CGAffineTransform(translationX: 0, y: -50)
             
             self.backgroundImage.image! = UIImage(named: self.imageName)!
             self.greetingLabel.text! = self.greetingText
@@ -96,7 +125,7 @@ class StartViewController: UIViewController {
     private func setBackgroundImageAndGreeting() {
         let currentDate = Date()
         let currentDateComponents = Calendar.current.dateComponents([.hour], from: currentDate)
-        if (currentDateComponents.hour! < 12 && currentDateComponents.hour! > 24) {
+        if (currentDateComponents.hour! < 12) {
             //If before noon
             imageName = "blur.jpg"
             greetingText = "Good Morning"
