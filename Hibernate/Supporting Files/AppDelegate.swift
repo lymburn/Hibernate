@@ -8,6 +8,8 @@
 
 import UIKit
 import UserNotifications
+import AVFoundation
+import AudioToolbox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,14 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        requestNotifications()
+        enableBackgroundAudioMode()
         
-        //Ask for notification requests
-        let options: UNAuthorizationOptions = [.alert, .sound]
-        notificationCenter.requestAuthorization(options: options) { (granted, error) in
-            if !granted {
-                print(error!.localizedDescription)
-            }
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        //Set default settings if app hasn't been launched before
+        if (!launchedBefore) {
+            setDefaultSettings()
         }
+        
         return true
     }
 
@@ -48,6 +51,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func requestNotifications() {
+        //Ask for notification requests
+        let options: UNAuthorizationOptions = [.alert, .sound]
+        notificationCenter.requestAuthorization(options: options) { (granted, error) in
+            if !granted {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
+    func enableBackgroundAudioMode() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .mixWithOthers)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print ("audio session failed")
+        }
+    }
+    
+    //Set user default settings for the first time
+    private func setDefaultSettings() {
+        UserDefaults.standard.set(true, forKey: "launchedBefore")
+        UserDefaults.standard.register(defaults: ["alarmOn" : true])
+        UserDefaults.standard.register(defaults: ["sleepAidOn" : true])
+        UserDefaults.standard.register(defaults: ["alarmSound" : "Why"])
     }
 }
 

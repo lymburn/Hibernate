@@ -10,9 +10,27 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    @IBOutlet weak var alarmSwitch: UISwitch!
+    @IBAction func alarmSwitched(_ sender: UISwitch) {
+        //If switch on, set true for alarm option.
+        UserDefaults.standard.set(sender.isOn, forKey: "alarmOn")
+    }
+    
+    @IBAction func doneButton(_ sender: UIBarButtonItem) {
+        let start = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
+        self.present(start, animated: true, completion: nil)
+    }
+    
+    @IBOutlet weak var sleepAidSwitch: UISwitch!
+    @IBAction func sleepAidSwitched(_ sender: UISwitch) {
+        //If switch on, set true for sleeping music option.
+        UserDefaults.standard.set(sender.isOn, forKey: "sleepAidOn")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
+        setDefaultSettings()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -20,12 +38,19 @@ class SettingsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    func setDefaultSettings() {
+        UserDefaults.standard.set(sleepAidSwitch.isOn, forKey: "sleepAidOn")
+        UserDefaults.standard.set(alarmSwitch.isOn, forKey: "alarmOn")
+    }
+    
     func setGradientBackground() {
         let gradient = CAGradientLayer()
         let gradientLocations = [0.0,1.0]
         
         gradient.frame = view.bounds;
-        gradient.colors = [UIColor.init(displayP3Red: 245/255.0, green: 247/255.0, blue: 250/255.0, alpha: 1.0).cgColor, UIColor.init(displayP3Red: 195/255.0, green: 207/255.0, blue: 226/255.0, alpha: 1.0).cgColor]
+        let primaryColor = UIColor.init(displayP3Red: 245/255.0, green: 247/255.0, blue: 250/255.0, alpha: 1.0).cgColor
+        let secondaryColor = UIColor.init(displayP3Red: 195/255.0, green: 207/255.0, blue: 226/255.0, alpha: 1.0).cgColor
+        gradient.colors = [primaryColor, secondaryColor]
         gradient.locations = gradientLocations as [NSNumber]?
         
         let backgroundView = UIView(frame: view.bounds)
@@ -35,6 +60,7 @@ class SettingsTableViewController: UITableViewController {
         tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
         tableView.backgroundColor = UIColor.clear
         
+        //Navigation bar colors
         navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 245/255.0, green: 247/255.0, blue: 250/255.0, alpha: 1.0)
         navigationController?.navigationBar.tintColor = UIColor.init(displayP3Red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1.0)
     }
@@ -53,67 +79,25 @@ class SettingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let rowsPerSection = [2, 2, 3]
+        let rowsPerSection = [2, 3, 3]
         return rowsPerSection[section]
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        //Perform tasks based on which cell is selected
+        if (cell?.reuseIdentifier == "Alarm Sound") {
+            print("alarm")
+            let alarmSounds = storyboard?.instantiateViewController(withIdentifier: "AlarmSoundsTableViewController") as! AlarmSoundsTableViewController
+            let navController = UINavigationController(rootViewController:  alarmSounds)
+            present(navController, animated: true, completion: nil)
+        } else if (cell?.reuseIdentifier == "Sleep Sound") {
+            print("sleep sound")
+        }
+        
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

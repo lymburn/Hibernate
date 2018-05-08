@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import AVFoundation
 
 class SleepViewController: UIViewController {
     let dateFormatter = DateFormatter()
@@ -16,6 +17,7 @@ class SleepViewController: UIViewController {
     let fadeTransition = FadeAnimator()
     let notificationCenter = UNUserNotificationCenter.current()
     var wakeUpDate : Date!
+    var audioManager = AudioManager()
 
     @IBOutlet weak var wakingTimeLabel: UILabel! {
         didSet {
@@ -39,10 +41,12 @@ class SleepViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scheduleNotification(secondOffset: 0, identifier: "firstAlarmNotification", includeBanner: true)
-        scheduleNotification(secondOffset: 30, identifier: "secondAlarmNotification", includeBanner: false)
-        scheduleNotification(secondOffset: 59, identifier: "thirdAlarmNotification", includeBanner: false)
-        // Do any additional setup after loading the view.
+        
+        if (UserDefaults.standard.bool(forKey: "alarmOn")) {
+            scheduleNotification(secondOffset: 0, identifier: "firstAlarmNotification", includeBanner: true)
+            scheduleNotification(secondOffset: 30, identifier: "secondAlarmNotification", includeBanner: false)
+            scheduleNotification(secondOffset: 59, identifier: "thirdAlarmNotification", includeBanner: false)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +57,10 @@ class SleepViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         updateCurrentTime()
         changeViewAfterWakeUpTime()
+        if (UserDefaults.standard.bool(forKey: "sleepAidOn")) {
+            audioManager.stopPlayingMusic()
+            audioManager.playSleepMusic(songName: "Closer", loops: 3)
+        }
         //Fade in labels
         UIView.animate(withDuration: 2, animations: {()->Void in
             self.currentTimeLabel.alpha = 1
@@ -96,7 +104,10 @@ class SleepViewController: UIViewController {
             content.title = "Good morning"
             content.body = "Enjoy the day"
         }
-        content.sound = UNNotificationSound(named: "payphone.wav")
+        
+        var alarmSoundName = UserDefaults.standard.string(forKey: "alarmSound")
+        alarmSoundName! += ".mp3"
+        content.sound = UNNotificationSound(named: alarmSoundName!)
         
         //Set date so that notification plays every 30 seconds
         let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: wakeUpDate)

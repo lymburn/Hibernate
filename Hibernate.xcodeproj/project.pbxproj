@@ -15,11 +15,17 @@
 		266E6089209AC6F300CB1893 /* blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 266E6088209AC6F300CB1893 /* blur.jpg */; };
 		266E6093209ACF2E00CB1893 /* snowflakes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 266E6092209ACF2C00CB1893 /* snowflakes.jpg */; };
 		266E6097209AD48500CB1893 /* snow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 266E6096209AD48300CB1893 /* snow.jpg */; };
-		266E609B209AD63D00CB1893 /* northernlights.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 266E609A209AD63B00CB1893 /* northernlights.jpg */; };
 		2686EB402097884800A29995 /* FadeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686EB3F2097884800A29995 /* FadeAnimator.swift */; };
 		2686EB4420978AB700A29995 /* SelectSleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686EB4320978AB700A29995 /* SelectSleepViewController.swift */; };
-		26A170EA209F947C00DD8ECC /* payphone.wav in Resources */ = {isa = PBXBuildFile; fileRef = 26A170E9209F947C00DD8ECC /* payphone.wav */; };
 		26DA2F56209902A400690722 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DA2F55209902A400690722 /* SleepViewController.swift */; };
+		26DC471D20A21C7C00713D59 /* AlarmSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */; };
+		26DC472820A222DC00713D59 /* backarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DC472720A222DC00713D59 /* backarrow.png */; };
+		26DC472C20A223C700713D59 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DC472B20A223C700713D59 /* back.png */; };
+		26DC472E20A2275900713D59 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DC472D20A2275900713D59 /* settings.png */; };
+		26DC473020A22CB900713D59 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC472F20A22CB900713D59 /* AudioManager.swift */; };
+		26DC473520A2326000713D59 /* northernlights.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26DC473420A2326000713D59 /* northernlights.jpg */; };
+		26DC473D20A23D8B00713D59 /* Why.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DC473C20A23D8B00713D59 /* Why.mp3 */; };
+		26DC473F20A23DC300713D59 /* Closer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DC473E20A23DC300713D59 /* Closer.mp3 */; };
 		26E342BA20A10B3D00E391CD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E342B920A10B3D00E391CD /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,11 +40,17 @@
 		266E6088209AC6F300CB1893 /* blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blur.jpg; sourceTree = "<group>"; };
 		266E6092209ACF2C00CB1893 /* snowflakes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snowflakes.jpg; sourceTree = "<group>"; };
 		266E6096209AD48300CB1893 /* snow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snow.jpg; sourceTree = "<group>"; };
-		266E609A209AD63B00CB1893 /* northernlights.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = northernlights.jpg; path = ../../Design/Images/northernlights.jpg; sourceTree = "<group>"; };
 		2686EB3F2097884800A29995 /* FadeAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FadeAnimator.swift; path = Hibernate/FadeAnimator.swift; sourceTree = SOURCE_ROOT; };
 		2686EB4320978AB700A29995 /* SelectSleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSleepViewController.swift; sourceTree = "<group>"; };
-		26A170E9209F947C00DD8ECC /* payphone.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = payphone.wav; sourceTree = "<group>"; };
 		26DA2F55209902A400690722 /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
+		26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSoundsTableViewController.swift; sourceTree = "<group>"; };
+		26DC472720A222DC00713D59 /* backarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backarrow.png; sourceTree = "<group>"; };
+		26DC472B20A223C700713D59 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		26DC472D20A2275900713D59 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		26DC472F20A22CB900713D59 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		26DC473420A2326000713D59 /* northernlights.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = northernlights.jpg; sourceTree = "<group>"; };
+		26DC473C20A23D8B00713D59 /* Why.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Why.mp3; sourceTree = "<group>"; };
+		26DC473E20A23DC300713D59 /* Closer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Closer.mp3; sourceTree = "<group>"; };
 		26E342B920A10B3D00E391CD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,13 +90,12 @@
 				26DA2F55209902A400690722 /* SleepViewController.swift */,
 				2686EB3F2097884800A29995 /* FadeAnimator.swift */,
 				26E342B920A10B3D00E391CD /* SettingsTableViewController.swift */,
+				26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */,
+				26DC472F20A22CB900713D59 /* AudioManager.swift */,
 				2632F3BA20967B8700721D74 /* Main.storyboard */,
 				2632F3C220967B8900721D74 /* Info.plist */,
-				266E6088209AC6F300CB1893 /* blur.jpg */,
-				266E6092209ACF2C00CB1893 /* snowflakes.jpg */,
-				266E6096209AD48300CB1893 /* snow.jpg */,
-				266E609A209AD63B00CB1893 /* northernlights.jpg */,
-				26A170E9209F947C00DD8ECC /* payphone.wav */,
+				26DC473E20A23DC300713D59 /* Closer.mp3 */,
+				26DC473C20A23D8B00713D59 /* Why.mp3 */,
 			);
 			path = Hibernate;
 			sourceTree = "<group>";
@@ -92,11 +103,26 @@
 		2632F3C820967D1B00721D74 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				26DC473320A2322A00713D59 /* Images */,
 				2632F3BD20967B8900721D74 /* Assets.xcassets */,
 				2632F3BF20967B8900721D74 /* LaunchScreen.storyboard */,
 				2632F3B620967B8700721D74 /* AppDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		26DC473320A2322A00713D59 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				26DC472720A222DC00713D59 /* backarrow.png */,
+				26DC472B20A223C700713D59 /* back.png */,
+				26DC472D20A2275900713D59 /* settings.png */,
+				266E6088209AC6F300CB1893 /* blur.jpg */,
+				266E6092209ACF2C00CB1893 /* snowflakes.jpg */,
+				266E6096209AD48300CB1893 /* snow.jpg */,
+				26DC473420A2326000713D59 /* northernlights.jpg */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,11 +189,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2632F3C120967B8900721D74 /* LaunchScreen.storyboard in Resources */,
-				266E609B209AD63D00CB1893 /* northernlights.jpg in Resources */,
+				26DC473D20A23D8B00713D59 /* Why.mp3 in Resources */,
 				266E6089209AC6F300CB1893 /* blur.jpg in Resources */,
+				26DC473520A2326000713D59 /* northernlights.jpg in Resources */,
+				26DC473F20A23DC300713D59 /* Closer.mp3 in Resources */,
+				26DC472E20A2275900713D59 /* settings.png in Resources */,
 				2632F3BE20967B8900721D74 /* Assets.xcassets in Resources */,
-				26A170EA209F947C00DD8ECC /* payphone.wav in Resources */,
 				266E6097209AD48500CB1893 /* snow.jpg in Resources */,
+				26DC472C20A223C700713D59 /* back.png in Resources */,
+				26DC472820A222DC00713D59 /* backarrow.png in Resources */,
 				266E6093209ACF2E00CB1893 /* snowflakes.jpg in Resources */,
 				2632F3BC20967B8700721D74 /* Main.storyboard in Resources */,
 			);
@@ -182,8 +212,10 @@
 			files = (
 				2632F3B920967B8700721D74 /* StartViewController.swift in Sources */,
 				2632F3B720967B8700721D74 /* AppDelegate.swift in Sources */,
+				26DC473020A22CB900713D59 /* AudioManager.swift in Sources */,
 				26E342BA20A10B3D00E391CD /* SettingsTableViewController.swift in Sources */,
 				26DA2F56209902A400690722 /* SleepViewController.swift in Sources */,
+				26DC471D20A21C7C00713D59 /* AlarmSoundsTableViewController.swift in Sources */,
 				2686EB4420978AB700A29995 /* SelectSleepViewController.swift in Sources */,
 				2686EB402097884800A29995 /* FadeAnimator.swift in Sources */,
 			);
