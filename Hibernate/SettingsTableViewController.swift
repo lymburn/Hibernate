@@ -10,7 +10,11 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
-    @IBOutlet weak var alarmSwitch: UISwitch!
+    @IBOutlet weak var alarmSwitch: UISwitch! {
+        didSet {
+            alarmSwitch.setOn(UserDefaults.standard.bool(forKey: "alarmOn"), animated: false)
+        }
+    }
     @IBAction func alarmSwitched(_ sender: UISwitch) {
         //If switch on, set true for alarm option.
         UserDefaults.standard.set(sender.isOn, forKey: "alarmOn")
@@ -21,7 +25,11 @@ class SettingsTableViewController: UITableViewController {
         self.present(start, animated: true, completion: nil)
     }
     
-    @IBOutlet weak var sleepAidSwitch: UISwitch!
+    @IBOutlet weak var sleepAidSwitch: UISwitch! {
+        didSet {
+            sleepAidSwitch.setOn(UserDefaults.standard.bool(forKey: "sleepAidOn"), animated: false)
+        }
+    }
     @IBAction func sleepAidSwitched(_ sender: UISwitch) {
         //If switch on, set true for sleeping music option.
         UserDefaults.standard.set(sender.isOn, forKey: "sleepAidOn")
@@ -31,11 +39,6 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         setGradientBackground()
         setDefaultSettings()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     func setDefaultSettings() {
@@ -71,7 +74,6 @@ class SettingsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 3
@@ -97,6 +99,11 @@ class SettingsTableViewController: UITableViewController {
             present(navController, animated: true, completion: nil)
         } else if (cell?.reuseIdentifier == "Sleep Sound") {
             print("sleep sound")
+        } else if (cell?.reuseIdentifier == "Feedback") {
+            guard let url = URL(string: "http://www.google.com") else {
+                return
+            }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
         
     }

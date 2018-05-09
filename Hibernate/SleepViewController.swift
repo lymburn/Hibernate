@@ -58,7 +58,6 @@ class SleepViewController: UIViewController {
         updateCurrentTime()
         changeViewAfterWakeUpTime()
         if (UserDefaults.standard.bool(forKey: "sleepAidOn")) {
-            audioManager.stopPlayingMusic()
             audioManager.playSleepMusic(songName: "Closer", loops: 3)
         }
         //Fade in labels
@@ -88,7 +87,18 @@ class SleepViewController: UIViewController {
             if (currentDate! >= triggerDate!) {
                 //Turn off further notifications
                 self.notificationCenter.removeAllPendingNotificationRequests()
+                //Turn off sleep aid music
+                self.audioManager.stopPlayingMusic()
                 //Transition to starting view controller
+                UIView.animate(withDuration: 0.5, animations: {()->Void in
+                    self.wakingTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
+                    self.currentTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
+                    self.stopSleepingButton.transform = CGAffineTransform(translationX: 0, y: 50)
+                    self.wakingTimeLabel.alpha = 0
+                    self.currentTimeLabel.alpha = 0
+                    self.stopSleepingButton.alpha = 0
+                })
+                
                 let wakeUp = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
                 wakeUp.transitioningDelegate = self
                 self.present(wakeUp, animated: false, completion: nil)
@@ -132,34 +142,11 @@ extension SleepViewController: UNUserNotificationCenterDelegate, UIViewControlle
     //Controls what happens when alarm occurs in foreground
     public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void) {
         completionHandler([.alert, .badge, .sound])
-        //Turn off further notifications
-        notificationCenter.removeAllPendingNotificationRequests()
-        //Hide labels and show wake up labels
-        UIView.animate(withDuration: 0.5, animations: {()->Void in
-            self.wakingTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
-            self.currentTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
-            self.stopSleepingButton.transform = CGAffineTransform(translationX: 0, y: 50)
-            self.wakingTimeLabel.alpha = 0
-            self.currentTimeLabel.alpha = 0
-            self.stopSleepingButton.alpha = 0
-            
-            //Transition to wake up screen
-            let wakeUp = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
-            wakeUp.transitioningDelegate = self
-            
-            self.present(wakeUp, animated: true, completion: nil)
-        })
     }
     
     //Controls what happens when alarm occurs elsewhere
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
         completionHandler()
-        //Turn off further notifications
-        notificationCenter.removeAllPendingNotificationRequests()
-        let wakeUp = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
-        wakeUp.transitioningDelegate = self
-        
-        present(wakeUp, animated: false, completion: nil)
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
