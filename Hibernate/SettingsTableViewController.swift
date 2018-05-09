@@ -53,12 +53,6 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
-        setDefaultSettings()
-    }
-    
-    func setDefaultSettings() {
-        UserDefaults.standard.set(sleepAidSwitch.isOn, forKey: "sleepAidOn")
-        UserDefaults.standard.set(alarmSwitch.isOn, forKey: "alarmOn")
     }
     
     func setGradientBackground() {
@@ -66,8 +60,8 @@ class SettingsTableViewController: UITableViewController {
         let gradientLocations = [0.0,1.0]
         
         gradient.frame = view.bounds;
-        let primaryColor = UIColor.init(displayP3Red: 245/255.0, green: 247/255.0, blue: 250/255.0, alpha: 1.0).cgColor
-        let secondaryColor = UIColor.init(displayP3Red: 195/255.0, green: 207/255.0, blue: 226/255.0, alpha: 1.0).cgColor
+        let primaryColor = UIColor.black.cgColor
+        let secondaryColor = UIColor.init(displayP3Red: 83/255.0, green: 52/255.0, blue: 109/255.0, alpha: 1.0).cgColor
         gradient.colors = [primaryColor, secondaryColor]
         gradient.locations = gradientLocations as [NSNumber]?
         
@@ -79,8 +73,9 @@ class SettingsTableViewController: UITableViewController {
         tableView.backgroundColor = UIColor.clear
         
         //Navigation bar colors
-        navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 245/255.0, green: 247/255.0, blue: 250/255.0, alpha: 1.0)
-        navigationController?.navigationBar.tintColor = UIColor.init(displayP3Red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1.0)
+        navigationController?.navigationBar.barTintColor = UIColor.black
+        navigationController?.navigationBar.tintColor = UIColor.clear
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
     }
 
     override func didReceiveMemoryWarning() {
@@ -113,7 +108,9 @@ class SettingsTableViewController: UITableViewController {
             let navController = UINavigationController(rootViewController:  alarmSounds)
             present(navController, animated: true, completion: nil)
         } else if (cell?.reuseIdentifier == "Sleep Sound") {
-            print("sleep sound")
+            let sleepSounds = storyboard?.instantiateViewController(withIdentifier: "SleepingSoundsTableViewController") as! SleepingSoundsTableViewController
+            let navController = UINavigationController(rootViewController: sleepSounds)
+            present(navController, animated: true, completion: nil)
         } else if (cell?.reuseIdentifier == "Sound Duration") {
             let soundDuration = storyboard?.instantiateViewController(withIdentifier: "SoundDurationTableViewController") as! SoundDurationTableViewController
             let navController = UINavigationController(rootViewController: soundDuration)

@@ -33,8 +33,8 @@ class AlarmSoundsTableViewController: UITableViewController {
         let gradientLocations = [0.0,1.0]
         
         gradient.frame = view.bounds;
-        let primaryColor = UIColor.init(displayP3Red: 245/255.0, green: 247/255.0, blue: 250/255.0, alpha: 1.0).cgColor
-        let secondaryColor = UIColor.init(displayP3Red: 195/255.0, green: 207/255.0, blue: 226/255.0, alpha: 1.0).cgColor
+        let primaryColor = UIColor.black.cgColor
+        let secondaryColor = UIColor.init(displayP3Red: 83/255.0, green: 52/255.0, blue: 109/255.0, alpha: 1.0).cgColor
         gradient.colors = [primaryColor, secondaryColor]
         gradient.locations = gradientLocations as [NSNumber]?
         
@@ -46,8 +46,9 @@ class AlarmSoundsTableViewController: UITableViewController {
         tableView.backgroundColor = UIColor.clear
         
         //Navigation bar colors
-        navigationController?.navigationBar.barTintColor = UIColor.init(displayP3Red: 245/255.0, green: 247/255.0, blue: 250/255.0, alpha: 1.0)
-        navigationController?.navigationBar.tintColor = UIColor.init(displayP3Red: 51/255.0, green: 51/255.0, blue: 51/255.0, alpha: 1.0)
+        navigationController?.navigationBar.barTintColor = UIColor.black
+        navigationController?.navigationBar.tintColor = UIColor.clear
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.white]
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,6 +74,7 @@ class AlarmSoundsTableViewController: UITableViewController {
                 //If selected cell with a checkmark already, keep checkmark there
                 firstTimeSelecting = false
                 cell.accessoryType = .checkmark
+                cell.tintColor = UIColor.white
             } else if (defaultCell != cell && firstTimeSelecting){
                 //If selected cell thats not the default one, delete default checkmark and check new one
                 firstTimeSelecting = false
@@ -84,9 +86,16 @@ class AlarmSoundsTableViewController: UITableViewController {
             }
             
             switch cell.reuseIdentifier! {
-                case "Why": playSampleMusic(songName: "Why")
-                case "Closer": playSampleMusic(songName: "Closer")
-                default: playSampleMusic(songName: "Why")
+                case "Summer": playSampleMusic(songName: "Summer")
+                case "A New Beginning": playSampleMusic(songName: "A New Beginning")
+                case "Memories": playSampleMusic(songName: "Memories")
+                case "Clear Day": playSampleMusic(songName: "Clear Day")
+                case "A Day To Remember": playSampleMusic(songName: "A Day To Remember")
+                case "Happy Rock": playSampleMusic(songName: "Happy Rock")
+                case "Cute": playSampleMusic(songName: "Cute")
+                case "Little Idea": playSampleMusic(songName: "Little Idea")
+                case "Buddy": playSampleMusic(songName: "Buddy")
+                default: playSampleMusic(songName: "Summer")
             }
         }
     }
@@ -101,6 +110,7 @@ class AlarmSoundsTableViewController: UITableViewController {
         audioManager.stopPlayingMusic()
         audioManager.playSampleMusic(songName: songName)
         alarmSongName = songName
+        UserDefaults.standard.set(alarmSongName, forKey: "alarmSound")
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

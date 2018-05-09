@@ -13,11 +13,28 @@
 		2632F3BE20967B8900721D74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2632F3BD20967B8900721D74 /* Assets.xcassets */; };
 		2632F3C120967B8900721D74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2632F3BF20967B8900721D74 /* LaunchScreen.storyboard */; };
 		2662AC6E20A27929002B70B3 /* SoundDurationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662AC6D20A27929002B70B3 /* SoundDurationTableViewController.swift */; };
+		2662AC9120A3607D002B70B3 /* Little Idea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2662AC8820A3607D002B70B3 /* Little Idea.mp3 */; };
+		2662AC9220A3607D002B70B3 /* Memories.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2662AC8920A3607D002B70B3 /* Memories.mp3 */; };
+		2662AC9320A3607D002B70B3 /* Clear Day.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2662AC8A20A3607D002B70B3 /* Clear Day.mp3 */; };
+		2662AC9420A3607D002B70B3 /* A Day To Remember.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2662AC8B20A3607D002B70B3 /* A Day To Remember.mp3 */; };
+		2662AC9520A3607D002B70B3 /* Summer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2662AC8C20A3607D002B70B3 /* Summer.mp3 */; };
+		2662AC9620A3607D002B70B3 /* Happy Rock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2662AC8D20A3607D002B70B3 /* Happy Rock.mp3 */; };
+		2662AC9720A3607D002B70B3 /* Cute.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2662AC8E20A3607D002B70B3 /* Cute.mp3 */; };
+		2662AC9820A3607D002B70B3 /* A New Beginning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2662AC8F20A3607D002B70B3 /* A New Beginning.mp3 */; };
+		2662AC9920A3607D002B70B3 /* Buddy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2662AC9020A3607D002B70B3 /* Buddy.mp3 */; };
+		2662AC9B20A37B8E002B70B3 /* SleepingSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662AC9A20A37B8E002B70B3 /* SleepingSoundsTableViewController.swift */; };
 		266E6089209AC6F300CB1893 /* blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 266E6088209AC6F300CB1893 /* blur.jpg */; };
 		266E6093209ACF2E00CB1893 /* snowflakes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 266E6092209ACF2C00CB1893 /* snowflakes.jpg */; };
 		266E6097209AD48500CB1893 /* snow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 266E6096209AD48300CB1893 /* snow.jpg */; };
 		2686EB402097884800A29995 /* FadeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686EB3F2097884800A29995 /* FadeAnimator.swift */; };
 		2686EB4420978AB700A29995 /* SelectSleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686EB4320978AB700A29995 /* SelectSleepViewController.swift */; };
+		269BC1A020A38B42002E9E2F /* mountain stream.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC19F20A38B42002E9E2F /* mountain stream.jpg */; };
+		269BC1A320A38B5C002E9E2F /* light rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1A220A38B5C002E9E2F /* light rain.jpg */; };
+		269BC1A720A395E1002E9E2F /* storm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1A620A395E1002E9E2F /* storm.jpg */; };
+		269BC1AB20A39675002E9E2F /* campfire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1AA20A39675002E9E2F /* campfire.jpg */; };
+		269BC1AD20A396E5002E9E2F /* waves.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1AC20A396E5002E9E2F /* waves.jpg */; };
+		269BC1AF20A397CA002E9E2F /* bird.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1AE20A397C9002E9E2F /* bird.jpg */; };
+		269BC1B120A3AAB3002E9E2F /* SleepSoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */; };
 		26DA2F56209902A400690722 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DA2F55209902A400690722 /* SleepViewController.swift */; };
 		26DC471D20A21C7C00713D59 /* AlarmSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */; };
 		26DC472820A222DC00713D59 /* backarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DC472720A222DC00713D59 /* backarrow.png */; };
@@ -39,11 +56,28 @@
 		2632F3C020967B8900721D74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2632F3C220967B8900721D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2662AC6D20A27929002B70B3 /* SoundDurationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundDurationTableViewController.swift; sourceTree = "<group>"; };
+		2662AC8820A3607D002B70B3 /* Little Idea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Little Idea.mp3"; path = "../../../../Design/Audio/Cut Audio/Little Idea.mp3"; sourceTree = "<group>"; };
+		2662AC8920A3607D002B70B3 /* Memories.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Memories.mp3; path = "../../../../Design/Audio/Cut Audio/Memories.mp3"; sourceTree = "<group>"; };
+		2662AC8A20A3607D002B70B3 /* Clear Day.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Clear Day.mp3"; path = "../../../../Design/Audio/Cut Audio/Clear Day.mp3"; sourceTree = "<group>"; };
+		2662AC8B20A3607D002B70B3 /* A Day To Remember.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "A Day To Remember.mp3"; path = "../../../../Design/Audio/Cut Audio/A Day To Remember.mp3"; sourceTree = "<group>"; };
+		2662AC8C20A3607D002B70B3 /* Summer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Summer.mp3; path = "../../../../Design/Audio/Cut Audio/Summer.mp3"; sourceTree = "<group>"; };
+		2662AC8D20A3607D002B70B3 /* Happy Rock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Happy Rock.mp3"; path = "../../../../Design/Audio/Cut Audio/Happy Rock.mp3"; sourceTree = "<group>"; };
+		2662AC8E20A3607D002B70B3 /* Cute.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Cute.mp3; path = "../../../../Design/Audio/Cut Audio/Cute.mp3"; sourceTree = "<group>"; };
+		2662AC8F20A3607D002B70B3 /* A New Beginning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "A New Beginning.mp3"; path = "../../../../Design/Audio/Cut Audio/A New Beginning.mp3"; sourceTree = "<group>"; };
+		2662AC9020A3607D002B70B3 /* Buddy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Buddy.mp3; path = "../../../../Design/Audio/Cut Audio/Buddy.mp3"; sourceTree = "<group>"; };
+		2662AC9A20A37B8E002B70B3 /* SleepingSoundsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepingSoundsTableViewController.swift; sourceTree = "<group>"; };
 		266E6088209AC6F300CB1893 /* blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blur.jpg; sourceTree = "<group>"; };
 		266E6092209ACF2C00CB1893 /* snowflakes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snowflakes.jpg; sourceTree = "<group>"; };
 		266E6096209AD48300CB1893 /* snow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snow.jpg; sourceTree = "<group>"; };
 		2686EB3F2097884800A29995 /* FadeAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FadeAnimator.swift; path = Hibernate/FadeAnimator.swift; sourceTree = SOURCE_ROOT; };
 		2686EB4320978AB700A29995 /* SelectSleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSleepViewController.swift; sourceTree = "<group>"; };
+		269BC19F20A38B42002E9E2F /* mountain stream.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mountain stream.jpg"; sourceTree = "<group>"; };
+		269BC1A220A38B5C002E9E2F /* light rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "light rain.jpg"; path = "../../../../Design/Images/light rain.jpg"; sourceTree = "<group>"; };
+		269BC1A620A395E1002E9E2F /* storm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = storm.jpg; sourceTree = "<group>"; };
+		269BC1AA20A39675002E9E2F /* campfire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = campfire.jpg; path = ../../../../Design/Images/campfire.jpg; sourceTree = "<group>"; };
+		269BC1AC20A396E5002E9E2F /* waves.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waves.jpg; sourceTree = "<group>"; };
+		269BC1AE20A397C9002E9E2F /* bird.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bird.jpg; sourceTree = "<group>"; };
+		269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSoundImage.swift; sourceTree = "<group>"; };
 		26DA2F55209902A400690722 /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 		26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSoundsTableViewController.swift; sourceTree = "<group>"; };
 		26DC472720A222DC00713D59 /* backarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backarrow.png; sourceTree = "<group>"; };
@@ -93,8 +127,10 @@
 				2686EB3F2097884800A29995 /* FadeAnimator.swift */,
 				26E342B920A10B3D00E391CD /* SettingsTableViewController.swift */,
 				26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */,
+				2662AC9A20A37B8E002B70B3 /* SleepingSoundsTableViewController.swift */,
 				2662AC6D20A27929002B70B3 /* SoundDurationTableViewController.swift */,
 				26DC472F20A22CB900713D59 /* AudioManager.swift */,
+				269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */,
 				2632F3BA20967B8700721D74 /* Main.storyboard */,
 				2632F3C220967B8900721D74 /* Info.plist */,
 				26DC473E20A23DC300713D59 /* Closer.mp3 */,
@@ -106,6 +142,7 @@
 		2632F3C820967D1B00721D74 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2662AC6F20A35B1A002B70B3 /* Audio */,
 				26DC473320A2322A00713D59 /* Images */,
 				2632F3BD20967B8900721D74 /* Assets.xcassets */,
 				2632F3BF20967B8900721D74 /* LaunchScreen.storyboard */,
@@ -114,9 +151,29 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		2662AC6F20A35B1A002B70B3 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				2662AC8B20A3607D002B70B3 /* A Day To Remember.mp3 */,
+				2662AC8F20A3607D002B70B3 /* A New Beginning.mp3 */,
+				2662AC9020A3607D002B70B3 /* Buddy.mp3 */,
+				2662AC8A20A3607D002B70B3 /* Clear Day.mp3 */,
+				2662AC8E20A3607D002B70B3 /* Cute.mp3 */,
+				2662AC8D20A3607D002B70B3 /* Happy Rock.mp3 */,
+				2662AC8820A3607D002B70B3 /* Little Idea.mp3 */,
+				2662AC8920A3607D002B70B3 /* Memories.mp3 */,
+				2662AC8C20A3607D002B70B3 /* Summer.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		26DC473320A2322A00713D59 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				269BC1AA20A39675002E9E2F /* campfire.jpg */,
+				269BC1A620A395E1002E9E2F /* storm.jpg */,
+				269BC1A220A38B5C002E9E2F /* light rain.jpg */,
+				269BC19F20A38B42002E9E2F /* mountain stream.jpg */,
 				26DC472720A222DC00713D59 /* backarrow.png */,
 				26DC472B20A223C700713D59 /* back.png */,
 				26DC472D20A2275900713D59 /* settings.png */,
@@ -124,6 +181,8 @@
 				266E6092209ACF2C00CB1893 /* snowflakes.jpg */,
 				266E6096209AD48300CB1893 /* snow.jpg */,
 				26DC473420A2326000713D59 /* northernlights.jpg */,
+				269BC1AC20A396E5002E9E2F /* waves.jpg */,
+				269BC1AE20A397C9002E9E2F /* bird.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -192,17 +251,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				2632F3C120967B8900721D74 /* LaunchScreen.storyboard in Resources */,
+				2662AC9920A3607D002B70B3 /* Buddy.mp3 in Resources */,
 				26DC473D20A23D8B00713D59 /* Why.mp3 in Resources */,
 				266E6089209AC6F300CB1893 /* blur.jpg in Resources */,
 				26DC473520A2326000713D59 /* northernlights.jpg in Resources */,
 				26DC473F20A23DC300713D59 /* Closer.mp3 in Resources */,
+				2662AC9720A3607D002B70B3 /* Cute.mp3 in Resources */,
+				2662AC9320A3607D002B70B3 /* Clear Day.mp3 in Resources */,
 				26DC472E20A2275900713D59 /* settings.png in Resources */,
+				269BC1A020A38B42002E9E2F /* mountain stream.jpg in Resources */,
 				2632F3BE20967B8900721D74 /* Assets.xcassets in Resources */,
 				266E6097209AD48500CB1893 /* snow.jpg in Resources */,
+				2662AC9120A3607D002B70B3 /* Little Idea.mp3 in Resources */,
+				269BC1A720A395E1002E9E2F /* storm.jpg in Resources */,
 				26DC472C20A223C700713D59 /* back.png in Resources */,
+				269BC1A320A38B5C002E9E2F /* light rain.jpg in Resources */,
+				269BC1AD20A396E5002E9E2F /* waves.jpg in Resources */,
+				2662AC9420A3607D002B70B3 /* A Day To Remember.mp3 in Resources */,
+				2662AC9220A3607D002B70B3 /* Memories.mp3 in Resources */,
 				26DC472820A222DC00713D59 /* backarrow.png in Resources */,
 				266E6093209ACF2E00CB1893 /* snowflakes.jpg in Resources */,
 				2632F3BC20967B8700721D74 /* Main.storyboard in Resources */,
+				269BC1AF20A397CA002E9E2F /* bird.jpg in Resources */,
+				2662AC9620A3607D002B70B3 /* Happy Rock.mp3 in Resources */,
+				2662AC9520A3607D002B70B3 /* Summer.mp3 in Resources */,
+				269BC1AB20A39675002E9E2F /* campfire.jpg in Resources */,
+				2662AC9820A3607D002B70B3 /* A New Beginning.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,9 +290,11 @@
 				2632F3B920967B8700721D74 /* StartViewController.swift in Sources */,
 				2632F3B720967B8700721D74 /* AppDelegate.swift in Sources */,
 				26DC473020A22CB900713D59 /* AudioManager.swift in Sources */,
+				269BC1B120A3AAB3002E9E2F /* SleepSoundImage.swift in Sources */,
 				26E342BA20A10B3D00E391CD /* SettingsTableViewController.swift in Sources */,
 				2662AC6E20A27929002B70B3 /* SoundDurationTableViewController.swift in Sources */,
 				26DA2F56209902A400690722 /* SleepViewController.swift in Sources */,
+				2662AC9B20A37B8E002B70B3 /* SleepingSoundsTableViewController.swift in Sources */,
 				26DC471D20A21C7C00713D59 /* AlarmSoundsTableViewController.swift in Sources */,
 				2686EB4420978AB700A29995 /* SelectSleepViewController.swift in Sources */,
 				2686EB402097884800A29995 /* FadeAnimator.swift in Sources */,

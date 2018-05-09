@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set(true, forKey: "launchedBefore")
         UserDefaults.standard.register(defaults: ["alarmOn" : true])
         UserDefaults.standard.register(defaults: ["sleepAidOn" : true])
-        UserDefaults.standard.register(defaults: ["alarmSound" : "Why"])
+        UserDefaults.standard.register(defaults: ["alarmSound" : "Summer"])
         UserDefaults.standard.register(defaults: ["sleepAidDuration" : 30])
         let initialWakeUpDate = Date()
         UserDefaults.standard.register(defaults: ["wakeUpDate" : initialWakeUpDate])
