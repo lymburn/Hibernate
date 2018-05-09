@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
+class SelectSleepViewController: UIViewController{
     //Instance properties
     let dateFormatter = DateFormatter()
     var timer = Timer()
@@ -63,7 +63,6 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
         let sleep = storyboard!.instantiateViewController(withIdentifier: "SleepViewController") as! SleepViewController
         sleep.transitioningDelegate = self
         UserDefaults.standard.set(wakeUpDate, forKey: "wakeUpDate")
-        
         present(sleep, animated: true, completion: nil)
     }
     
@@ -75,6 +74,9 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
         //Set time picker color to be white
         wakeUpTimePicker.setValue(UIColor(red: 51.0/255, green: 51.0/255, blue: 51.0/255, alpha: 1.0), forKey: "textColor")
         wakeUpTimePicker.setValue(false, forKey: "highlightsToday")
+        //Disable sleep button when picking wake up time
+        startSleepButton.isEnabled = false
+        startSleepButton.setTitleColor(UIColor.gray, for: .disabled)
         //Fade in time picker when set alarm pressed
         UIView.animate(withDuration: 0.5, animations: {()->Void in self.wakeUpTimePicker.alpha = 1.0}) {(finished)->Void in
             self.startTimer()
@@ -99,6 +101,9 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
             if (self.wakeUpDate <= Date()) {
                 self.wakeUpDate = Calendar.current.date(byAdding: .day, value: 1, to: self.wakeUpDate)
             }
+            
+            //Enable sleep button again
+            self.startSleepButton.isEnabled = true
         })
     }
     

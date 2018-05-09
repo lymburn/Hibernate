@@ -10,7 +10,7 @@ import UIKit
 
 class AlarmSoundsTableViewController: UITableViewController {
     var audioManager = AudioManager()
-    var alarmSongName : String = UserDefaults.standard.string(forKey: "alarmSound")!
+    var alarmSongName : String!
     var defaultCell : UITableViewCell! //Cell selected by default
     var firstTimeSelecting : Bool = true
     
@@ -26,11 +26,6 @@ class AlarmSoundsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     func setGradientBackground() {
@@ -115,6 +110,7 @@ class AlarmSoundsTableViewController: UITableViewController {
             let cellIdentifier = cell.reuseIdentifier, cellIdentifier == currentSound {
             cell.accessoryType = .checkmark
             defaultCell = cell
+            alarmSongName = currentSound
         }
     }
 }

@@ -20,7 +20,7 @@ class SoundDurationTableViewController: UITableViewController {
     
     var defaultCell : UITableViewCell! //Cell selected by default
     var firstTimeSelecting : Bool = true
-    var sleepAidDuration : Int = UserDefaults.standard.integer(forKey: "sleepAidDuration")
+    var sleepAidDuration : Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,12 +74,12 @@ class SoundDurationTableViewController: UITableViewController {
             cellIdentifier == "\(currentDuration) minutes" {
                 cell.accessoryType = .checkmark
                 defaultCell = cell
+                sleepAidDuration = UserDefaults.standard.integer(forKey: "sleepAidDuration")
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
-            
             if (defaultCell == cell && firstTimeSelecting) {
                 //If selected cell with a checkmark already, keep checkmark there
                 firstTimeSelecting = false
