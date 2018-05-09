@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import UserNotifications
 
 class SettingsTableViewController: UITableViewController {
+    static var previousView : String! //Track what the previous view was so it can return to it
 
     @IBOutlet weak var alarmSwitch: UISwitch! {
         didSet {
@@ -18,11 +20,24 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func alarmSwitched(_ sender: UISwitch) {
         //If switch on, set true for alarm option.
         UserDefaults.standard.set(sender.isOn, forKey: "alarmOn")
+        //If off, remove all pending notifications
+        if (!sender.isOn) {
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        }
     }
     
     @IBAction func doneButton(_ sender: UIBarButtonItem) {
-        let start = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
-        self.present(start, animated: true, completion: nil)
+        //Return to previous view controller
+        if SettingsTableViewController.previousView == "start" {
+            let start = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
+            present(start, animated: true, completion: nil)
+        } else if SettingsTableViewController.previousView == "selectSleep" {
+            let selectSleep = self.storyboard!.instantiateViewController(withIdentifier: "SelectSleepViewController") as! SelectSleepViewController
+            present(selectSleep, animated: true, completion: nil)
+        } else if SettingsTableViewController.previousView == "sleep" {
+            let sleep = self.storyboard!.instantiateViewController(withIdentifier: "SleepViewController") as! SleepViewController
+            present(sleep, animated: true, completion: nil)
+        }
     }
     
     @IBOutlet weak var sleepAidSwitch: UISwitch! {

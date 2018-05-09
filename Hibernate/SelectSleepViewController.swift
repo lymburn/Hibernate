@@ -15,6 +15,25 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
     let fadeTransition = FadeAnimator()
     var wakeUpDate : Date! = Date()
     
+    @IBOutlet weak var backButton: UIButton!
+    @IBAction func didPressBack(_ sender: UIButton) {
+        //Transition back to start page
+        let start = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
+        start.transitioningDelegate = self
+        self.present(start, animated: true, completion: nil)
+    }
+    
+    
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBAction func didPressSettings(_ sender: UIButton) {
+        //Transition to settings page
+        let settings = storyboard!.instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsTableViewController
+        SettingsTableViewController.previousView = "selectSleep"
+        let navController = UINavigationController(rootViewController: settings)
+        navController.transitioningDelegate = self
+        present(navController, animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var wakeUpTimeLabel: UILabel!
     @IBOutlet weak var wakeUpTimePicker: UIDatePicker! {
         didSet {
@@ -32,14 +51,18 @@ class SelectSleepViewController: UIViewController, UIPickerViewDelegate {
             self.wakeUpTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
             self.setAlarmButton.transform = CGAffineTransform(translationX: 0, y: -50)
             self.startSleepButton.transform = CGAffineTransform(translationX: 0, y: 50)
+            self.backButton.transform = CGAffineTransform(translationX: 0, y: -20)
+            self.settingsButton.transform = CGAffineTransform(translationX: 0, y: -20)
             self.startSleepButton.alpha = 0
             self.setAlarmButton.alpha = 0
             self.wakeUpTimeLabel.alpha = 0
+            self.backButton.alpha = 0
+            self.settingsButton.alpha = 0
         }, completion: nil)
         
         let sleep = storyboard!.instantiateViewController(withIdentifier: "SleepViewController") as! SleepViewController
         sleep.transitioningDelegate = self
-        sleep.wakeUpDate = self.wakeUpDate
+        UserDefaults.standard.set(wakeUpDate, forKey: "wakeUpDate")
         
         present(sleep, animated: true, completion: nil)
     }

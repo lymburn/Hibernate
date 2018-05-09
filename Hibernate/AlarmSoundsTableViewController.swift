@@ -10,7 +10,7 @@ import UIKit
 
 class AlarmSoundsTableViewController: UITableViewController {
     var audioManager = AudioManager()
-    var alarmSongName : String = "Why"
+    var alarmSongName : String = UserDefaults.standard.string(forKey: "alarmSound")!
     var defaultCell : UITableViewCell! //Cell selected by default
     var firstTimeSelecting : Bool = true
     
@@ -74,7 +74,6 @@ class AlarmSoundsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
-            
             if (defaultCell == cell && firstTimeSelecting) {
                 //If selected cell with a checkmark already, keep checkmark there
                 firstTimeSelecting = false

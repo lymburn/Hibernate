@@ -18,10 +18,27 @@ class SleepViewController: UIViewController {
     let notificationCenter = UNUserNotificationCenter.current()
     var wakeUpDate : Date!
     var audioManager = AudioManager()
-
+    
+    
+    @IBOutlet weak var settingsButton: UIButton! {
+        didSet {
+            settingsButton.alpha = 0
+        }
+    }
+    
+    @IBAction func didPressSettings(_ sender: UIButton) {
+        //Stop audio
+        audioManager.stopPlayingMusic()
+        //Transition to settings view
+        let settings = storyboard!.instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsTableViewController
+        SettingsTableViewController.previousView = "sleep"
+        let navController = UINavigationController(rootViewController: settings)
+        navController.transitioningDelegate = self
+        present(navController, animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var wakingTimeLabel: UILabel! {
         didSet {
-            wakingTimeLabel.text! = "Waking at " + dateFormatter.string(from: wakeUpDate)
             wakingTimeLabel.alpha = 0
         }
     }
@@ -41,11 +58,14 @@ class SleepViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if (UserDefaults.standard.bool(forKey: "alarmOn")) {
+            wakeUpDate = UserDefaults.standard.object(forKey: "wakeUpDate") as! Date
+            wakingTimeLabel.text! = "Waking at " + dateFormatter.string(from: wakeUpDate)
             scheduleNotification(secondOffset: 0, identifier: "firstAlarmNotification", includeBanner: true)
             scheduleNotification(secondOffset: 30, identifier: "secondAlarmNotification", includeBanner: false)
             scheduleNotification(secondOffset: 59, identifier: "thirdAlarmNotification", includeBanner: false)
+        } else {
+            wakingTimeLabel.text! = "No alarm set"
         }
     }
 
@@ -65,6 +85,7 @@ class SleepViewController: UIViewController {
         UIView.animate(withDuration: 2, animations: {()->Void in
             self.currentTimeLabel.alpha = 1
             self.wakingTimeLabel.alpha = 1
+            self.settingsButton.alpha = 1
         }, completion: nil)
     }
     
@@ -81,6 +102,7 @@ class SleepViewController: UIViewController {
         changeViewTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {(timer)->Void in
             let currentDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: Date())
             let currentDate = Calendar.current.date(from: currentDateComponents)
+            self.wakeUpDate = UserDefaults.standard.object(forKey: "wakeUpDate") as! Date
             let triggerDateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: self.wakeUpDate)
             let triggerDate = Calendar.current.date(from: triggerDateComponents)
             
@@ -102,7 +124,7 @@ class SleepViewController: UIViewController {
                 
                 let wakeUp = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
                 wakeUp.transitioningDelegate = self
-                self.present(wakeUp, animated: false, completion: nil)
+                self.present(wakeUp, animated: true, completion: nil)
                 self.changeViewTimer.invalidate()
             }
         })
@@ -121,6 +143,7 @@ class SleepViewController: UIViewController {
         content.sound = UNNotificationSound(named: alarmSoundName!)
         
         //Set date so that notification plays every 30 seconds
+        wakeUpDate = UserDefaults.standard.object(forKey: "wakeUpDate") as! Date
         let components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: wakeUpDate)
         var scheduledWakeUpDate = Calendar.current.date(from: components)
         scheduledWakeUpDate = Calendar.current.date(bySetting: .second, value: secondOffset, of: scheduledWakeUpDate!)

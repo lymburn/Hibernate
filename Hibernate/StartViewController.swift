@@ -30,6 +30,7 @@ class StartViewController: UIViewController {
         }, completion: nil)
         
         let settings = storyboard!.instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsTableViewController
+        SettingsTableViewController.previousView = "start"
         let navController = UINavigationController(rootViewController: settings)
         navController.transitioningDelegate = self
         present(navController, animated: true, completion: nil)
@@ -98,7 +99,7 @@ class StartViewController: UIViewController {
     private func setSleepButtonAttributes() {
         //Set button to be rounded and add different images for selected/unselected
         sleepButton.backgroundColor = .clear
-        sleepButton.setTitle("☾Sleep", for: .normal)
+        sleepButton.setTitle("Sleep", for: .normal)
         //sleepButton.layer.cornerRadius = 15
         //sleepButton.layer.borderWidth = 2
         sleepButton.layer.borderColor = UIColor.clear.cgColor

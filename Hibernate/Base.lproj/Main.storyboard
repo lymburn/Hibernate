@@ -475,13 +475,27 @@
                                     <action selector="startSleepButton:" destination="bch-Yh-fI6" eventType="touchUpInside" id="17M-MG-oCj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLe-vK-qeG">
-                                <rect key="frame" x="16" y="20" width="30" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ed-7B-Jei">
+                                <rect key="frame" x="329" y="21" width="30" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="x">
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="⚙︎">
                                     <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressSettings:" destination="bch-Yh-fI6" eventType="touchUpInside" id="5fU-5P-Dnk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLe-vK-qeG">
+                                <rect key="frame" x="16" y="27" width="30" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <state key="normal" title="╳">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressBack:" destination="bch-Yh-fI6" eventType="touchUpInside" id="TTS-Gz-XFC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -494,7 +508,9 @@
                         <viewLayoutGuide key="safeArea" id="oy1-YU-fD7"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="MLe-vK-qeG" id="1XL-9M-ipX"/>
                         <outlet property="setAlarmButton" destination="WRp-Ug-8pf" id="SRI-v0-eVX"/>
+                        <outlet property="settingsButton" destination="4ed-7B-Jei" id="ggU-xP-o2u"/>
                         <outlet property="startSleepButton" destination="2v0-xs-JhF" id="pES-R9-pFD"/>
                         <outlet property="wakeUpTimeLabel" destination="LpO-K2-uHF" id="MmY-sJ-LhR"/>
                         <outlet property="wakeUpTimePicker" destination="ePC-di-BVZ" id="N9l-GB-fsj"/>
@@ -540,6 +556,17 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pl-SO-qnk">
+                                <rect key="frame" x="321" y="21" width="30" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="⚙︎">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressSettings:" destination="Udu-zt-EVC" eventType="touchUpInside" id="Q1d-fU-gL0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -552,6 +579,7 @@
                     </view>
                     <connections>
                         <outlet property="currentTimeLabel" destination="fhI-ry-X3R" id="a7E-52-5O5"/>
+                        <outlet property="settingsButton" destination="2pl-SO-qnk" id="Rdc-hD-gQW"/>
                         <outlet property="stopSleepingButton" destination="Xzu-rp-zse" id="Rtj-6X-cfh"/>
                         <outlet property="wakingTimeLabel" destination="Egk-yG-SFA" id="br2-j7-5Kg"/>
                     </connections>

@@ -10,7 +10,7 @@ import UIKit
 
 //Manages code to transition between VC's
 class FadeAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    let duration = 1.0
+    let duration = 0.5
     var presenting = true
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
