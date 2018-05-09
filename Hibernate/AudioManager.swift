@@ -29,11 +29,11 @@ class AudioManager {
     }
     
     //Play sleep aid music
-    func playSleepMusic(songName: String, loops: Int) -> Void {
+    func playSleepMusic(songName: String, for duration: Int) -> Void {
         let url = Bundle.main.url(forResource: songName, withExtension: "mp3")!
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.numberOfLoops = loops
+            audioPlayer?.numberOfLoops = duration
             audioPlayer?.play()
         } catch {
             print("could not play sleep music")

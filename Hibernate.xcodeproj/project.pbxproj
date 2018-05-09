@@ -12,6 +12,7 @@
 		2632F3BC20967B8700721D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2632F3BA20967B8700721D74 /* Main.storyboard */; };
 		2632F3BE20967B8900721D74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2632F3BD20967B8900721D74 /* Assets.xcassets */; };
 		2632F3C120967B8900721D74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2632F3BF20967B8900721D74 /* LaunchScreen.storyboard */; };
+		2662AC6E20A27929002B70B3 /* SoundDurationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662AC6D20A27929002B70B3 /* SoundDurationTableViewController.swift */; };
 		266E6089209AC6F300CB1893 /* blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 266E6088209AC6F300CB1893 /* blur.jpg */; };
 		266E6093209ACF2E00CB1893 /* snowflakes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 266E6092209ACF2C00CB1893 /* snowflakes.jpg */; };
 		266E6097209AD48500CB1893 /* snow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 266E6096209AD48300CB1893 /* snow.jpg */; };
@@ -37,6 +38,7 @@
 		2632F3BD20967B8900721D74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2632F3C020967B8900721D74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2632F3C220967B8900721D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2662AC6D20A27929002B70B3 /* SoundDurationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundDurationTableViewController.swift; sourceTree = "<group>"; };
 		266E6088209AC6F300CB1893 /* blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blur.jpg; sourceTree = "<group>"; };
 		266E6092209ACF2C00CB1893 /* snowflakes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snowflakes.jpg; sourceTree = "<group>"; };
 		266E6096209AD48300CB1893 /* snow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snow.jpg; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				2686EB3F2097884800A29995 /* FadeAnimator.swift */,
 				26E342B920A10B3D00E391CD /* SettingsTableViewController.swift */,
 				26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */,
+				2662AC6D20A27929002B70B3 /* SoundDurationTableViewController.swift */,
 				26DC472F20A22CB900713D59 /* AudioManager.swift */,
 				2632F3BA20967B8700721D74 /* Main.storyboard */,
 				2632F3C220967B8900721D74 /* Info.plist */,
@@ -214,6 +217,7 @@
 				2632F3B720967B8700721D74 /* AppDelegate.swift in Sources */,
 				26DC473020A22CB900713D59 /* AudioManager.swift in Sources */,
 				26E342BA20A10B3D00E391CD /* SettingsTableViewController.swift in Sources */,
+				2662AC6E20A27929002B70B3 /* SoundDurationTableViewController.swift in Sources */,
 				26DA2F56209902A400690722 /* SleepViewController.swift in Sources */,
 				26DC471D20A21C7C00713D59 /* AlarmSoundsTableViewController.swift in Sources */,
 				2686EB4420978AB700A29995 /* SelectSleepViewController.swift in Sources */,

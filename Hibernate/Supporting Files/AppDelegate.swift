@@ -78,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.register(defaults: ["alarmOn" : true])
         UserDefaults.standard.register(defaults: ["sleepAidOn" : true])
         UserDefaults.standard.register(defaults: ["alarmSound" : "Why"])
+        UserDefaults.standard.register(defaults: ["sleepAidDuration" : 30])
     }
 }
 

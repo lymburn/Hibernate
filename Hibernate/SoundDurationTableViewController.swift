@@ -1,5 +1,5 @@
 //
-//  AlarmSoundsTableViewController.swift
+//  SoundDurationTableViewController.swift
 //  Hibernate
 //
 //  Created by Eugene Lu on 2018-05-08.
@@ -8,29 +8,23 @@
 
 import UIKit
 
-class AlarmSoundsTableViewController: UITableViewController {
-    var audioManager = AudioManager()
-    var alarmSongName : String = "Why"
-    var defaultCell : UITableViewCell! //Cell selected by default
-    var firstTimeSelecting : Bool = true
-    
-    @IBAction func backButton(_ sender: UIBarButtonItem) {
-        audioManager.fadeOutMusic()
-        //Store option for alarm sound to be played
-        UserDefaults.standard.set(alarmSongName, forKey: "alarmSound")
+class SoundDurationTableViewController: UITableViewController {
+
+    @IBAction func goBack(_ sender: UIBarButtonItem) {
+        //Save sleep aid duration onto user defaults
+        UserDefaults.standard.set(sleepAidDuration, forKey: "sleepAidDuration")
         let settings = storyboard!.instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsTableViewController
         let navController = UINavigationController(rootViewController: settings)
         present(navController, animated: true, completion: nil)
     }
     
+    var defaultCell : UITableViewCell! //Cell selected by default
+    var firstTimeSelecting : Bool = true
+    var sleepAidDuration : Int = UserDefaults.standard.integer(forKey: "sleepAidDuration")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     func setGradientBackground() {
@@ -61,17 +55,28 @@ class AlarmSoundsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let rowsPerSection = [3, 6]
-        return rowsPerSection[section]
+        return 6
     }
 
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+        //Add a checkmark to the current cell with the selected song
+        let currentDuration = UserDefaults.standard.integer(forKey: "sleepAidDuration")
+        if let cellIdentifier = cell.reuseIdentifier,
+            cellIdentifier == "\(currentDuration) minutes" {
+                cell.accessoryType = .checkmark
+                defaultCell = cell
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
             
@@ -89,10 +94,15 @@ class AlarmSoundsTableViewController: UITableViewController {
                 cell.accessoryType = .checkmark
             }
             
+            //Set sleep aid duration depending on which cell is selected
             switch cell.reuseIdentifier! {
-                case "Why": playSampleMusic(songName: "Why")
-                case "Closer": playSampleMusic(songName: "Closer")
-                default: playSampleMusic(songName: "Why")
+                case "15 minutes": sleepAidDuration = 15
+                case "30 minutes": sleepAidDuration = 30
+                case "45 minutes": sleepAidDuration = 45
+                case "60 minutes": sleepAidDuration = 60
+                case "75 minutes": sleepAidDuration = 75
+                case "90 minutes:": sleepAidDuration = 90
+                default: sleepAidDuration = 15
             }
         }
     }
@@ -102,20 +112,7 @@ class AlarmSoundsTableViewController: UITableViewController {
             cell.accessoryType = .none
         }
     }
-    //Stop running music and play sample music
-    func playSampleMusic(songName: String) {
-        audioManager.stopPlayingMusic()
-        audioManager.playSampleMusic(songName: songName)
-        alarmSongName = songName
-    }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.clear
-        //Add a checkmark to the current cell with the selected song
-        if let currentSound = UserDefaults.standard.string(forKey: "alarmSound"),
-            let cellIdentifier = cell.reuseIdentifier, cellIdentifier == currentSound {
-            cell.accessoryType = .checkmark
-            defaultCell = cell
-        }
-    }
+    
+
 }

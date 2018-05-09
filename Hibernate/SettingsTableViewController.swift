@@ -99,6 +99,10 @@ class SettingsTableViewController: UITableViewController {
             present(navController, animated: true, completion: nil)
         } else if (cell?.reuseIdentifier == "Sleep Sound") {
             print("sleep sound")
+        } else if (cell?.reuseIdentifier == "Sound Duration") {
+            let soundDuration = storyboard?.instantiateViewController(withIdentifier: "SoundDurationTableViewController") as! SoundDurationTableViewController
+            let navController = UINavigationController(rootViewController: soundDuration)
+            present(navController, animated: true, completion: nil)
         } else if (cell?.reuseIdentifier == "Feedback") {
             guard let url = URL(string: "http://www.google.com") else {
                 return
