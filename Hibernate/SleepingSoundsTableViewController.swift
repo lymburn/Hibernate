@@ -11,6 +11,7 @@ import UIKit
 class SleepingSoundsTableViewController: UITableViewController {
 
     @IBAction func didPressBack(_ sender: UIBarButtonItem) {
+        didLeaveSoundSettings()
         let settings = storyboard!.instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsTableViewController
         let navController = UINavigationController(rootViewController: settings)
         present(navController, animated: true, completion: nil)
@@ -39,6 +40,16 @@ class SleepingSoundsTableViewController: UITableViewController {
         campfireImage.isUserInteractionEnabled = true
         wavesImage.isUserInteractionEnabled = true
         birdImage.isUserInteractionEnabled = true
+    }
+    
+    func didLeaveSoundSettings() {
+        //Set the bools for the SleepSoundImage class to true so music will fade out
+        lightRainImage.didLeaveSleepSoundsSetting = true
+        mountainStreamImage.didLeaveSleepSoundsSetting = true
+        stormImage.didLeaveSleepSoundsSetting = true
+        campfireImage.didLeaveSleepSoundsSetting = true
+        wavesImage.didLeaveSleepSoundsSetting = true
+        birdImage.didLeaveSleepSoundsSetting = true
     }
     
     override func viewDidLoad() {

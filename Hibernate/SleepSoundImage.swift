@@ -12,6 +12,7 @@ import UIKit
 class SleepSoundImage : UIImageView {
     var audioManager = AudioManager()
     var sleepSoundName : String?
+    var didLeaveSleepSoundsSetting = false //Track whether to fade out audio
     
     override init(image: UIImage?) {
         super.init(image: image)
@@ -39,6 +40,18 @@ class SleepSoundImage : UIImageView {
             self.transform = CGAffineTransform.identity}, completion: nil)
         
         //Play sample music
-        audioManager.playSampleMusic(songName: sleepSoundName)
+        if sleepSoundName != nil {
+            audioManager.playSampleMusic(songName: "Closer")
+        }
+        
+        //Store chosen sleep sound to user defaults
+        UserDefaults.standard.set(sleepSoundName, forKey: "sleepSound")
+        
+        //Fade out music when settings left
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: {(Timer)->Void in
+            if self.didLeaveSleepSoundsSetting {
+                self.audioManager.fadeOutMusic()
+            }
+        })
     }
 }
