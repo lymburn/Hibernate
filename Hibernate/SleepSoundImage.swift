@@ -13,6 +13,7 @@ class SleepSoundImage : UIImageView {
     var audioManager = AudioManager()
     var sleepSoundName : String?
     var didLeaveSleepSoundsSetting = false //Track whether to fade out audio
+    var didPress = true //Track whether the soundtrack has been pressed once already
     
     override init(image: UIImage?) {
         super.init(image: image)
@@ -33,6 +34,7 @@ class SleepSoundImage : UIImageView {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
+        didPress = !didPress
         
         //Bounce animation
         self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
@@ -40,8 +42,11 @@ class SleepSoundImage : UIImageView {
             self.transform = CGAffineTransform.identity}, completion: nil)
         
         //Play sample music
-        if sleepSoundName != nil {
+        if sleepSoundName != nil && !didPress {
             audioManager.playSampleMusic(songName: "Closer")
+        } else if didPress {
+            //Stop if pressed again
+            audioManager.stopPlayingMusic()
         }
         
         //Store chosen sleep sound to user defaults

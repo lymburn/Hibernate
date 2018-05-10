@@ -132,7 +132,7 @@ class StartViewController: UIViewController {
             greetingText = "Good Morning"
         } else {
             //If past noon
-            imageName = "snowflakes.jpg"
+            imageName = "cut balloon.jpg"
             greetingText = "Good Evening"
         }
     }

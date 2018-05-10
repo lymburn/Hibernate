@@ -35,6 +35,9 @@
 		269BC1AD20A396E5002E9E2F /* waves.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1AC20A396E5002E9E2F /* waves.jpg */; };
 		269BC1AF20A397CA002E9E2F /* bird.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1AE20A397C9002E9E2F /* bird.jpg */; };
 		269BC1B120A3AAB3002E9E2F /* SleepSoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */; };
+		269BC1B320A3CB54002E9E2F /* balloon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1B220A3CB53002E9E2F /* balloon.jpg */; };
+		269BC1B520A3CBB2002E9E2F /* cut balloon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1B420A3CBB1002E9E2F /* cut balloon.jpg */; };
+		269BC1B720A3CC79002E9E2F /* lake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1B620A3CC79002E9E2F /* lake.jpg */; };
 		26DA2F56209902A400690722 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DA2F55209902A400690722 /* SleepViewController.swift */; };
 		26DC471D20A21C7C00713D59 /* AlarmSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */; };
 		26DC472820A222DC00713D59 /* backarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DC472720A222DC00713D59 /* backarrow.png */; };
@@ -78,6 +81,9 @@
 		269BC1AC20A396E5002E9E2F /* waves.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waves.jpg; sourceTree = "<group>"; };
 		269BC1AE20A397C9002E9E2F /* bird.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bird.jpg; sourceTree = "<group>"; };
 		269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSoundImage.swift; sourceTree = "<group>"; };
+		269BC1B220A3CB53002E9E2F /* balloon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = balloon.jpg; sourceTree = "<group>"; };
+		269BC1B420A3CBB1002E9E2F /* cut balloon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cut balloon.jpg"; sourceTree = "<group>"; };
+		269BC1B620A3CC79002E9E2F /* lake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lake.jpg; sourceTree = "<group>"; };
 		26DA2F55209902A400690722 /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 		26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSoundsTableViewController.swift; sourceTree = "<group>"; };
 		26DC472720A222DC00713D59 /* backarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backarrow.png; sourceTree = "<group>"; };
@@ -170,6 +176,9 @@
 		26DC473320A2322A00713D59 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				269BC1B620A3CC79002E9E2F /* lake.jpg */,
+				269BC1B420A3CBB1002E9E2F /* cut balloon.jpg */,
+				269BC1B220A3CB53002E9E2F /* balloon.jpg */,
 				269BC1AA20A39675002E9E2F /* campfire.jpg */,
 				269BC1A620A395E1002E9E2F /* storm.jpg */,
 				269BC1A220A38B5C002E9E2F /* light rain.jpg */,
@@ -266,6 +275,7 @@
 				269BC1A720A395E1002E9E2F /* storm.jpg in Resources */,
 				26DC472C20A223C700713D59 /* back.png in Resources */,
 				269BC1A320A38B5C002E9E2F /* light rain.jpg in Resources */,
+				269BC1B720A3CC79002E9E2F /* lake.jpg in Resources */,
 				269BC1AD20A396E5002E9E2F /* waves.jpg in Resources */,
 				2662AC9420A3607D002B70B3 /* A Day To Remember.mp3 in Resources */,
 				2662AC9220A3607D002B70B3 /* Memories.mp3 in Resources */,
@@ -275,6 +285,8 @@
 				269BC1AF20A397CA002E9E2F /* bird.jpg in Resources */,
 				2662AC9620A3607D002B70B3 /* Happy Rock.mp3 in Resources */,
 				2662AC9520A3607D002B70B3 /* Summer.mp3 in Resources */,
+				269BC1B520A3CBB2002E9E2F /* cut balloon.jpg in Resources */,
+				269BC1B320A3CB54002E9E2F /* balloon.jpg in Resources */,
 				269BC1AB20A39675002E9E2F /* campfire.jpg in Resources */,
 				2662AC9820A3607D002B70B3 /* A New Beginning.mp3 in Resources */,
 			);

@@ -33,7 +33,7 @@ class SoundDurationTableViewController: UITableViewController {
         
         gradient.frame = view.bounds;
         let primaryColor = UIColor.black.cgColor
-        let secondaryColor = UIColor.init(displayP3Red: 83/255.0, green: 52/255.0, blue: 109/255.0, alpha: 1.0).cgColor
+        let secondaryColor = UIColor.init(displayP3Red: 67/255.0, green: 67/255.0, blue: 67/255.0, alpha: 1.0).cgColor
         gradient.colors = [primaryColor, secondaryColor]
         gradient.locations = gradientLocations as [NSNumber]?
         

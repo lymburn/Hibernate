@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (!launchedBefore) {
             setDefaultSettings()
         }
-        
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
 
