@@ -15,6 +15,9 @@ class SleepSoundImage : UIImageView {
     var didLeaveSleepSoundsSetting = false //Track whether to fade out audio
     var audioOn = false //Track whether the soundtrack is playing
     
+    var grayImage : UIImage!
+    var originalImage : UIImage!
+    
     override init(image: UIImage?) {
         super.init(image: image)
     }
@@ -30,8 +33,23 @@ class SleepSoundImage : UIImageView {
     override func layoutSubviews() {
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
+        
+        //If not the currently sleeping sound, image is gray
+        let currentSleepSoundName = UserDefaults.standard.string(forKey: "sleepSound")!
+        self.image! = (sleepSoundName == currentSleepSoundName ? originalImage : grayImage)
+        changeToGrayscaleWhenNotSelected()
     }
-
+    
+    private func changeToGrayscaleWhenNotSelected() {
+        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: {(Timer)->Void in
+            var currentSleepSoundName = UserDefaults.standard.string(forKey: "sleepSound")
+            if currentSleepSoundName == nil {
+                //If sound name is nil somehow, set default to light rain
+                currentSleepSoundName = "Light Rain"
+            }
+            self.image! = (self.sleepSoundName == currentSleepSoundName ? self.originalImage : self.grayImage)
+        })
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -53,7 +71,6 @@ class SleepSoundImage : UIImageView {
         
         UserDefaults.standard.set(sleepSoundName, forKey: "sleepSound")
         
-        
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {(Timer)->Void in
             //Fade out music when settings left
             if self.didLeaveSleepSoundsSetting {
@@ -61,12 +78,21 @@ class SleepSoundImage : UIImageView {
             }
             
             //Stop playing music when other image selected
-            let currentSleepSoundName = UserDefaults.standard.string(forKey: "sleepSound")!
+            var currentSleepSoundName = UserDefaults.standard.string(forKey: "sleepSound")!
+            if currentSleepSoundName == nil {
+                //If sound name is nil somehow, set default to light rain
+                currentSleepSoundName = "Light Rain"
+            }
             if self.sleepSoundName != currentSleepSoundName {
                 self.audioManager.stopPlayingMusic()
                 self.audioOn = false
+                //Turn to grayscale when not selected
+                self.image! = self.grayImage
+                Timer.invalidate()
+            } else if self.sleepSoundName == currentSleepSoundName {
+                //Colored original picture when image is selected
+                self.image! = self.originalImage
             }
         })
     }
- 
 }

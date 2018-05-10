@@ -27,15 +27,24 @@ class SleepingSoundsTableViewController: UITableViewController {
     @IBOutlet weak var wavesImage: SleepSoundImage!
     
     //Set the sound names for all the custom image views
-    func setImageViews() {
-        //Set identifiers for which image was pressed
+    private func setImageViews() {
+        setImageViewsSleepSoundName()
+        enableUserInteraction()
+        setImages()
+    }
+    
+    //Set identifiers for which image was pressed
+    private func setImageViewsSleepSoundName() {
         lightRainImage.sleepSoundName = "Light Rain"
         mountainStreamImage.sleepSoundName = "Stream"
         stormImage.sleepSoundName = "Storm"
         campfireImage.sleepSoundName = "Campfire"
         wavesImage.sleepSoundName = "Waves"
         birdImage.sleepSoundName = "Forest Songbird"
-        //Enable user interaction
+    }
+    
+    //Enable user interactions for all the imageviews
+    private func enableUserInteraction() {
         lightRainImage.isUserInteractionEnabled = true
         mountainStreamImage.isUserInteractionEnabled = true
         stormImage.isUserInteractionEnabled = true
@@ -44,7 +53,23 @@ class SleepingSoundsTableViewController: UITableViewController {
         birdImage.isUserInteractionEnabled = true
     }
     
-    func didLeaveSoundSettings() {
+    private func setImages() {
+        //Set all the colored and grayscale images
+        lightRainImage.originalImage = UIImage(named: "light rain.jpg")
+        lightRainImage.grayImage = UIImage(named: "Light Rain Gray.jpg")
+        mountainStreamImage.originalImage = UIImage(named: "stream.jpg")
+        mountainStreamImage.grayImage = UIImage(named: "Stream Gray.jpg")
+        stormImage.originalImage = UIImage(named: "storm.jpg")
+        stormImage.grayImage = UIImage(named: "Storm Gray.jpg")
+        campfireImage.originalImage = UIImage(named: "campfire.jpg")
+        campfireImage.grayImage = UIImage(named: "Campfire Gray.jpg")
+        wavesImage.originalImage = UIImage(named: "waves.jpg")
+        wavesImage.grayImage = UIImage(named: "Waves Gray.jpg")
+        birdImage.originalImage = UIImage(named: "bird.jpg")
+        birdImage.grayImage = UIImage(named: "Bird Gray.jpg")
+    }
+    
+    private func didLeaveSoundSettings() {
         //Set the bools for the SleepSoundImage class to true so music will fade out
         lightRainImage.didLeaveSleepSoundsSetting = true
         mountainStreamImage.didLeaveSleepSoundsSetting = true
@@ -60,7 +85,7 @@ class SleepingSoundsTableViewController: UITableViewController {
         setImageViews()
     }
     
-    func setGradientBackground() {
+    private func setGradientBackground() {
         let gradient = CAGradientLayer()
         let gradientLocations = [0.0,1.0]
         

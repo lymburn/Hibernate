@@ -37,6 +37,12 @@
 		269B138320A4C23200DFAE41 /* Waves.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 269B137D20A4C23000DFAE41 /* Waves.mp3 */; };
 		269B138420A4C23200DFAE41 /* Campfire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 269B137E20A4C23100DFAE41 /* Campfire.mp3 */; };
 		269B138520A4C23200DFAE41 /* Forest Songbird.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 269B137F20A4C23200DFAE41 /* Forest Songbird.mp3 */; };
+		269B138D20A4D9EB00DFAE41 /* Waves Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B138720A4D9EA00DFAE41 /* Waves Gray.jpg */; };
+		269B138E20A4D9EB00DFAE41 /* Storm Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B138820A4D9EA00DFAE41 /* Storm Gray.jpg */; };
+		269B138F20A4D9EB00DFAE41 /* Bird Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B138920A4D9EA00DFAE41 /* Bird Gray.jpg */; };
+		269B139020A4D9EB00DFAE41 /* Campfire Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B138A20A4D9EA00DFAE41 /* Campfire Gray.jpg */; };
+		269B139120A4D9EB00DFAE41 /* Light Rain Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B138B20A4D9EA00DFAE41 /* Light Rain Gray.jpg */; };
+		269B139320A4DC5400DFAE41 /* Stream Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B139220A4DC5400DFAE41 /* Stream Gray.jpg */; };
 		269BC1A320A38B5C002E9E2F /* light rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1A220A38B5C002E9E2F /* light rain.jpg */; };
 		269BC1A720A395E1002E9E2F /* storm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1A620A395E1002E9E2F /* storm.jpg */; };
 		269BC1AB20A39675002E9E2F /* campfire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1AA20A39675002E9E2F /* campfire.jpg */; };
@@ -91,6 +97,12 @@
 		269B137D20A4C23000DFAE41 /* Waves.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Waves.mp3; sourceTree = "<group>"; };
 		269B137E20A4C23100DFAE41 /* Campfire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Campfire.mp3; sourceTree = "<group>"; };
 		269B137F20A4C23200DFAE41 /* Forest Songbird.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Forest Songbird.mp3"; sourceTree = "<group>"; };
+		269B138720A4D9EA00DFAE41 /* Waves Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Waves Gray.jpg"; sourceTree = "<group>"; };
+		269B138820A4D9EA00DFAE41 /* Storm Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Storm Gray.jpg"; sourceTree = "<group>"; };
+		269B138920A4D9EA00DFAE41 /* Bird Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bird Gray.jpg"; sourceTree = "<group>"; };
+		269B138A20A4D9EA00DFAE41 /* Campfire Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Campfire Gray.jpg"; sourceTree = "<group>"; };
+		269B138B20A4D9EA00DFAE41 /* Light Rain Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Light Rain Gray.jpg"; sourceTree = "<group>"; };
+		269B139220A4DC5400DFAE41 /* Stream Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Stream Gray.jpg"; path = "../../../../Design/Images/Stream Gray.jpg"; sourceTree = "<group>"; };
 		269BC1A220A38B5C002E9E2F /* light rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "light rain.jpg"; path = "../../../../Design/Images/light rain.jpg"; sourceTree = "<group>"; };
 		269BC1A620A395E1002E9E2F /* storm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = storm.jpg; sourceTree = "<group>"; };
 		269BC1AA20A39675002E9E2F /* campfire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = campfire.jpg; path = ../../../../Design/Images/campfire.jpg; sourceTree = "<group>"; };
@@ -198,6 +210,12 @@
 		26DC473320A2322A00713D59 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				269B138920A4D9EA00DFAE41 /* Bird Gray.jpg */,
+				269B138A20A4D9EA00DFAE41 /* Campfire Gray.jpg */,
+				269B139220A4DC5400DFAE41 /* Stream Gray.jpg */,
+				269B138B20A4D9EA00DFAE41 /* Light Rain Gray.jpg */,
+				269B138820A4D9EA00DFAE41 /* Storm Gray.jpg */,
+				269B138720A4D9EA00DFAE41 /* Waves Gray.jpg */,
 				269B137820A4BBFB00DFAE41 /* afternoon.jpg */,
 				269B137620A4BADF00DFAE41 /* morning.jpg */,
 				269B137220A4AE1800DFAE41 /* stream.jpg */,
@@ -291,19 +309,24 @@
 				26DC473F20A23DC300713D59 /* Closer.mp3 in Resources */,
 				2662AC9720A3607D002B70B3 /* Cute.mp3 in Resources */,
 				2662AC9320A3607D002B70B3 /* Clear Day.mp3 in Resources */,
+				269B138F20A4D9EB00DFAE41 /* Bird Gray.jpg in Resources */,
+				269B139320A4DC5400DFAE41 /* Stream Gray.jpg in Resources */,
 				269B137920A4BBFB00DFAE41 /* afternoon.jpg in Resources */,
 				269B138320A4C23200DFAE41 /* Waves.mp3 in Resources */,
 				26DC472E20A2275900713D59 /* settings.png in Resources */,
 				269B138420A4C23200DFAE41 /* Campfire.mp3 in Resources */,
 				2632F3BE20967B8900721D74 /* Assets.xcassets in Resources */,
+				269B139020A4D9EB00DFAE41 /* Campfire Gray.jpg in Resources */,
 				266E6097209AD48500CB1893 /* snow.jpg in Resources */,
 				2662AC9120A3607D002B70B3 /* Little Idea.mp3 in Resources */,
 				269BC1A720A395E1002E9E2F /* storm.jpg in Resources */,
 				26DC472C20A223C700713D59 /* back.png in Resources */,
 				269B137320A4AE1A00DFAE41 /* stream.jpg in Resources */,
+				269B138E20A4D9EB00DFAE41 /* Storm Gray.jpg in Resources */,
 				269B138520A4C23200DFAE41 /* Forest Songbird.mp3 in Resources */,
 				269BC1A320A38B5C002E9E2F /* light rain.jpg in Resources */,
 				269B138220A4C23200DFAE41 /* Stream.mp3 in Resources */,
+				269B138D20A4D9EB00DFAE41 /* Waves Gray.jpg in Resources */,
 				269BC1B720A3CC79002E9E2F /* lake.jpg in Resources */,
 				269B138120A4C23200DFAE41 /* Storm.mp3 in Resources */,
 				269BC1AD20A396E5002E9E2F /* waves.jpg in Resources */,
@@ -317,6 +340,7 @@
 				2662AC9620A3607D002B70B3 /* Happy Rock.mp3 in Resources */,
 				269B137720A4BAE000DFAE41 /* morning.jpg in Resources */,
 				2662AC9520A3607D002B70B3 /* Summer.mp3 in Resources */,
+				269B139120A4D9EB00DFAE41 /* Light Rain Gray.jpg in Resources */,
 				269BC1B520A3CBB2002E9E2F /* cut balloon.jpg in Resources */,
 				269BC1B320A3CB54002E9E2F /* balloon.jpg in Resources */,
 				269BC1AB20A39675002E9E2F /* campfire.jpg in Resources */,
