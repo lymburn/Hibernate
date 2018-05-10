@@ -43,6 +43,7 @@
 		269B139020A4D9EB00DFAE41 /* Campfire Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B138A20A4D9EA00DFAE41 /* Campfire Gray.jpg */; };
 		269B139120A4D9EB00DFAE41 /* Light Rain Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B138B20A4D9EA00DFAE41 /* Light Rain Gray.jpg */; };
 		269B139320A4DC5400DFAE41 /* Stream Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B139220A4DC5400DFAE41 /* Stream Gray.jpg */; };
+		269B139720A5029600DFAE41 /* PremiumAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269B139620A5029600DFAE41 /* PremiumAlertController.swift */; };
 		269BC1A320A38B5C002E9E2F /* light rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1A220A38B5C002E9E2F /* light rain.jpg */; };
 		269BC1A720A395E1002E9E2F /* storm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1A620A395E1002E9E2F /* storm.jpg */; };
 		269BC1AB20A39675002E9E2F /* campfire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1AA20A39675002E9E2F /* campfire.jpg */; };
@@ -103,6 +104,7 @@
 		269B138A20A4D9EA00DFAE41 /* Campfire Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Campfire Gray.jpg"; sourceTree = "<group>"; };
 		269B138B20A4D9EA00DFAE41 /* Light Rain Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Light Rain Gray.jpg"; sourceTree = "<group>"; };
 		269B139220A4DC5400DFAE41 /* Stream Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Stream Gray.jpg"; path = "../../../../Design/Images/Stream Gray.jpg"; sourceTree = "<group>"; };
+		269B139620A5029600DFAE41 /* PremiumAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumAlertController.swift; sourceTree = "<group>"; };
 		269BC1A220A38B5C002E9E2F /* light rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "light rain.jpg"; path = "../../../../Design/Images/light rain.jpg"; sourceTree = "<group>"; };
 		269BC1A620A395E1002E9E2F /* storm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = storm.jpg; sourceTree = "<group>"; };
 		269BC1AA20A39675002E9E2F /* campfire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = campfire.jpg; path = ../../../../Design/Images/campfire.jpg; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */,
 				2662AC9A20A37B8E002B70B3 /* SleepingSoundsTableViewController.swift */,
 				2662AC6D20A27929002B70B3 /* SoundDurationTableViewController.swift */,
+				269B139620A5029600DFAE41 /* PremiumAlertController.swift */,
 				26DC472F20A22CB900713D59 /* AudioManager.swift */,
 				269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */,
 				2632F3BA20967B8700721D74 /* Main.storyboard */,
@@ -357,6 +360,7 @@
 			files = (
 				2632F3B920967B8700721D74 /* StartViewController.swift in Sources */,
 				2632F3B720967B8700721D74 /* AppDelegate.swift in Sources */,
+				269B139720A5029600DFAE41 /* PremiumAlertController.swift in Sources */,
 				26DC473020A22CB900713D59 /* AudioManager.swift in Sources */,
 				269BC1B120A3AAB3002E9E2F /* SleepSoundImage.swift in Sources */,
 				26E342BA20A10B3D00E391CD /* SettingsTableViewController.swift in Sources */,

@@ -78,7 +78,7 @@ class SleepSoundImage : UIImageView {
             }
             
             //Stop playing music when other image selected
-            var currentSleepSoundName = UserDefaults.standard.string(forKey: "sleepSound")!
+            var currentSleepSoundName = UserDefaults.standard.string(forKey: "sleepSound")
             if currentSleepSoundName == nil {
                 //If sound name is nil somehow, set default to light rain
                 currentSleepSoundName = "Light Rain"

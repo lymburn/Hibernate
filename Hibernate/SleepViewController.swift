@@ -78,8 +78,17 @@ class SleepViewController: UIViewController {
         updateCurrentTime()
         changeViewAfterWakeUpTime()
         if (UserDefaults.standard.bool(forKey: "sleepAidOn")) {
-            let soundDuration = UserDefaults.standard.integer(forKey: "sleepAidDuration")
-            audioManager.playSleepMusic(songName: "Closer", for: soundDuration)
+            var soundDuration = UserDefaults.standard.integer(forKey: "sleepAidDuration")
+            if soundDuration == 0 {
+                //If duration is 0 somehow, set default to 30 minutes
+                soundDuration = 30
+            }
+            var sleepSoundName = UserDefaults.standard.string(forKey: "sleepSound")
+            if sleepSoundName == nil {
+                //If sound name is nil somehow, set default to light rain
+                sleepSoundName = "Light Rain"
+            }
+            audioManager.playSleepMusic(songName: sleepSoundName!, for: soundDuration)
         }
         //Fade in labels
         UIView.animate(withDuration: 2, animations: {()->Void in
@@ -110,6 +119,8 @@ class SleepViewController: UIViewController {
             if (currentDate! >= triggerDate!) {
                 //Turn off further notifications
                 self.notificationCenter.removeAllPendingNotificationRequests()
+                //Stop playing any sleeping aid music
+                self.audioManager.stopPlayingMusic()
                 //Turn off sleep aid music
                 self.audioManager.stopPlayingMusic()
                 //Transition to starting view controller
@@ -139,6 +150,10 @@ class SleepViewController: UIViewController {
         }
         
         var alarmSoundName = UserDefaults.standard.string(forKey: "alarmSound")
+        if alarmSoundName == nil {
+            //If alarm nil for some reason, set to default summer
+            alarmSoundName = "Summer"
+        }
         alarmSoundName! += ".mp3"
         content.sound = UNNotificationSound(named: alarmSoundName!)
         
@@ -149,8 +164,6 @@ class SleepViewController: UIViewController {
         scheduledWakeUpDate = Calendar.current.date(bySetting: .second, value: secondOffset, of: scheduledWakeUpDate!)
         let triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: scheduledWakeUpDate!)
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         notificationCenter.delegate = self
@@ -165,13 +178,17 @@ class SleepViewController: UIViewController {
 extension SleepViewController: UNUserNotificationCenterDelegate, UIViewControllerTransitioningDelegate {
     //Controls what happens when alarm occurs in foreground
     public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void) {
-        self.notificationCenter.removeAllPendingNotificationRequests()
+        //Stop playing any sleeping aid music and remove notifications
+        notificationCenter.removeAllPendingNotificationRequests()
+        audioManager.stopPlayingMusic()
         completionHandler([.alert, .badge, .sound])
     }
     
     //Controls what happens when alarm occurs elsewhere
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
-        self.notificationCenter.removeAllPendingNotificationRequests()
+        //Stop playing any sleeping aid music and remove notifications
+        notificationCenter.removeAllPendingNotificationRequests()
+        audioManager.stopPlayingMusic()
         completionHandler()
     }
     

@@ -102,19 +102,22 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         //Perform tasks based on which cell is selected
-        if (cell?.reuseIdentifier == "Alarm Sound") {
+        if cell?.reuseIdentifier == "Alarm Sound" {
             let alarmSounds = storyboard?.instantiateViewController(withIdentifier: "AlarmSoundsTableViewController") as! AlarmSoundsTableViewController
             let navController = UINavigationController(rootViewController:  alarmSounds)
             present(navController, animated: true, completion: nil)
-        } else if (cell?.reuseIdentifier == "Sleep Sound") {
+        } else if cell?.reuseIdentifier == "Sleep Sound" {
             let sleepSounds = storyboard?.instantiateViewController(withIdentifier: "SleepingSoundsTableViewController") as! SleepingSoundsTableViewController
             let navController = UINavigationController(rootViewController: sleepSounds)
             present(navController, animated: true, completion: nil)
-        } else if (cell?.reuseIdentifier == "Sound Duration") {
+        } else if cell?.reuseIdentifier == "Sound Duration" {
             let soundDuration = storyboard?.instantiateViewController(withIdentifier: "SoundDurationTableViewController") as! SoundDurationTableViewController
             let navController = UINavigationController(rootViewController: soundDuration)
             present(navController, animated: true, completion: nil)
-        } else if (cell?.reuseIdentifier == "Feedback") {
+        } else if cell?.reuseIdentifier == "Premium" {
+            let premiumAlert = PremiumAlertController.instance()
+            present(premiumAlert, animated: true, completion: nil)
+        } else if cell?.reuseIdentifier == "Feedback" {
             guard let url = URL(string: "http://www.google.com") else {
                 return
             }
