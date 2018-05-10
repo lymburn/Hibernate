@@ -33,8 +33,8 @@ class AudioManager {
         let url = Bundle.main.url(forResource: songName, withExtension: "mp3")!
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
-            print ("\(duration)")
-            audioPlayer?.numberOfLoops = duration
+            let numOfLoops = 15/duration - 1
+            audioPlayer?.numberOfLoops = numOfLoops
             audioPlayer?.play()
         } catch {
             print("could not play sleep music")

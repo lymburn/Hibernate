@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         //Set default settings if app hasn't been launched before
         if (!launchedBefore) {
+            print("did not launch before")
             setDefaultSettings()
         }
         UIApplication.shared.statusBarStyle = .lightContent

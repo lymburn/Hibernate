@@ -116,8 +116,13 @@ class AlarmSoundsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
         //Add a checkmark to the current cell with the selected song
-        if let currentSound = UserDefaults.standard.string(forKey: "alarmSound"),
-            let cellIdentifier = cell.reuseIdentifier, cellIdentifier == currentSound {
+        var currentSound = UserDefaults.standard.string(forKey: "alarmSound")
+        if currentSound == nil {
+            //If current alarm is nil somehow, set default to Summer
+            currentSound = "Summer"
+            UserDefaults.standard.set("Summer", forKey: "alarmSound")
+        }
+        if let cellIdentifier = cell.reuseIdentifier, cellIdentifier == currentSound {
             cell.accessoryType = .checkmark
             defaultCell = cell
             alarmSongName = currentSound

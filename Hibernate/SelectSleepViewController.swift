@@ -130,8 +130,7 @@ class SelectSleepViewController: UIViewController{
         //Set date formatter to AM/PM mode
         dateFormatter.setLocalizedDateFormatFromTemplate("hh:mm a")
         //Set label to user's last set wake up time
-        let userWakeUpDate = UserDefaults.standard.object(forKey: "wakeUpDate") as! Date
-        wakeUpTimeLabel.text! = dateFormatter.string(from: userWakeUpDate)
+        wakeUpTimeLabel.text! = dateFormatter.string(from: Date())
     }
 }
 

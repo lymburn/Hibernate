@@ -70,12 +70,17 @@ class SoundDurationTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
         //Add a checkmark to the current cell with the selected song
-        let currentDuration = UserDefaults.standard.integer(forKey: "sleepAidDuration")
+        var currentDuration = UserDefaults.standard.integer(forKey: "sleepAidDuration")
+        if currentDuration == 0 {
+            //If current duration somehow not set, set to 15 by default
+            currentDuration = 15
+            UserDefaults.standard.set(currentDuration, forKey: "sleepAidDuration")
+        }
         if let cellIdentifier = cell.reuseIdentifier,
             cellIdentifier == "\(currentDuration) minutes" {
                 cell.accessoryType = .checkmark
                 defaultCell = cell
-                sleepAidDuration = UserDefaults.standard.integer(forKey: "sleepAidDuration")
+                sleepAidDuration = currentDuration
         }
     }
     

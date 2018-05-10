@@ -70,6 +70,7 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setSleepButtonAttributes()
+        updateCurrentTime()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -133,12 +134,16 @@ class StartViewController: UIViewController {
     private func setBackgroundImageAndGreeting() {
         let currentDate = Date()
         let currentDateComponents = Calendar.current.dateComponents([.hour], from: currentDate)
-        if (currentDateComponents.hour! < 12) {
+        if (currentDateComponents.hour! < 12 && currentDateComponents.hour! >= 6) {
             //If before noon
-            imageName = "blur.jpg"
+            imageName = "morning.jpg"
             greetingText = "Good Morning"
+        } else if (currentDateComponents.hour! >= 12 && currentDateComponents.hour! <= 18){
+            //If afternoon
+            imageName = "afternoon.jpg"
+            greetingText = "Good Afternoon"
         } else {
-            //If past noon
+            //Evening
             imageName = "cut balloon.jpg"
             greetingText = "Good Evening"
         }

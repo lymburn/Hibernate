@@ -43,7 +43,7 @@ class SleepSoundImage : UIImageView {
         
         //Play sample music
         if sleepSoundName != nil && !didPress {
-            audioManager.playSampleMusic(songName: "Closer")
+            audioManager.playSampleMusic(songName: sleepSoundName!)
         } else if didPress {
             //Stop if pressed again
             audioManager.stopPlayingMusic()

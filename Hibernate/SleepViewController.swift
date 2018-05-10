@@ -165,11 +165,13 @@ class SleepViewController: UIViewController {
 extension SleepViewController: UNUserNotificationCenterDelegate, UIViewControllerTransitioningDelegate {
     //Controls what happens when alarm occurs in foreground
     public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void) {
+        self.notificationCenter.removeAllPendingNotificationRequests()
         completionHandler([.alert, .badge, .sound])
     }
     
     //Controls what happens when alarm occurs elsewhere
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
+        self.notificationCenter.removeAllPendingNotificationRequests()
         completionHandler()
     }
     

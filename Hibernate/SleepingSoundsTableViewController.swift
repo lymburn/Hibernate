@@ -28,10 +28,10 @@ class SleepingSoundsTableViewController: UITableViewController {
     func setImageViews() {
         //Set identifiers for which image was pressed
         lightRainImage.sleepSoundName = "Light Rain"
-        mountainStreamImage.sleepSoundName = "Mountain Stream"
+        mountainStreamImage.sleepSoundName = "Stream"
         stormImage.sleepSoundName = "Storm"
         campfireImage.sleepSoundName = "Campfire"
-        wavesImage.sleepSoundName = "Ocean Waves"
+        wavesImage.sleepSoundName = "Waves"
         birdImage.sleepSoundName = "Forest Songbird"
         //Enable user interaction
         lightRainImage.isUserInteractionEnabled = true
