@@ -83,7 +83,6 @@ class SleepingSoundsTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        lightRainImage.sleepSoundName = "light rain"
         // Dispose of any resources that can be recreated.
     }
 

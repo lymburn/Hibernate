@@ -10,6 +10,7 @@ import UIKit
 import UserNotifications
 
 class StartViewController: UIViewController {
+    var timer = Timer()
     
     @IBOutlet weak var settingsButton: UIButton! {
         didSet {
@@ -73,8 +74,6 @@ class StartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setBackgroundImageAndGreeting()
-        //Turn off notificiations when start screen appears
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UIView.animate(withDuration: 1.0, animations: {()->Void in
             //Fade in and translate up
             self.sleepButton.alpha = 1.0
@@ -106,6 +105,14 @@ class StartViewController: UIViewController {
         sleepButton.addTarget(self, action: #selector(startHighlight), for: .touchDown)
         sleepButton.addTarget(self, action: #selector(stopHighlight), for: .touchUpInside)
         sleepButton.addTarget(self, action: #selector(stopHighlight), for: .touchUpOutside)
+    }
+    
+    private func updateCurrentTime() {
+        //Run timer to update current time every second
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {(timer)->Void in
+            let currentTime = Date()
+            self.currentTimeLabel.text! = self.dateFormatter.string(from: currentTime)
+        })
     }
     
     @objc func startHighlight(sender: UIButton) {

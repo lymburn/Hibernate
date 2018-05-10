@@ -12,6 +12,7 @@ class SelectSleepViewController: UIViewController{
     //Instance properties
     let dateFormatter = DateFormatter()
     var timer = Timer()
+    var currentTime = Timer()
     let fadeTransition = FadeAnimator()
     var wakeUpDate : Date! = Date()
     
@@ -128,8 +129,9 @@ class SelectSleepViewController: UIViewController{
     private func setInitialWakeUpTime() {
         //Set date formatter to AM/PM mode
         dateFormatter.setLocalizedDateFormatFromTemplate("hh:mm a")
-        //Set label to current time
-        wakeUpTimeLabel.text! = dateFormatter.string(from: Date())
+        //Set label to user's last set wake up time
+        let userWakeUpDate = UserDefaults.standard.object(forKey: "wakeUpDate") as! Date
+        wakeUpTimeLabel.text! = dateFormatter.string(from: userWakeUpDate)
     }
 }
 

@@ -105,6 +105,7 @@ class SoundDurationTableViewController: UITableViewController {
                 case "90 minutes:": sleepAidDuration = 90
                 default: sleepAidDuration = 15
             }
+            UserDefaults.standard.set(sleepAidDuration, forKey: "sleepAidDuration")
         }
     }
     

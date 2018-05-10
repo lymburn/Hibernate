@@ -103,7 +103,6 @@ class SettingsTableViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath)
         //Perform tasks based on which cell is selected
         if (cell?.reuseIdentifier == "Alarm Sound") {
-            print("alarm")
             let alarmSounds = storyboard?.instantiateViewController(withIdentifier: "AlarmSoundsTableViewController") as! AlarmSoundsTableViewController
             let navController = UINavigationController(rootViewController:  alarmSounds)
             present(navController, animated: true, completion: nil)
