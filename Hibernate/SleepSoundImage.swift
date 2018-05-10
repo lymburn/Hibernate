@@ -11,9 +11,9 @@ import UIKit
 //Custom class for image views that are correspond to sleeping sounds
 class SleepSoundImage : UIImageView {
     var audioManager = AudioManager()
-    var sleepSoundName : String?
+    var sleepSoundName : String!
     var didLeaveSleepSoundsSetting = false //Track whether to fade out audio
-    var didPress = true //Track whether the soundtrack has been pressed once already
+    var audioOn = false //Track whether the soundtrack is playing
     
     override init(image: UIImage?) {
         super.init(image: image)
@@ -32,31 +32,41 @@ class SleepSoundImage : UIImageView {
         self.clipsToBounds = true
     }
 
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        didPress = !didPress
+        audioOn = !audioOn
         
         //Bounce animation
         self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 6, options: .allowUserInteraction, animations: {
             self.transform = CGAffineTransform.identity}, completion: nil)
         
-        //Play sample music
-        if sleepSoundName != nil && !didPress {
-            audioManager.playSampleMusic(songName: sleepSoundName!)
-        } else if didPress {
+        //Play sample music if image sound corresponds to the selected sleep sound
+        if audioOn == true {
+            audioManager.playSampleMusic(songName: sleepSoundName)
+            //Store chosen sleep sound to user defaults
+        } else if audioOn == false {
             //Stop if pressed again
             audioManager.stopPlayingMusic()
         }
         
-        //Store chosen sleep sound to user defaults
         UserDefaults.standard.set(sleepSoundName, forKey: "sleepSound")
         
-        //Fade out music when settings left
-        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: {(Timer)->Void in
+        
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {(Timer)->Void in
+            //Fade out music when settings left
             if self.didLeaveSleepSoundsSetting {
                 self.audioManager.fadeOutMusic()
             }
+            
+            //Stop playing music when other image selected
+            let currentSleepSoundName = UserDefaults.standard.string(forKey: "sleepSound")!
+            if self.sleepSoundName != currentSleepSoundName {
+                self.audioManager.stopPlayingMusic()
+                self.audioOn = false
+            }
         })
     }
+ 
 }

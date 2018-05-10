@@ -10,6 +10,8 @@ import UIKit
 
 class SleepingSoundsTableViewController: UITableViewController {
 
+    var timer = Timer()
+    
     @IBAction func didPressBack(_ sender: UIBarButtonItem) {
         didLeaveSoundSettings()
         let settings = storyboard!.instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsTableViewController
