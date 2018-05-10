@@ -33,6 +33,7 @@ class AudioManager {
         let url = Bundle.main.url(forResource: songName, withExtension: "mp3")!
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
+            print ("\(duration)")
             audioPlayer?.numberOfLoops = duration
             audioPlayer?.play()
         } catch {

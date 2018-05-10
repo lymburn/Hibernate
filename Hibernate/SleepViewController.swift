@@ -78,7 +78,7 @@ class SleepViewController: UIViewController {
         updateCurrentTime()
         changeViewAfterWakeUpTime()
         if (UserDefaults.standard.bool(forKey: "sleepAidOn")) {
-            let soundDuration = UserDefaults.standard.integer(forKey: "soundDuration")
+            let soundDuration = UserDefaults.standard.integer(forKey: "sleepAidDuration")
             audioManager.playSleepMusic(songName: "Closer", for: soundDuration)
         }
         //Fade in labels
