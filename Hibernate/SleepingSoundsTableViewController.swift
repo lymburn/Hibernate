@@ -7,24 +7,53 @@
 //
 
 import UIKit
+import PMAlertController
 
 class SleepingSoundsTableViewController: UITableViewController {
 
     var timer = Timer()
+    var premiumSoundChosen : Bool = false
     
     @IBAction func didPressBack(_ sender: UIBarButtonItem) {
-        didLeaveSoundSettings()
-        let settings = storyboard!.instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsTableViewController
-        let navController = UINavigationController(rootViewController: settings)
-        present(navController, animated: true, completion: nil)
+        let premiumOn = UserDefaults.standard.bool(forKey: "premiumOn")
+        if premiumOn {
+            didLeaveSoundSettings()
+            transitionToSettingsView()
+        } else if !premiumOn && !premiumSoundSelected() {
+            didLeaveSoundSettings()
+            transitionToSettingsView()
+        } else if !premiumOn && premiumSoundSelected() {
+            displayPremiumRequiredAlert()
+        }
     }
 
+    //MARK: IBOutlets
     @IBOutlet weak var lightRainImage: SleepSoundImage!
     @IBOutlet weak var mountainStreamImage: SleepSoundImage!
     @IBOutlet weak var stormImage: SleepSoundImage!
     @IBOutlet weak var campfireImage: SleepSoundImage!
     @IBOutlet weak var birdImage: SleepSoundImage!
     @IBOutlet weak var wavesImage: SleepSoundImage!
+    
+    private func transitionToSettingsView() {
+        let settings = storyboard!.instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsTableViewController
+        let navController = UINavigationController(rootViewController: settings)
+        present(navController, animated: true, completion: nil)
+    }
+    
+    //Check whether a premium sound is selected
+    private func premiumSoundSelected() -> Bool {
+        if stormImage.premiumSoundPressed || campfireImage.premiumSoundPressed || wavesImage.premiumSoundPressed || birdImage.premiumSoundPressed{
+            return true
+        }
+        return false
+    }
+    
+    func displayPremiumRequiredAlert () {
+        let premiumRequiredAlert = PMAlertController(title: "Premium Required", description: "Premium is required for the song you have chosen. Upgrade to Premium today to unlock access to all features!", image: UIImage(named: "hibernation.jpg"), style: .alert)
+        premiumRequiredAlert.addAction(PMAlertAction(title: "Ok", style: .default, action: nil))
+        present(premiumRequiredAlert, animated: true, completion: nil)
+    }
     
     //Set the sound names for all the custom image views
     private func setImageViews() {

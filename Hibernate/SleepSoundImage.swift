@@ -14,6 +14,7 @@ class SleepSoundImage : UIImageView {
     var sleepSoundName : String!
     var didLeaveSleepSoundsSetting = false //Track whether to fade out audio
     var audioOn = false //Track whether the soundtrack is playing
+    var premiumSoundPressed : Bool = false
     
     var grayImage : UIImage!
     var originalImage : UIImage!
@@ -44,6 +45,14 @@ class SleepSoundImage : UIImageView {
         changeToGrayscaleWhenNotSelected()
     }
     
+    private func premiumSoundSelected () -> Bool {
+        if sleepSoundName == "Light Rain" || sleepSoundName == "Stream" {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     private func changeToGrayscaleWhenNotSelected() {
         Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: {(Timer)->Void in
             var currentSleepSoundName = UserDefaults.standard.string(forKey: "sleepSound")
@@ -58,6 +67,7 @@ class SleepSoundImage : UIImageView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         audioOn = !audioOn
+        premiumSoundPressed = premiumSoundSelected()
         
         //Bounce animation
         self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
@@ -92,6 +102,8 @@ class SleepSoundImage : UIImageView {
                 self.audioOn = false
                 //Turn to grayscale when not selected
                 self.image! = self.grayImage
+                //Set to false when not selected
+                self.premiumSoundPressed = false
                 Timer.invalidate()
             } else if self.sleepSoundName == currentSleepSoundName {
                 //Colored original picture when image is selected

@@ -7,20 +7,30 @@
 //
 
 import UIKit
+import PMAlertController
 
 class AlarmSoundsTableViewController: UITableViewController {
     var audioManager = AudioManager()
     var alarmSongName : String!
     var defaultCell : UITableViewCell! //Cell selected by default
     var firstTimeSelecting : Bool = true
+    var premiumSongChosen : Bool = false
     
     @IBAction func backButton(_ sender: UIBarButtonItem) {
         audioManager.fadeOutMusic()
-        //Store option for alarm sound to be played
-        UserDefaults.standard.set(alarmSongName, forKey: "alarmSound")
-        let settings = storyboard!.instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsTableViewController
-        let navController = UINavigationController(rootViewController: settings)
-        present(navController, animated: true, completion: nil)
+        
+        //Check for premium
+        let premiumOn = UserDefaults.standard.bool(forKey: "premiumOn")
+        if premiumOn {
+            //User has premium
+            transitionToSettingsView()
+        } else if !premiumOn && !premiumSongChosen {
+            //Free song chosen
+            transitionToSettingsView()
+        } else if !premiumOn && premiumSongChosen {
+            //No premium and tried to pick premium song
+            displayPremiumRequiredAlert()
+        }
     }
     
     override func viewDidLoad() {
@@ -28,7 +38,22 @@ class AlarmSoundsTableViewController: UITableViewController {
         setGradientBackground()
     }
     
-    func setGradientBackground() {
+    private func transitionToSettingsView() {
+        //Transition to settings view and save alarm song
+        //Store option for alarm sound to be played
+        UserDefaults.standard.set(alarmSongName, forKey: "alarmSound")
+        let settings = storyboard!.instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsTableViewController
+        let navController = UINavigationController(rootViewController: settings)
+        present(navController, animated: true, completion: nil)
+    }
+    
+    func displayPremiumRequiredAlert () {
+        let premiumRequiredAlert = PMAlertController(title: "Premium Required", description: "Premium is required for the song you have chosen. Upgrade to Premium today to unlock access to all features!", image: UIImage(named: "hibernation.jpg"), style: .alert)
+        premiumRequiredAlert.addAction(PMAlertAction(title: "Ok", style: .default, action: nil))
+        present(premiumRequiredAlert, animated: true, completion: nil)
+    }
+    
+    private func setGradientBackground() {
         let gradient = CAGradientLayer()
         let gradientLocations = [0.0,1.0]
         
@@ -86,15 +111,33 @@ class AlarmSoundsTableViewController: UITableViewController {
             }
             
             switch cell.reuseIdentifier! {
-                case "Summer": playSampleMusic(songName: "Summer")
-                case "A New Beginning": playSampleMusic(songName: "A New Beginning")
-                case "Memories": playSampleMusic(songName: "Memories")
-                case "Clear Day": playSampleMusic(songName: "Clear Day")
-                case "A Day To Remember": playSampleMusic(songName: "A Day To Remember")
-                case "Happy Rock": playSampleMusic(songName: "Happy Rock")
-                case "Cute": playSampleMusic(songName: "Cute")
-                case "Little Idea": playSampleMusic(songName: "Little Idea")
-                case "Buddy": playSampleMusic(songName: "Buddy")
+                case "Summer":
+                    playSampleMusic(songName: "Summer")
+                    premiumSongChosen = false
+                case "A New Beginning":
+                    playSampleMusic(songName: "A New Beginning")
+                    premiumSongChosen = false
+                case "Memories":
+                    playSampleMusic(songName: "Memories")
+                    premiumSongChosen = false
+                case "Clear Day":
+                    playSampleMusic(songName: "Clear Day")
+                    premiumSongChosen = true
+                case "A Day To Remember":
+                    playSampleMusic(songName: "A Day To Remember")
+                    premiumSongChosen = true
+                case "Happy Rock":
+                    playSampleMusic(songName: "Happy Rock")
+                    premiumSongChosen = true
+                case "Cute":
+                    playSampleMusic(songName: "Cute")
+                    premiumSongChosen = true
+                case "Little Idea":
+                    playSampleMusic(songName: "Little Idea")
+                    premiumSongChosen = true
+                case "Buddy":
+                    playSampleMusic(songName: "Buddy")
+                    premiumSongChosen = true
                 default: playSampleMusic(songName: "Summer")
             }
         }
@@ -105,12 +148,12 @@ class AlarmSoundsTableViewController: UITableViewController {
             cell.accessoryType = .none
         }
     }
+    
     //Stop running music and play sample music
     func playSampleMusic(songName: String) {
         audioManager.stopPlayingMusic()
         audioManager.playSampleMusic(songName: songName)
         alarmSongName = songName
-        UserDefaults.standard.set(alarmSongName, forKey: "alarmSound")
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
