@@ -50,6 +50,12 @@ class StartViewController: UIViewController {
         }
     }
     
+    @IBAction func didPressSleep(_ sender: UIButton) {
+        let selectSleep = storyboard!.instantiateViewController(withIdentifier: "SelectSleepViewController") as! SelectSleepViewController
+        selectSleep.transitioningDelegate = self
+        present(selectSleep, animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var greetingLabel: UILabel! {
         didSet {
@@ -65,8 +71,6 @@ class StartViewController: UIViewController {
             currentTimeLabel.text! = dateFormatter.string(from: currentDate)
         }
     }
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,13 +105,9 @@ class StartViewController: UIViewController {
     private func setSleepButtonAttributes() {
         //Set button to be rounded and add different images for selected/unselected
         sleepButton.backgroundColor = .clear
-        sleepButton.setTitle("Sleep", for: .normal)
-        //sleepButton.layer.cornerRadius = 15
+        //sleepButton.layer.cornerRadius = 10
         //sleepButton.layer.borderWidth = 2
-        sleepButton.layer.borderColor = UIColor.clear.cgColor
-        sleepButton.addTarget(self, action: #selector(startHighlight), for: .touchDown)
-        sleepButton.addTarget(self, action: #selector(stopHighlight), for: .touchUpInside)
-        sleepButton.addTarget(self, action: #selector(stopHighlight), for: .touchUpOutside)
+        //sleepButton.layer.borderColor = UIColor.white.cgColor
     }
     
     private func updateCurrentTime() {
@@ -116,20 +116,6 @@ class StartViewController: UIViewController {
             let currentTime = Date()
             self.currentTimeLabel.text! = self.dateFormatter.string(from: currentTime)
         })
-    }
-    
-    @objc func startHighlight(sender: UIButton) {
-        sleepButton.layer.borderColor = UIColor.lightGray.cgColor
-        sleepButton.setTitleColor(UIColor.gray, for: .normal)
-    }
-    
-    @objc func stopHighlight(sender: UIButton) {
-        sleepButton.layer.borderColor = UIColor.white.cgColor
-        sleepButton.setTitleColor(UIColor.white, for: .normal)
-        
-        let selectSleep = storyboard!.instantiateViewController(withIdentifier: "SelectSleepViewController") as! SelectSleepViewController
-        selectSleep.transitioningDelegate = self
-        present(selectSleep, animated: true, completion: nil)
     }
     
     //Set background image and greeting based off current time
@@ -146,7 +132,7 @@ class StartViewController: UIViewController {
             greetingText = "Good Afternoon"
         } else {
             //Evening
-            imageName = "cut balloon.jpg"
+            imageName = "boat.jpg"
             greetingText = "Good Evening"
         }
     }

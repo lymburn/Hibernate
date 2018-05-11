@@ -12,6 +12,9 @@
 		26002B7E20A55BCE004D928F /* campfire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B7B20A55BCE004D928F /* campfire.jpg */; };
 		26002B7F20A55BCE004D928F /* Stream Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B7C20A55BCE004D928F /* Stream Gray.jpg */; };
 		26002B8020A55BCE004D928F /* light rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B7D20A55BCE004D928F /* light rain.jpg */; };
+		26002B8220A564B0004D928F /* boat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B8120A564AF004D928F /* boat.jpg */; };
+		26002B8620A56AD1004D928F /* night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B8520A56ACF004D928F /* night.jpg */; };
+		26002B8820A56BB3004D928F /* moose.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B8720A56BB1004D928F /* moose.jpg */; };
 		2632F3B720967B8700721D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632F3B620967B8700721D74 /* AppDelegate.swift */; };
 		2632F3B920967B8700721D74 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632F3B820967B8700721D74 /* StartViewController.swift */; };
 		2632F3BC20967B8700721D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2632F3BA20967B8700721D74 /* Main.storyboard */; };
@@ -55,8 +58,6 @@
 		26DC471D20A21C7C00713D59 /* AlarmSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */; };
 		26DC473020A22CB900713D59 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC472F20A22CB900713D59 /* AudioManager.swift */; };
 		26DC473520A2326000713D59 /* northernlights.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26DC473420A2326000713D59 /* northernlights.jpg */; };
-		26DC473D20A23D8B00713D59 /* Why.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DC473C20A23D8B00713D59 /* Why.mp3 */; };
-		26DC473F20A23DC300713D59 /* Closer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DC473E20A23DC300713D59 /* Closer.mp3 */; };
 		26E342BA20A10B3D00E391CD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E342B920A10B3D00E391CD /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,9 @@
 		26002B7B20A55BCE004D928F /* campfire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = campfire.jpg; path = "../../../../Design/Images/Sleep Sounds/campfire.jpg"; sourceTree = "<group>"; };
 		26002B7C20A55BCE004D928F /* Stream Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Stream Gray.jpg"; path = "../../../../Design/Images/Sleep Sounds/Stream Gray.jpg"; sourceTree = "<group>"; };
 		26002B7D20A55BCE004D928F /* light rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "light rain.jpg"; path = "../../../../Design/Images/Sleep Sounds/light rain.jpg"; sourceTree = "<group>"; };
+		26002B8120A564AF004D928F /* boat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = boat.jpg; sourceTree = "<group>"; };
+		26002B8520A56ACF004D928F /* night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = night.jpg; sourceTree = "<group>"; };
+		26002B8720A56BB1004D928F /* moose.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moose.jpg; sourceTree = "<group>"; };
 		2632F3B320967B8700721D74 /* Hibernate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hibernate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2632F3B620967B8700721D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2632F3B820967B8700721D74 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -111,8 +115,6 @@
 		26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSoundsTableViewController.swift; sourceTree = "<group>"; };
 		26DC472F20A22CB900713D59 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		26DC473420A2326000713D59 /* northernlights.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = northernlights.jpg; sourceTree = "<group>"; };
-		26DC473C20A23D8B00713D59 /* Why.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Why.mp3; sourceTree = "<group>"; };
-		26DC473E20A23DC300713D59 /* Closer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Closer.mp3; sourceTree = "<group>"; };
 		26E342B920A10B3D00E391CD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		37EAD6F83E620BB7199CEFCF /* Pods-Hibernate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hibernate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hibernate/Pods-Hibernate.debug.xcconfig"; sourceTree = "<group>"; };
 		48463A7FEC9D282FF7217A20 /* Pods_Hibernate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hibernate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,8 +175,6 @@
 				269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */,
 				2632F3BA20967B8700721D74 /* Main.storyboard */,
 				2632F3C220967B8900721D74 /* Info.plist */,
-				26DC473E20A23DC300713D59 /* Closer.mp3 */,
-				26DC473C20A23D8B00713D59 /* Why.mp3 */,
 			);
 			path = Hibernate;
 			sourceTree = "<group>";
@@ -216,6 +216,9 @@
 		26DC473320A2322A00713D59 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				26002B8720A56BB1004D928F /* moose.jpg */,
+				26002B8520A56ACF004D928F /* night.jpg */,
+				26002B8120A564AF004D928F /* boat.jpg */,
 				26002B7920A55444004D928F /* hibernation.png */,
 				26002B7B20A55BCE004D928F /* campfire.jpg */,
 				26002B7D20A55BCE004D928F /* light rain.jpg */,
@@ -314,16 +317,16 @@
 			files = (
 				2632F3C120967B8900721D74 /* LaunchScreen.storyboard in Resources */,
 				2662AC9920A3607D002B70B3 /* Buddy.mp3 in Resources */,
-				26DC473D20A23D8B00713D59 /* Why.mp3 in Resources */,
 				26DC473520A2326000713D59 /* northernlights.jpg in Resources */,
-				26DC473F20A23DC300713D59 /* Closer.mp3 in Resources */,
 				2662AC9720A3607D002B70B3 /* Cute.mp3 in Resources */,
 				2662AC9320A3607D002B70B3 /* Clear Day.mp3 in Resources */,
 				269B138F20A4D9EB00DFAE41 /* Bird Gray.jpg in Resources */,
 				269B137920A4BBFB00DFAE41 /* afternoon.jpg in Resources */,
+				26002B8220A564B0004D928F /* boat.jpg in Resources */,
 				26002B8020A55BCE004D928F /* light rain.jpg in Resources */,
 				269B138320A4C23200DFAE41 /* Waves.mp3 in Resources */,
 				26002B7E20A55BCE004D928F /* campfire.jpg in Resources */,
+				26002B8820A56BB3004D928F /* moose.jpg in Resources */,
 				269B138420A4C23200DFAE41 /* Campfire.mp3 in Resources */,
 				2632F3BE20967B8900721D74 /* Assets.xcassets in Resources */,
 				269B139020A4D9EB00DFAE41 /* Campfire Gray.jpg in Resources */,
@@ -331,6 +334,7 @@
 				269BC1A720A395E1002E9E2F /* storm.jpg in Resources */,
 				269B137320A4AE1A00DFAE41 /* stream.jpg in Resources */,
 				269B138E20A4D9EB00DFAE41 /* Storm Gray.jpg in Resources */,
+				26002B8620A56AD1004D928F /* night.jpg in Resources */,
 				269B138520A4C23200DFAE41 /* Forest Songbird.mp3 in Resources */,
 				269B138220A4C23200DFAE41 /* Stream.mp3 in Resources */,
 				269B138D20A4D9EB00DFAE41 /* Waves Gray.jpg in Resources */,

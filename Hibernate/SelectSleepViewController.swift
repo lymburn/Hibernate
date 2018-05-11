@@ -16,7 +16,11 @@ class SelectSleepViewController: UIViewController{
     let fadeTransition = FadeAnimator()
     var wakeUpDate : Date! = Date()
     
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var backButton: UIButton! {
+        didSet {
+            backButton.alpha = 0
+        }
+    }
     @IBAction func didPressBack(_ sender: UIButton) {
         //Transition back to start page
         let start = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
@@ -25,7 +29,11 @@ class SelectSleepViewController: UIViewController{
     }
     
     
-    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton! {
+        didSet {
+            settingsButton.alpha = 0
+        }
+    }
     @IBAction func didPressSettings(_ sender: UIButton) {
         //Transition to settings page
         let settings = storyboard!.instantiateViewController(withIdentifier: "SettingsTableViewController") as! SettingsTableViewController
@@ -35,7 +43,11 @@ class SelectSleepViewController: UIViewController{
         present(navController, animated: true, completion: nil)
     }
     
-    @IBOutlet weak var wakeUpTimeLabel: UILabel!
+    @IBOutlet weak var wakeUpTimeLabel: UILabel! {
+        didSet {
+            wakeUpTimeLabel.alpha = 0
+        }
+    }
     @IBOutlet weak var wakeUpTimePicker: UIDatePicker! {
         didSet {
             //Initially hidden
@@ -43,7 +55,11 @@ class SelectSleepViewController: UIViewController{
         }
     }
     
-    @IBOutlet weak var startSleepButton: UIButton!
+    @IBOutlet weak var startSleepButton: UIButton! {
+        didSet {
+            startSleepButton.alpha = 0
+        }
+    }
     
     @IBAction func startSleepButton(_ sender: UIButton) {
         //Animate and transition to sleeping view
@@ -67,7 +83,11 @@ class SelectSleepViewController: UIViewController{
         present(sleep, animated: true, completion: nil)
     }
     
-    @IBOutlet weak var setAlarmButton: UIButton!
+    @IBOutlet weak var setAlarmButton: UIButton! {
+        didSet {
+            setAlarmButton.alpha = 0
+        }
+    }
     @IBAction func setAlarmButton(_ sender: UIButton) {
         //Hide alarm and time label after pressing
         sender.alpha = 0
@@ -119,6 +139,16 @@ class SelectSleepViewController: UIViewController{
         super.viewDidLoad()
         setInitialWakeUpTime()
         wakeUpTimePicker.addTarget(self, action: #selector(resetTimer), for: .valueChanged)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 1, animations: {()->Void in
+            self.setAlarmButton.alpha = 1
+            self.startSleepButton.alpha = 1
+            self.backButton.alpha = 1
+            self.wakeUpTimeLabel.alpha = 1
+            self.settingsButton.alpha = 1
+        })
     }
     
     override func didReceiveMemoryWarning() {
