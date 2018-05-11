@@ -99,6 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.register(defaults: ["sleepAidDuration" : 30])
         let initialWakeUpDate = Date()
         UserDefaults.standard.register(defaults: ["wakeUpDate" : initialWakeUpDate])
+        UserDefaults.standard.register(defaults: ["premiumOn" : false])
     }
 }
 

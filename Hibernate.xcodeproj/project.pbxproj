@@ -15,6 +15,9 @@
 		26002B8220A564B0004D928F /* boat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B8120A564AF004D928F /* boat.jpg */; };
 		26002B8620A56AD1004D928F /* night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B8520A56ACF004D928F /* night.jpg */; };
 		26002B8820A56BB3004D928F /* moose.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B8720A56BB1004D928F /* moose.jpg */; };
+		26242FA320A6094300E474AA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26242FA220A6094300E474AA /* StoreKit.framework */; };
+		26242FA520A609DA00E474AA /* Premium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26242FA420A609DA00E474AA /* Premium.swift */; };
+		26242FA720A60A2A00E474AA /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26242FA620A60A2A00E474AA /* IAPHelper.swift */; };
 		2632F3B720967B8700721D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632F3B620967B8700721D74 /* AppDelegate.swift */; };
 		2632F3B920967B8700721D74 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632F3B820967B8700721D74 /* StartViewController.swift */; };
 		2632F3BC20967B8700721D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2632F3BA20967B8700721D74 /* Main.storyboard */; };
@@ -70,6 +73,9 @@
 		26002B8120A564AF004D928F /* boat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = boat.jpg; sourceTree = "<group>"; };
 		26002B8520A56ACF004D928F /* night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = night.jpg; sourceTree = "<group>"; };
 		26002B8720A56BB1004D928F /* moose.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moose.jpg; sourceTree = "<group>"; };
+		26242FA220A6094300E474AA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		26242FA420A609DA00E474AA /* Premium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Premium.swift; sourceTree = "<group>"; };
+		26242FA620A60A2A00E474AA /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		2632F3B320967B8700721D74 /* Hibernate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hibernate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2632F3B620967B8700721D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2632F3B820967B8700721D74 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2454A8E9A7CE509393852D7F /* Pods_Hibernate.framework in Frameworks */,
+				26242FA320A6094300E474AA /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +180,8 @@
 				2662AC6D20A27929002B70B3 /* SoundDurationTableViewController.swift */,
 				26DC472F20A22CB900713D59 /* AudioManager.swift */,
 				269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */,
+				26242FA420A609DA00E474AA /* Premium.swift */,
+				26242FA620A60A2A00E474AA /* IAPHelper.swift */,
 				2632F3BA20967B8700721D74 /* Main.storyboard */,
 				2632F3C220967B8900721D74 /* Info.plist */,
 			);
@@ -245,6 +254,7 @@
 		D91925E542CB216FCCC4F5F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26242FA220A6094300E474AA /* StoreKit.framework */,
 				48463A7FEC9D282FF7217A20 /* Pods_Hibernate.framework */,
 			);
 			name = Frameworks;
@@ -286,6 +296,9 @@
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 						};
@@ -409,8 +422,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2632F3B920967B8700721D74 /* StartViewController.swift in Sources */,
+				26242FA720A60A2A00E474AA /* IAPHelper.swift in Sources */,
 				2632F3B720967B8700721D74 /* AppDelegate.swift in Sources */,
 				26DC473020A22CB900713D59 /* AudioManager.swift in Sources */,
+				26242FA520A609DA00E474AA /* Premium.swift in Sources */,
 				269BC1B120A3AAB3002E9E2F /* SleepSoundImage.swift in Sources */,
 				26E342BA20A10B3D00E391CD /* SettingsTableViewController.swift in Sources */,
 				2662AC6E20A27929002B70B3 /* SoundDurationTableViewController.swift in Sources */,
