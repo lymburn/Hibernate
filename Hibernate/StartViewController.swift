@@ -10,6 +10,11 @@ import UIKit
 import UserNotifications
 
 class StartViewController: UIViewController {
+    //MARK: Local variables
+    let fadeTransition = FadeAnimator()
+    let dateFormatter = DateFormatter()
+    var imageName : String!
+    var greetingText : String!
     var timer = Timer()
     
     @IBOutlet weak var settingsButton: UIButton! {
@@ -17,6 +22,7 @@ class StartViewController: UIViewController {
             settingsButton.alpha = 0
         }
     }
+    
     @IBAction func settingsButton(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5, animations: {()->Void in
             //Move labels/buttons up and fade out
@@ -43,6 +49,7 @@ class StartViewController: UIViewController {
             sleepButton.alpha = 0
         }
     }
+    
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var greetingLabel: UILabel! {
         didSet {
@@ -58,12 +65,7 @@ class StartViewController: UIViewController {
             currentTimeLabel.text! = dateFormatter.string(from: currentDate)
         }
     }
-    
-    //Local variables
-    let fadeTransition = FadeAnimator()
-    let dateFormatter = DateFormatter()
-    var imageName : String!
-    var greetingText : String!
+
     
     
     override func viewDidLoad() {

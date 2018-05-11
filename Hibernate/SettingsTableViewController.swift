@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import PMAlertController
 
 class SettingsTableViewController: UITableViewController {
     static var previousView : String! //Track what the previous view was so it can return to it
@@ -115,8 +116,12 @@ class SettingsTableViewController: UITableViewController {
             let navController = UINavigationController(rootViewController: soundDuration)
             present(navController, animated: true, completion: nil)
         } else if cell?.reuseIdentifier == "Premium" {
-            let premiumAlert = PremiumAlertController.instance()
-            present(premiumAlert, animated: true, completion: nil)
+            let premiumAlertVC = PMAlertController(title: "Premium $1.99", description: "Upgrade to premium for the full Hibernate experience! Get lifetime access to new refreshing wake up music as well as soothing sleep sounds!", image: UIImage(named: "hibernation.png"), style: .walkthrough)
+            premiumAlertVC.addAction(PMAlertAction(title: "Purchase", style: .default, action: nil))
+            premiumAlertVC.addAction(PMAlertAction(title: "Restore", style: .default, action: nil))
+            premiumAlertVC.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: nil))
+            
+            present(premiumAlertVC, animated: true, completion: nil)
         } else if cell?.reuseIdentifier == "Feedback" {
             guard let url = URL(string: "http://www.google.com") else {
                 return

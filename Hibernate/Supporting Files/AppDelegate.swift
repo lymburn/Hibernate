@@ -10,6 +10,7 @@ import UIKit
 import UserNotifications
 import AVFoundation
 import AudioToolbox
+import PMAlertController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -59,9 +60,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let options: UNAuthorizationOptions = [.alert, .sound]
         notificationCenter.requestAuthorization(options: options) { (granted, error) in
             if !granted {
-                print(error!.localizedDescription)
+            
             }
         }
+    }
+    
+    func presentCustomNotificationAlert() {
+        DispatchQueue.main.async(execute: {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+        })
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "StartViewController")
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        //Custom alert for notification request
+        let notificationAlert = PMAlertController(title: "Notifications", description: "Hibernate requires notifications in order to wake you up. Please allow notifications for the best experience!", image: UIImage(named: "blur.jpg"), style: .walkthrough)
+        notificationAlert.addAction(PMAlertAction(title: "Enable", style: .default, action: {()->Void in self.requestNotifications()}))
+        self.window?.rootViewController?.present(notificationAlert, animated: true, completion: nil)
     }
     
     func enableBackgroundAudioMode() {

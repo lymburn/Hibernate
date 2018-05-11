@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2454A8E9A7CE509393852D7F /* Pods_Hibernate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48463A7FEC9D282FF7217A20 /* Pods_Hibernate.framework */; };
+		26002B7A20A55444004D928F /* hibernation.png in Resources */ = {isa = PBXBuildFile; fileRef = 26002B7920A55444004D928F /* hibernation.png */; };
+		26002B7E20A55BCE004D928F /* campfire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B7B20A55BCE004D928F /* campfire.jpg */; };
+		26002B7F20A55BCE004D928F /* Stream Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B7C20A55BCE004D928F /* Stream Gray.jpg */; };
+		26002B8020A55BCE004D928F /* light rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B7D20A55BCE004D928F /* light rain.jpg */; };
 		2632F3B720967B8700721D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632F3B620967B8700721D74 /* AppDelegate.swift */; };
 		2632F3B920967B8700721D74 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632F3B820967B8700721D74 /* StartViewController.swift */; };
 		2632F3BC20967B8700721D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2632F3BA20967B8700721D74 /* Main.storyboard */; };
@@ -23,9 +28,6 @@
 		2662AC9820A3607D002B70B3 /* A New Beginning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2662AC8F20A3607D002B70B3 /* A New Beginning.mp3 */; };
 		2662AC9920A3607D002B70B3 /* Buddy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2662AC9020A3607D002B70B3 /* Buddy.mp3 */; };
 		2662AC9B20A37B8E002B70B3 /* SleepingSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2662AC9A20A37B8E002B70B3 /* SleepingSoundsTableViewController.swift */; };
-		266E6089209AC6F300CB1893 /* blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 266E6088209AC6F300CB1893 /* blur.jpg */; };
-		266E6093209ACF2E00CB1893 /* snowflakes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 266E6092209ACF2C00CB1893 /* snowflakes.jpg */; };
-		266E6097209AD48500CB1893 /* snow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 266E6096209AD48300CB1893 /* snow.jpg */; };
 		2686EB402097884800A29995 /* FadeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686EB3F2097884800A29995 /* FadeAnimator.swift */; };
 		2686EB4420978AB700A29995 /* SelectSleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2686EB4320978AB700A29995 /* SelectSleepViewController.swift */; };
 		269B137320A4AE1A00DFAE41 /* stream.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B137220A4AE1800DFAE41 /* stream.jpg */; };
@@ -42,11 +44,7 @@
 		269B138F20A4D9EB00DFAE41 /* Bird Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B138920A4D9EA00DFAE41 /* Bird Gray.jpg */; };
 		269B139020A4D9EB00DFAE41 /* Campfire Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B138A20A4D9EA00DFAE41 /* Campfire Gray.jpg */; };
 		269B139120A4D9EB00DFAE41 /* Light Rain Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B138B20A4D9EA00DFAE41 /* Light Rain Gray.jpg */; };
-		269B139320A4DC5400DFAE41 /* Stream Gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269B139220A4DC5400DFAE41 /* Stream Gray.jpg */; };
-		269B139720A5029600DFAE41 /* PremiumAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269B139620A5029600DFAE41 /* PremiumAlertController.swift */; };
-		269BC1A320A38B5C002E9E2F /* light rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1A220A38B5C002E9E2F /* light rain.jpg */; };
 		269BC1A720A395E1002E9E2F /* storm.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1A620A395E1002E9E2F /* storm.jpg */; };
-		269BC1AB20A39675002E9E2F /* campfire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1AA20A39675002E9E2F /* campfire.jpg */; };
 		269BC1AD20A396E5002E9E2F /* waves.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1AC20A396E5002E9E2F /* waves.jpg */; };
 		269BC1AF20A397CA002E9E2F /* bird.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1AE20A397C9002E9E2F /* bird.jpg */; };
 		269BC1B120A3AAB3002E9E2F /* SleepSoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */; };
@@ -55,9 +53,6 @@
 		269BC1B720A3CC79002E9E2F /* lake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1B620A3CC79002E9E2F /* lake.jpg */; };
 		26DA2F56209902A400690722 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DA2F55209902A400690722 /* SleepViewController.swift */; };
 		26DC471D20A21C7C00713D59 /* AlarmSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */; };
-		26DC472820A222DC00713D59 /* backarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DC472720A222DC00713D59 /* backarrow.png */; };
-		26DC472C20A223C700713D59 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DC472B20A223C700713D59 /* back.png */; };
-		26DC472E20A2275900713D59 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DC472D20A2275900713D59 /* settings.png */; };
 		26DC473020A22CB900713D59 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC472F20A22CB900713D59 /* AudioManager.swift */; };
 		26DC473520A2326000713D59 /* northernlights.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26DC473420A2326000713D59 /* northernlights.jpg */; };
 		26DC473D20A23D8B00713D59 /* Why.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 26DC473C20A23D8B00713D59 /* Why.mp3 */; };
@@ -66,6 +61,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1FC471AD7BA133D80B9AEC64 /* Pods-Hibernate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hibernate.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hibernate/Pods-Hibernate.release.xcconfig"; sourceTree = "<group>"; };
+		26002B7920A55444004D928F /* hibernation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hibernation.png; sourceTree = "<group>"; };
+		26002B7B20A55BCE004D928F /* campfire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = campfire.jpg; path = "../../../../Design/Images/Sleep Sounds/campfire.jpg"; sourceTree = "<group>"; };
+		26002B7C20A55BCE004D928F /* Stream Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Stream Gray.jpg"; path = "../../../../Design/Images/Sleep Sounds/Stream Gray.jpg"; sourceTree = "<group>"; };
+		26002B7D20A55BCE004D928F /* light rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "light rain.jpg"; path = "../../../../Design/Images/Sleep Sounds/light rain.jpg"; sourceTree = "<group>"; };
 		2632F3B320967B8700721D74 /* Hibernate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hibernate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2632F3B620967B8700721D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2632F3B820967B8700721D74 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -84,9 +84,6 @@
 		2662AC8F20A3607D002B70B3 /* A New Beginning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "A New Beginning.mp3"; path = "../../../../Design/Audio/Cut Audio/A New Beginning.mp3"; sourceTree = "<group>"; };
 		2662AC9020A3607D002B70B3 /* Buddy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Buddy.mp3; path = "../../../../Design/Audio/Cut Audio/Buddy.mp3"; sourceTree = "<group>"; };
 		2662AC9A20A37B8E002B70B3 /* SleepingSoundsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepingSoundsTableViewController.swift; sourceTree = "<group>"; };
-		266E6088209AC6F300CB1893 /* blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blur.jpg; sourceTree = "<group>"; };
-		266E6092209ACF2C00CB1893 /* snowflakes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snowflakes.jpg; sourceTree = "<group>"; };
-		266E6096209AD48300CB1893 /* snow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snow.jpg; sourceTree = "<group>"; };
 		2686EB3F2097884800A29995 /* FadeAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FadeAnimator.swift; path = Hibernate/FadeAnimator.swift; sourceTree = SOURCE_ROOT; };
 		2686EB4320978AB700A29995 /* SelectSleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSleepViewController.swift; sourceTree = "<group>"; };
 		269B137220A4AE1800DFAE41 /* stream.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stream.jpg; sourceTree = "<group>"; };
@@ -103,11 +100,7 @@
 		269B138920A4D9EA00DFAE41 /* Bird Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bird Gray.jpg"; sourceTree = "<group>"; };
 		269B138A20A4D9EA00DFAE41 /* Campfire Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Campfire Gray.jpg"; sourceTree = "<group>"; };
 		269B138B20A4D9EA00DFAE41 /* Light Rain Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Light Rain Gray.jpg"; sourceTree = "<group>"; };
-		269B139220A4DC5400DFAE41 /* Stream Gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Stream Gray.jpg"; path = "../../../../Design/Images/Stream Gray.jpg"; sourceTree = "<group>"; };
-		269B139620A5029600DFAE41 /* PremiumAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumAlertController.swift; sourceTree = "<group>"; };
-		269BC1A220A38B5C002E9E2F /* light rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "light rain.jpg"; path = "../../../../Design/Images/light rain.jpg"; sourceTree = "<group>"; };
 		269BC1A620A395E1002E9E2F /* storm.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = storm.jpg; sourceTree = "<group>"; };
-		269BC1AA20A39675002E9E2F /* campfire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = campfire.jpg; path = ../../../../Design/Images/campfire.jpg; sourceTree = "<group>"; };
 		269BC1AC20A396E5002E9E2F /* waves.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waves.jpg; sourceTree = "<group>"; };
 		269BC1AE20A397C9002E9E2F /* bird.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bird.jpg; sourceTree = "<group>"; };
 		269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSoundImage.swift; sourceTree = "<group>"; };
@@ -116,14 +109,13 @@
 		269BC1B620A3CC79002E9E2F /* lake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lake.jpg; sourceTree = "<group>"; };
 		26DA2F55209902A400690722 /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 		26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSoundsTableViewController.swift; sourceTree = "<group>"; };
-		26DC472720A222DC00713D59 /* backarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backarrow.png; sourceTree = "<group>"; };
-		26DC472B20A223C700713D59 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
-		26DC472D20A2275900713D59 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		26DC472F20A22CB900713D59 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		26DC473420A2326000713D59 /* northernlights.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = northernlights.jpg; sourceTree = "<group>"; };
 		26DC473C20A23D8B00713D59 /* Why.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Why.mp3; sourceTree = "<group>"; };
 		26DC473E20A23DC300713D59 /* Closer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Closer.mp3; sourceTree = "<group>"; };
 		26E342B920A10B3D00E391CD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		37EAD6F83E620BB7199CEFCF /* Pods-Hibernate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hibernate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hibernate/Pods-Hibernate.debug.xcconfig"; sourceTree = "<group>"; };
+		48463A7FEC9D282FF7217A20 /* Pods_Hibernate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hibernate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,17 +123,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2454A8E9A7CE509393852D7F /* Pods_Hibernate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06C6BAB9CAB706FCAF8D0353 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				37EAD6F83E620BB7199CEFCF /* Pods-Hibernate.debug.xcconfig */,
+				1FC471AD7BA133D80B9AEC64 /* Pods-Hibernate.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2632F3AA20967B8700721D74 = {
 			isa = PBXGroup;
 			children = (
 				2632F3B520967B8700721D74 /* Hibernate */,
 				2632F3B420967B8700721D74 /* Products */,
+				06C6BAB9CAB706FCAF8D0353 /* Pods */,
+				D91925E542CB216FCCC4F5F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -165,7 +169,6 @@
 				26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */,
 				2662AC9A20A37B8E002B70B3 /* SleepingSoundsTableViewController.swift */,
 				2662AC6D20A27929002B70B3 /* SoundDurationTableViewController.swift */,
-				269B139620A5029600DFAE41 /* PremiumAlertController.swift */,
 				26DC472F20A22CB900713D59 /* AudioManager.swift */,
 				269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */,
 				2632F3BA20967B8700721D74 /* Main.storyboard */,
@@ -213,9 +216,12 @@
 		26DC473320A2322A00713D59 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				26002B7920A55444004D928F /* hibernation.png */,
+				26002B7B20A55BCE004D928F /* campfire.jpg */,
+				26002B7D20A55BCE004D928F /* light rain.jpg */,
+				26002B7C20A55BCE004D928F /* Stream Gray.jpg */,
 				269B138920A4D9EA00DFAE41 /* Bird Gray.jpg */,
 				269B138A20A4D9EA00DFAE41 /* Campfire Gray.jpg */,
-				269B139220A4DC5400DFAE41 /* Stream Gray.jpg */,
 				269B138B20A4D9EA00DFAE41 /* Light Rain Gray.jpg */,
 				269B138820A4D9EA00DFAE41 /* Storm Gray.jpg */,
 				269B138720A4D9EA00DFAE41 /* Waves Gray.jpg */,
@@ -225,20 +231,20 @@
 				269BC1B620A3CC79002E9E2F /* lake.jpg */,
 				269BC1B420A3CBB1002E9E2F /* cut balloon.jpg */,
 				269BC1B220A3CB53002E9E2F /* balloon.jpg */,
-				269BC1AA20A39675002E9E2F /* campfire.jpg */,
 				269BC1A620A395E1002E9E2F /* storm.jpg */,
-				269BC1A220A38B5C002E9E2F /* light rain.jpg */,
-				26DC472720A222DC00713D59 /* backarrow.png */,
-				26DC472B20A223C700713D59 /* back.png */,
-				26DC472D20A2275900713D59 /* settings.png */,
-				266E6088209AC6F300CB1893 /* blur.jpg */,
-				266E6092209ACF2C00CB1893 /* snowflakes.jpg */,
-				266E6096209AD48300CB1893 /* snow.jpg */,
 				26DC473420A2326000713D59 /* northernlights.jpg */,
 				269BC1AC20A396E5002E9E2F /* waves.jpg */,
 				269BC1AE20A397C9002E9E2F /* bird.jpg */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		D91925E542CB216FCCC4F5F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				48463A7FEC9D282FF7217A20 /* Pods_Hibernate.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,9 +254,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2632F3C520967B8900721D74 /* Build configuration list for PBXNativeTarget "Hibernate" */;
 			buildPhases = (
+				F072CA41C9EDE353AF607DC4 /* [CP] Check Pods Manifest.lock */,
 				2632F3AF20967B8700721D74 /* Sources */,
 				2632F3B020967B8700721D74 /* Frameworks */,
 				2632F3B120967B8700721D74 /* Resources */,
+				7E8654FAF3F4A2634490A5F6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -307,36 +315,32 @@
 				2632F3C120967B8900721D74 /* LaunchScreen.storyboard in Resources */,
 				2662AC9920A3607D002B70B3 /* Buddy.mp3 in Resources */,
 				26DC473D20A23D8B00713D59 /* Why.mp3 in Resources */,
-				266E6089209AC6F300CB1893 /* blur.jpg in Resources */,
 				26DC473520A2326000713D59 /* northernlights.jpg in Resources */,
 				26DC473F20A23DC300713D59 /* Closer.mp3 in Resources */,
 				2662AC9720A3607D002B70B3 /* Cute.mp3 in Resources */,
 				2662AC9320A3607D002B70B3 /* Clear Day.mp3 in Resources */,
 				269B138F20A4D9EB00DFAE41 /* Bird Gray.jpg in Resources */,
-				269B139320A4DC5400DFAE41 /* Stream Gray.jpg in Resources */,
 				269B137920A4BBFB00DFAE41 /* afternoon.jpg in Resources */,
+				26002B8020A55BCE004D928F /* light rain.jpg in Resources */,
 				269B138320A4C23200DFAE41 /* Waves.mp3 in Resources */,
-				26DC472E20A2275900713D59 /* settings.png in Resources */,
+				26002B7E20A55BCE004D928F /* campfire.jpg in Resources */,
 				269B138420A4C23200DFAE41 /* Campfire.mp3 in Resources */,
 				2632F3BE20967B8900721D74 /* Assets.xcassets in Resources */,
 				269B139020A4D9EB00DFAE41 /* Campfire Gray.jpg in Resources */,
-				266E6097209AD48500CB1893 /* snow.jpg in Resources */,
 				2662AC9120A3607D002B70B3 /* Little Idea.mp3 in Resources */,
 				269BC1A720A395E1002E9E2F /* storm.jpg in Resources */,
-				26DC472C20A223C700713D59 /* back.png in Resources */,
 				269B137320A4AE1A00DFAE41 /* stream.jpg in Resources */,
 				269B138E20A4D9EB00DFAE41 /* Storm Gray.jpg in Resources */,
 				269B138520A4C23200DFAE41 /* Forest Songbird.mp3 in Resources */,
-				269BC1A320A38B5C002E9E2F /* light rain.jpg in Resources */,
 				269B138220A4C23200DFAE41 /* Stream.mp3 in Resources */,
 				269B138D20A4D9EB00DFAE41 /* Waves Gray.jpg in Resources */,
+				26002B7F20A55BCE004D928F /* Stream Gray.jpg in Resources */,
 				269BC1B720A3CC79002E9E2F /* lake.jpg in Resources */,
 				269B138120A4C23200DFAE41 /* Storm.mp3 in Resources */,
 				269BC1AD20A396E5002E9E2F /* waves.jpg in Resources */,
 				2662AC9420A3607D002B70B3 /* A Day To Remember.mp3 in Resources */,
+				26002B7A20A55444004D928F /* hibernation.png in Resources */,
 				2662AC9220A3607D002B70B3 /* Memories.mp3 in Resources */,
-				26DC472820A222DC00713D59 /* backarrow.png in Resources */,
-				266E6093209ACF2E00CB1893 /* snowflakes.jpg in Resources */,
 				2632F3BC20967B8700721D74 /* Main.storyboard in Resources */,
 				269BC1AF20A397CA002E9E2F /* bird.jpg in Resources */,
 				269B138020A4C23200DFAE41 /* Light Rain.mp3 in Resources */,
@@ -346,12 +350,54 @@
 				269B139120A4D9EB00DFAE41 /* Light Rain Gray.jpg in Resources */,
 				269BC1B520A3CBB2002E9E2F /* cut balloon.jpg in Resources */,
 				269BC1B320A3CB54002E9E2F /* balloon.jpg in Resources */,
-				269BC1AB20A39675002E9E2F /* campfire.jpg in Resources */,
 				2662AC9820A3607D002B70B3 /* A New Beginning.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7E8654FAF3F4A2634490A5F6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Hibernate/Pods-Hibernate-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/PMAlertController/PMAlertController.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMAlertController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hibernate/Pods-Hibernate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F072CA41C9EDE353AF607DC4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Hibernate-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2632F3AF20967B8700721D74 /* Sources */ = {
@@ -360,7 +406,6 @@
 			files = (
 				2632F3B920967B8700721D74 /* StartViewController.swift in Sources */,
 				2632F3B720967B8700721D74 /* AppDelegate.swift in Sources */,
-				269B139720A5029600DFAE41 /* PremiumAlertController.swift in Sources */,
 				26DC473020A22CB900713D59 /* AudioManager.swift in Sources */,
 				269BC1B120A3AAB3002E9E2F /* SleepSoundImage.swift in Sources */,
 				26E342BA20A10B3D00E391CD /* SettingsTableViewController.swift in Sources */,
@@ -511,6 +556,7 @@
 		};
 		2632F3C620967B8900721D74 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37EAD6F83E620BB7199CEFCF /* Pods-Hibernate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -530,6 +576,7 @@
 		};
 		2632F3C720967B8900721D74 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FC471AD7BA133D80B9AEC64 /* Pods-Hibernate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
