@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import PMAlertController
 
 class StartViewController: UIViewController {
     //MARK: Local variables
@@ -72,6 +73,22 @@ class StartViewController: UIViewController {
         }
     }
     
+    private func checkNotificationAuthorization () {
+        //Check if notifications are enabled and if not, show an alert
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            if settings.authorizationStatus == .denied || settings.authorizationStatus == .notDetermined {
+                // Notifications denied or undetermined
+                self.displayNotificationAlert()
+            }
+        }
+    }
+    
+    private func displayNotificationAlert() {
+        let turnOnNotificationsAlert = PMAlertController(title: "Enable Notifications", description: "Hibernate requires notifications to be enabled in order to wake you up! Please go to Settings -> Notifications -> Hibernate to enable notifications.", image: nil, style: .alert)
+        turnOnNotificationsAlert.addAction(PMAlertAction(title: "Understood!", style: .default, action: nil))
+        present(turnOnNotificationsAlert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -95,6 +112,7 @@ class StartViewController: UIViewController {
             self.backgroundImage.image! = UIImage(named: self.imageName)!
             self.greetingLabel.text! = self.greetingText
         }, completion: nil)
+        checkNotificationAuthorization()
     }
 
     override func didReceiveMemoryWarning() {

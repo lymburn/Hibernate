@@ -76,7 +76,7 @@ class SelectSleepViewController: UIViewController{
             self.backButton.alpha = 0
             self.settingsButton.alpha = 0
         }, completion: nil)
-        
+
         let sleep = storyboard!.instantiateViewController(withIdentifier: "SleepViewController") as! SleepViewController
         sleep.transitioningDelegate = self
         UserDefaults.standard.set(wakeUpDate, forKey: "wakeUpDate")
