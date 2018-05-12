@@ -19,6 +19,11 @@ class SleepViewController: UIViewController {
     var wakeUpDate : Date!
     var audioManager = AudioManager()
     
+    @IBOutlet weak var swipeUpLabel: UILabel! {
+        didSet {
+            swipeUpLabel.alpha = 0
+        }
+    }
     
     @IBOutlet weak var settingsButton: UIButton! {
         didSet {
@@ -42,11 +47,7 @@ class SleepViewController: UIViewController {
             wakingTimeLabel.alpha = 0
         }
     }
-    
-    @IBAction func stopSleepingButton(_ sender: UIButton) {
-    }
-    
-    @IBOutlet weak var stopSleepingButton: UIButton!
+
     @IBOutlet weak var currentTimeLabel: UILabel! {
         didSet {
             currentTimeLabel.alpha = 0
@@ -67,6 +68,7 @@ class SleepViewController: UIViewController {
         } else {
             wakingTimeLabel.text! = "No alarm set"
         }
+        registerSwipeGesture()
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,7 +97,29 @@ class SleepViewController: UIViewController {
             self.currentTimeLabel.alpha = 1
             self.wakingTimeLabel.alpha = 1
             self.settingsButton.alpha = 1
+            self.swipeUpLabel.alpha = 1
         }, completion: nil)
+    }
+    
+    private func registerSwipeGesture () {
+        let swipeUpToStopGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipeGesture))
+        swipeUpToStopGesture.direction = .up
+        self.view.addGestureRecognizer(swipeUpToStopGesture)
+    }
+    
+    @objc func swipeGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        //Remove notifications and go to start screen
+        audioManager.stopPlayingMusic()
+        notificationCenter.removeAllPendingNotificationRequests()
+        UIView.animate(withDuration: 0.5, animations: {()->Void in
+            self.wakingTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.currentTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.swipeUpLabel.transform = CGAffineTransform(translationX: 0, y: 50)
+            self.wakingTimeLabel.alpha = 0
+            self.currentTimeLabel.alpha = 0
+            self.swipeUpLabel.alpha = 0
+        })
+        transitionToStartScreen()
     }
     
     private func updateCurrentTime() {
@@ -127,18 +151,22 @@ class SleepViewController: UIViewController {
                 UIView.animate(withDuration: 0.5, animations: {()->Void in
                     self.wakingTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
                     self.currentTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
-                    self.stopSleepingButton.transform = CGAffineTransform(translationX: 0, y: 50)
+                    self.swipeUpLabel.transform = CGAffineTransform(translationX: 0, y: 50)
                     self.wakingTimeLabel.alpha = 0
                     self.currentTimeLabel.alpha = 0
-                    self.stopSleepingButton.alpha = 0
+                    self.swipeUpLabel.alpha = 0
                 })
                 
-                let wakeUp = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
-                wakeUp.transitioningDelegate = self
-                self.present(wakeUp, animated: true, completion: nil)
+                self.transitionToStartScreen()
                 self.changeViewTimer.invalidate()
             }
         })
+    }
+    
+    private func transitionToStartScreen() {
+        let start = self.storyboard!.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
+        start.transitioningDelegate = self
+        present(start, animated: true, completion: nil)
     }
     
     //Schedule alarm notification

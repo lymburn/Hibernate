@@ -76,7 +76,7 @@ class StartViewController: UIViewController {
     private func checkNotificationAuthorization () {
         //Check if notifications are enabled and if not, show an alert
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-            if settings.authorizationStatus == .denied || settings.authorizationStatus == .notDetermined {
+            if settings.authorizationStatus == .denied {
                 // Notifications denied or undetermined
                 self.displayNotificationAlert()
             }
@@ -92,7 +92,6 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        setSleepButtonAttributes()
         updateCurrentTime()
     }
     
@@ -118,14 +117,6 @@ class StartViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    private func setSleepButtonAttributes() {
-        //Set button to be rounded and add different images for selected/unselected
-        sleepButton.backgroundColor = .clear
-        //sleepButton.layer.cornerRadius = 10
-        //sleepButton.layer.borderWidth = 2
-        //sleepButton.layer.borderColor = UIColor.white.cgColor
     }
     
     private func updateCurrentTime() {
