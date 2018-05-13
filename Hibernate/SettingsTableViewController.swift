@@ -117,7 +117,13 @@ class SettingsTableViewController: UITableViewController {
             let navController = UINavigationController(rootViewController: soundDuration)
             present(navController, animated: true, completion: nil)
         } else if cell?.reuseIdentifier == "Premium" {
-            requestProduct()
+            let premiumOn = UserDefaults.standard.bool(forKey: "premiumOn")
+            //If user does not have premium
+            if !premiumOn {
+                requestProduct()
+            } else {
+                displayAlreadyHasPremiumAlert()
+            }
         } else if cell?.reuseIdentifier == "Feedback" {
             //Link to facebook page
             guard let url = URL(string: "https://www.facebook.com/Hibernate-169982340334075/") else {
@@ -156,6 +162,12 @@ class SettingsTableViewController: UITableViewController {
         premiumAlertVC.addAction(PMAlertAction(title: "Restore", style: .default, action: {() in self.restoreButtonTapped()}))
         premiumAlertVC.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: nil))
         present(premiumAlertVC, animated: true, completion: nil)
+    }
+    
+    private func displayAlreadyHasPremiumAlert() {
+        let hasPremiumAlertVC = PMAlertController(title: "Premium Enabled", description: "Premium is already enabled on this device. Enjoy the new features!", image: nil, style: .alert)
+        hasPremiumAlertVC.addAction(PMAlertAction(title: "Great!", style: .default, action: nil))
+        present(hasPremiumAlertVC, animated: true, completion: nil)
     }
     
     private func purchaseButtonTapped() {
