@@ -83,7 +83,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             storyboard = UIStoryboard(name: "Main", bundle: nil)
         }
-        window?.rootViewController = storyboard.instantiateInitialViewController()
+        let userIsSleeping = UserDefaults.standard.bool(forKey: "sleeping")
+        //If user is sleeping, set initial view controller to sleep view controller. Else, start.
+        var initialVC : UIViewController!
+        if userIsSleeping {
+            initialVC = storyboard.instantiateViewController(withIdentifier: "SleepViewController") as! SleepViewController
+        } else {
+            initialVC = storyboard.instantiateViewController(withIdentifier: "StartViewController") as! StartViewController
+        }
+        
+        window?.rootViewController = initialVC
         window?.makeKeyAndVisible()
     }
     

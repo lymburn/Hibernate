@@ -93,6 +93,8 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         updateCurrentTime()
+        //Signal initial view controller back to start
+        UserDefaults.standard.set(false, forKey: "sleeping")
     }
     
     override func viewWillAppear(_ animated: Bool) {

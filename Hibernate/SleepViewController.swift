@@ -69,6 +69,8 @@ class SleepViewController: UIViewController {
             wakingTimeLabel.text! = "No alarm set"
         }
         registerSwipeGesture()
+        //Signal to change initial view controller to sleep view
+        UserDefaults.standard.set(true, forKey: "sleeping")
     }
 
     override func didReceiveMemoryWarning() {
@@ -159,6 +161,8 @@ class SleepViewController: UIViewController {
                 
                 self.transitionToStartScreen()
                 self.changeViewTimer.invalidate()
+                //Signal initial view controller back to start
+                UserDefaults.standard.set(false, forKey: "sleeping")
             }
         })
     }
@@ -209,6 +213,8 @@ extension SleepViewController: UNUserNotificationCenterDelegate, UIViewControlle
         //Stop playing any sleeping aid music and remove notifications
         notificationCenter.removeAllPendingNotificationRequests()
         audioManager.stopPlayingMusic()
+        //Signal initial view controller back to start
+        UserDefaults.standard.set(false, forKey: "sleeping")
         completionHandler([.alert, .badge, .sound])
     }
     
@@ -217,6 +223,8 @@ extension SleepViewController: UNUserNotificationCenterDelegate, UIViewControlle
         //Stop playing any sleeping aid music and remove notifications
         notificationCenter.removeAllPendingNotificationRequests()
         audioManager.stopPlayingMusic()
+        //Signal initial view controller back to start
+        UserDefaults.standard.set(false, forKey: "sleeping")
         completionHandler()
     }
     
