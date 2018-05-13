@@ -124,7 +124,13 @@ class SettingsTableViewController: UITableViewController {
             
             present(premiumAlertVC, animated: true, completion: nil)
         } else if cell?.reuseIdentifier == "Feedback" {
-            guard let url = URL(string: "http://www.google.com") else {
+            //Link to facebook page
+            guard let url = URL(string: "https://www.facebook.com/Hibernate-169982340334075/") else {
+                return
+            }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else if cell?.reuseIdentifier == "Rate Us" {
+            guard let url = URL(string : "itms-apps://itunes.apple.com/app/hibernate/id1383595639?ls=1&mt=8") else {
                 return
             }
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
