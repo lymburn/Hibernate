@@ -84,6 +84,7 @@ extension IAPHelper: SKProductsRequestDelegate {
             print("Found product: \(p.productIdentifier) \(p.localizedTitle) \(p.price.floatValue)")
         }
     }
+ 
     
     public func request(_ request: SKRequest, didFailWithError error: Error) {
         print("Failed to load list of products.")

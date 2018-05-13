@@ -15,8 +15,8 @@
 		26002B8220A564B0004D928F /* boat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B8120A564AF004D928F /* boat.jpg */; };
 		26002B8620A56AD1004D928F /* night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B8520A56ACF004D928F /* night.jpg */; };
 		26002B8820A56BB3004D928F /* moose.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B8720A56BB1004D928F /* moose.jpg */; };
+		2612077920A8D9430013AB78 /* Launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 2612077820A8D9430013AB78 /* Launch.png */; };
 		26242FA320A6094300E474AA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26242FA220A6094300E474AA /* StoreKit.framework */; };
-		26242FA520A609DA00E474AA /* Premium.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26242FA420A609DA00E474AA /* Premium.swift */; };
 		26242FA720A60A2A00E474AA /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26242FA620A60A2A00E474AA /* IAPHelper.swift */; };
 		2632F3B720967B8700721D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632F3B620967B8700721D74 /* AppDelegate.swift */; };
 		2632F3B920967B8700721D74 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632F3B820967B8700721D74 /* StartViewController.swift */; };
@@ -74,8 +74,8 @@
 		26002B8120A564AF004D928F /* boat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = boat.jpg; sourceTree = "<group>"; };
 		26002B8520A56ACF004D928F /* night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = night.jpg; sourceTree = "<group>"; };
 		26002B8720A56BB1004D928F /* moose.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moose.jpg; sourceTree = "<group>"; };
+		2612077820A8D9430013AB78 /* Launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launch.png; sourceTree = "<group>"; };
 		26242FA220A6094300E474AA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		26242FA420A609DA00E474AA /* Premium.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Premium.swift; sourceTree = "<group>"; };
 		26242FA620A60A2A00E474AA /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		2632F3B320967B8700721D74 /* Hibernate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hibernate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2632F3B620967B8700721D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,7 +182,6 @@
 				2662AC6D20A27929002B70B3 /* SoundDurationTableViewController.swift */,
 				26DC472F20A22CB900713D59 /* AudioManager.swift */,
 				269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */,
-				26242FA420A609DA00E474AA /* Premium.swift */,
 				26242FA620A60A2A00E474AA /* IAPHelper.swift */,
 				2649036120A6AC5100CE0541 /* iPad.storyboard */,
 				2632F3BA20967B8700721D74 /* Main.storyboard */,
@@ -228,6 +227,7 @@
 		26DC473320A2322A00713D59 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2612077820A8D9430013AB78 /* Launch.png */,
 				26002B8720A56BB1004D928F /* moose.jpg */,
 				26002B8520A56ACF004D928F /* night.jpg */,
 				26002B8120A564AF004D928F /* boat.jpg */,
@@ -361,6 +361,7 @@
 				269BC1AD20A396E5002E9E2F /* waves.jpg in Resources */,
 				2662AC9420A3607D002B70B3 /* A Day To Remember.mp3 in Resources */,
 				26002B7A20A55444004D928F /* hibernation.png in Resources */,
+				2612077920A8D9430013AB78 /* Launch.png in Resources */,
 				2662AC9220A3607D002B70B3 /* Memories.mp3 in Resources */,
 				2632F3BC20967B8700721D74 /* Main.storyboard in Resources */,
 				269BC1AF20A397CA002E9E2F /* bird.jpg in Resources */,
@@ -385,15 +386,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hibernate/Pods-Hibernate-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/PMAlertController/PMAlertController.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMAlertController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -429,7 +426,6 @@
 				26242FA720A60A2A00E474AA /* IAPHelper.swift in Sources */,
 				2632F3B720967B8700721D74 /* AppDelegate.swift in Sources */,
 				26DC473020A22CB900713D59 /* AudioManager.swift in Sources */,
-				26242FA520A609DA00E474AA /* Premium.swift in Sources */,
 				269BC1B120A3AAB3002E9E2F /* SleepSoundImage.swift in Sources */,
 				26E342BA20A10B3D00E391CD /* SettingsTableViewController.swift in Sources */,
 				2662AC6E20A27929002B70B3 /* SoundDurationTableViewController.swift in Sources */,
@@ -582,7 +578,8 @@
 			baseConfigurationReference = 37EAD6F83E620BB7199CEFCF /* Pods-Hibernate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = UJ6RY8Y8CY;
 				INFOPLIST_FILE = Hibernate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -592,6 +589,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eugenelu.hibernate.Hibernate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "c0844e45-5b43-4573-8c06-18eb9f8f2666";
+				PROVISIONING_PROFILE_SPECIFIER = "Hibernate Development";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -602,7 +601,8 @@
 			baseConfigurationReference = 1FC471AD7BA133D80B9AEC64 /* Pods-Hibernate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = UJ6RY8Y8CY;
 				INFOPLIST_FILE = Hibernate/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -612,6 +612,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eugenelu.hibernate.Hibernate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cca2deff-8428-419d-9950-233a119fe5ba";
+				PROVISIONING_PROFILE_SPECIFIER = "Hibernate Distribution";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -117,12 +117,7 @@ class SettingsTableViewController: UITableViewController {
             let navController = UINavigationController(rootViewController: soundDuration)
             present(navController, animated: true, completion: nil)
         } else if cell?.reuseIdentifier == "Premium" {
-            let premiumAlertVC = PMAlertController(title: "Premium $1.39", description: "Upgrade to premium for the full Hibernate experience! Get lifetime access to new refreshing wake up music as well as soothing sleep sounds!", image: UIImage(named: "hibernation.png"), style: .walkthrough)
-            premiumAlertVC.addAction(PMAlertAction(title: "Purchase", style: .default, action: {()->Void in self.purchaseButtonTapped()}))
-            premiumAlertVC.addAction(PMAlertAction(title: "Restore", style: .default, action: nil))
-            premiumAlertVC.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: nil))
-            
-            present(premiumAlertVC, animated: true, completion: nil)
+            requestProduct()
         } else if cell?.reuseIdentifier == "Feedback" {
             //Link to facebook page
             guard let url = URL(string: "https://www.facebook.com/Hibernate-169982340334075/") else {
@@ -137,13 +132,37 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
-    var product = SKProduct()
-    var purchaseButtonHandler: ((_ product: SKProduct) -> ()) = { product in
-        //print(product.productIdentifier)
-        Premium.store.buyProduct(product)
+    //Premium product to be sold
+    var product : SKProduct!
+    //Manage in app purchases
+    let store = IAPHelper(productIds: Set(["com.eugenelu.hibernate.Hibernate.Premium"]))
+    
+    //Request for the product info
+    private func requestProduct() {
+        store.requestProducts {
+            (success, products)  in
+            guard let products = products else {
+                print ("products nil")
+                return
+            }
+            self.product = products[0]
+            self.displayPremiumAlert()
+        }
     }
-
-    func purchaseButtonTapped() {
-        purchaseButtonHandler(product)
+    
+    private func displayPremiumAlert() {
+        let premiumAlertVC = PMAlertController(title: "Premium $\(product.price)", description: "Upgrade to premium for the full Hibernate experience! Get lifetime access to new refreshing wake up music as well as soothing sleep sounds!", image: UIImage(named: "hibernation.png"), style: .walkthrough)
+        premiumAlertVC.addAction(PMAlertAction(title: "Purchase", style: .default, action: {()->Void in self.purchaseButtonTapped()}))
+        premiumAlertVC.addAction(PMAlertAction(title: "Restore", style: .default, action: {() in self.restoreButtonTapped()}))
+        premiumAlertVC.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: nil))
+        present(premiumAlertVC, animated: true, completion: nil)
+    }
+    
+    private func purchaseButtonTapped() {
+        store.buyProduct(product)
+    }
+    
+    private func restoreButtonTapped() {
+        store.restorePurchases()
     }
 }
