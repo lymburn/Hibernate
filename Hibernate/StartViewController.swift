@@ -27,10 +27,10 @@ class StartViewController: UIViewController {
     @IBAction func settingsButton(_ sender: UIButton) {
         UIView.animate(withDuration: 0.5, animations: {()->Void in
             //Move labels/buttons up and fade out
-            self.currentTimeLabel.transform = CGAffineTransform(translationX: 0, y: -50)
-            self.greetingLabel.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.currentTimeLabel.transform = CGAffineTransform(translationX: 0, y: 50)
+            self.greetingLabel.transform = CGAffineTransform(translationX: 0, y: 50)
             self.sleepButton.transform = CGAffineTransform(translationX: 0, y: 50)
-            self.settingsButton.transform = CGAffineTransform(translationX: 0, y: -50)
+            self.settingsButton.transform = CGAffineTransform(translationX: 0, y: 50)
             self.currentTimeLabel.alpha = 0
             self.greetingLabel.alpha = 0
             self.sleepButton.alpha = 0

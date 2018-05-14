@@ -15,7 +15,6 @@
 		26002B8220A564B0004D928F /* boat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B8120A564AF004D928F /* boat.jpg */; };
 		26002B8620A56AD1004D928F /* night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B8520A56ACF004D928F /* night.jpg */; };
 		26002B8820A56BB3004D928F /* moose.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26002B8720A56BB1004D928F /* moose.jpg */; };
-		2612077920A8D9430013AB78 /* Launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 2612077820A8D9430013AB78 /* Launch.png */; };
 		26242FA320A6094300E474AA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26242FA220A6094300E474AA /* StoreKit.framework */; };
 		26242FA720A60A2A00E474AA /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26242FA620A60A2A00E474AA /* IAPHelper.swift */; };
 		2632F3B720967B8700721D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2632F3B620967B8700721D74 /* AppDelegate.swift */; };
@@ -55,13 +54,13 @@
 		269BC1AD20A396E5002E9E2F /* waves.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1AC20A396E5002E9E2F /* waves.jpg */; };
 		269BC1AF20A397CA002E9E2F /* bird.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1AE20A397C9002E9E2F /* bird.jpg */; };
 		269BC1B120A3AAB3002E9E2F /* SleepSoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */; };
-		269BC1B320A3CB54002E9E2F /* balloon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1B220A3CB53002E9E2F /* balloon.jpg */; };
-		269BC1B520A3CBB2002E9E2F /* cut balloon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1B420A3CBB1002E9E2F /* cut balloon.jpg */; };
 		269BC1B720A3CC79002E9E2F /* lake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 269BC1B620A3CC79002E9E2F /* lake.jpg */; };
 		26DA2F56209902A400690722 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DA2F55209902A400690722 /* SleepViewController.swift */; };
 		26DC471D20A21C7C00713D59 /* AlarmSoundsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */; };
 		26DC473020A22CB900713D59 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DC472F20A22CB900713D59 /* AudioManager.swift */; };
-		26DC473520A2326000713D59 /* northernlights.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26DC473420A2326000713D59 /* northernlights.jpg */; };
+		26DEDA7C20A8FC940027DEA3 /* Launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 26DEDA7B20A8FC940027DEA3 /* Launch.png */; };
+		26DEDA8020A939640027DEA3 /* tea.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26DEDA7F20A939600027DEA3 /* tea.jpg */; };
+		26DEDA8220A93A9F0027DEA3 /* tea.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 26DEDA8120A93A9F0027DEA3 /* tea.jpg */; };
 		26E342BA20A10B3D00E391CD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E342B920A10B3D00E391CD /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +73,6 @@
 		26002B8120A564AF004D928F /* boat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = boat.jpg; sourceTree = "<group>"; };
 		26002B8520A56ACF004D928F /* night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = night.jpg; sourceTree = "<group>"; };
 		26002B8720A56BB1004D928F /* moose.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = moose.jpg; sourceTree = "<group>"; };
-		2612077820A8D9430013AB78 /* Launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launch.png; sourceTree = "<group>"; };
 		26242FA220A6094300E474AA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		26242FA620A60A2A00E474AA /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		2632F3B320967B8700721D74 /* Hibernate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hibernate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,13 +114,13 @@
 		269BC1AC20A396E5002E9E2F /* waves.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waves.jpg; sourceTree = "<group>"; };
 		269BC1AE20A397C9002E9E2F /* bird.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bird.jpg; sourceTree = "<group>"; };
 		269BC1B020A3AAB3002E9E2F /* SleepSoundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSoundImage.swift; sourceTree = "<group>"; };
-		269BC1B220A3CB53002E9E2F /* balloon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = balloon.jpg; sourceTree = "<group>"; };
-		269BC1B420A3CBB1002E9E2F /* cut balloon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cut balloon.jpg"; sourceTree = "<group>"; };
 		269BC1B620A3CC79002E9E2F /* lake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lake.jpg; sourceTree = "<group>"; };
 		26DA2F55209902A400690722 /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 		26DC471C20A21C7C00713D59 /* AlarmSoundsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSoundsTableViewController.swift; sourceTree = "<group>"; };
 		26DC472F20A22CB900713D59 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
-		26DC473420A2326000713D59 /* northernlights.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = northernlights.jpg; sourceTree = "<group>"; };
+		26DEDA7B20A8FC940027DEA3 /* Launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Launch.png; path = ../../../../Design/Images/Launch.png; sourceTree = "<group>"; };
+		26DEDA7F20A939600027DEA3 /* tea.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tea.jpg; path = ../../../../Design/Images/tea.jpg; sourceTree = "<group>"; };
+		26DEDA8120A93A9F0027DEA3 /* tea.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tea.jpg; path = ../../../../Design/Images/tea.jpg; sourceTree = "<group>"; };
 		26E342B920A10B3D00E391CD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		37EAD6F83E620BB7199CEFCF /* Pods-Hibernate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hibernate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hibernate/Pods-Hibernate.debug.xcconfig"; sourceTree = "<group>"; };
 		48463A7FEC9D282FF7217A20 /* Pods_Hibernate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hibernate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,7 +225,9 @@
 		26DC473320A2322A00713D59 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				2612077820A8D9430013AB78 /* Launch.png */,
+				26DEDA7F20A939600027DEA3 /* tea.jpg */,
+				26DEDA8120A93A9F0027DEA3 /* tea.jpg */,
+				26DEDA7B20A8FC940027DEA3 /* Launch.png */,
 				26002B8720A56BB1004D928F /* moose.jpg */,
 				26002B8520A56ACF004D928F /* night.jpg */,
 				26002B8120A564AF004D928F /* boat.jpg */,
@@ -244,10 +244,7 @@
 				269B137620A4BADF00DFAE41 /* morning.jpg */,
 				269B137220A4AE1800DFAE41 /* stream.jpg */,
 				269BC1B620A3CC79002E9E2F /* lake.jpg */,
-				269BC1B420A3CBB1002E9E2F /* cut balloon.jpg */,
-				269BC1B220A3CB53002E9E2F /* balloon.jpg */,
 				269BC1A620A395E1002E9E2F /* storm.jpg */,
-				26DC473420A2326000713D59 /* northernlights.jpg */,
 				269BC1AC20A396E5002E9E2F /* waves.jpg */,
 				269BC1AE20A397C9002E9E2F /* bird.jpg */,
 			);
@@ -333,7 +330,6 @@
 			files = (
 				2632F3C120967B8900721D74 /* LaunchScreen.storyboard in Resources */,
 				2662AC9920A3607D002B70B3 /* Buddy.mp3 in Resources */,
-				26DC473520A2326000713D59 /* northernlights.jpg in Resources */,
 				2662AC9720A3607D002B70B3 /* Cute.mp3 in Resources */,
 				2662AC9320A3607D002B70B3 /* Clear Day.mp3 in Resources */,
 				269B138F20A4D9EB00DFAE41 /* Bird Gray.jpg in Resources */,
@@ -342,6 +338,8 @@
 				26002B8020A55BCE004D928F /* light rain.jpg in Resources */,
 				269B138320A4C23200DFAE41 /* Waves.mp3 in Resources */,
 				26002B7E20A55BCE004D928F /* campfire.jpg in Resources */,
+				26DEDA8020A939640027DEA3 /* tea.jpg in Resources */,
+				26DEDA8220A93A9F0027DEA3 /* tea.jpg in Resources */,
 				26002B8820A56BB3004D928F /* moose.jpg in Resources */,
 				269B138420A4C23200DFAE41 /* Campfire.mp3 in Resources */,
 				2632F3BE20967B8900721D74 /* Assets.xcassets in Resources */,
@@ -361,7 +359,7 @@
 				269BC1AD20A396E5002E9E2F /* waves.jpg in Resources */,
 				2662AC9420A3607D002B70B3 /* A Day To Remember.mp3 in Resources */,
 				26002B7A20A55444004D928F /* hibernation.png in Resources */,
-				2612077920A8D9430013AB78 /* Launch.png in Resources */,
+				26DEDA7C20A8FC940027DEA3 /* Launch.png in Resources */,
 				2662AC9220A3607D002B70B3 /* Memories.mp3 in Resources */,
 				2632F3BC20967B8700721D74 /* Main.storyboard in Resources */,
 				269BC1AF20A397CA002E9E2F /* bird.jpg in Resources */,
@@ -370,8 +368,6 @@
 				269B137720A4BAE000DFAE41 /* morning.jpg in Resources */,
 				2662AC9520A3607D002B70B3 /* Summer.mp3 in Resources */,
 				269B139120A4D9EB00DFAE41 /* Light Rain Gray.jpg in Resources */,
-				269BC1B520A3CBB2002E9E2F /* cut balloon.jpg in Resources */,
-				269BC1B320A3CB54002E9E2F /* balloon.jpg in Resources */,
 				2662AC9820A3607D002B70B3 /* A New Beginning.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,6 +574,7 @@
 			baseConfigurationReference = 37EAD6F83E620BB7199CEFCF /* Pods-Hibernate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = UJ6RY8Y8CY;
@@ -601,6 +598,7 @@
 			baseConfigurationReference = 1FC471AD7BA133D80B9AEC64 /* Pods-Hibernate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = UJ6RY8Y8CY;
