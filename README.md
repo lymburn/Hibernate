@@ -8,7 +8,7 @@ amount and was able to publish the app as well.
 Key Features:  
 • Accurate wake up alarm at the scheduled time  
 • Diverse range of alarm and sleeping sounds  
-• In app purchase option to access more sounds 
+• In app purchase option to access more sounds  
 • Customizable user settings  
 
 Skills Practiced:  
